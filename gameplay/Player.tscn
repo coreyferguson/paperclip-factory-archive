@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gameplay/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/player_100x100.png" type="Texture" id=2]
+[ext_resource path="res://gameplay/Harvester.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 37.9933
+height = 18.5666
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 151.016
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+
+position = Vector2( 100, 99.5599 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+input_pickable = false
+collision_layer = 1
+collision_mask = 385
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
+speed = 1
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( -0.88031, 1.52588e-05 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+visible = false
+position = Vector2( -5, 0 )
+rotation = 1.5708
+shape = SubResource( 1 )
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index" ]
+
+[node name="Harvester" type="Area2D" parent="." index="2"]
+
+visible = false
+position = Vector2( 0, -1.52588e-05 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 16
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+radius = 150
+
+[node name="Timer" type="Timer" parent="Harvester" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Harvester" index="1"]
+
+position = Vector2( 0, 1.52588e-05 )
+shape = SubResource( 2 )
+
+[connection signal="timeout" from="Harvester/Timer" to="Harvester" method="_on_Timer_timeout"]
+
+
