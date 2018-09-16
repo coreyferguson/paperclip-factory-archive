@@ -7,9 +7,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 49.936, 49.9774 )
+extents = Vector2( 20.2967, 20.2044 )
 
-[node name="PaperClipFactory" type="StaticBody2D" index="0" groups=[
+[node name="PaperClipFactory" type="StaticBody2D" groups=[
 "player",
 ]]
 
@@ -30,7 +30,9 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 visible = false
+z_index = 1
 shape = SubResource( 1 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Harvester" parent="." index="2" instance=ExtResource( 3 )]
 

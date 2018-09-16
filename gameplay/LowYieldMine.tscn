@@ -9,10 +9,10 @@
 custom_solver_bias = 0.0
 radius = 8.97382
 
-[node name="LowYieldMine" type="KinematicBody2D" index="0"]
+[node name="LowYieldMine" type="KinematicBody2D"]
 
 input_pickable = false
-collision_layer = 0
+collision_layer = 2
 collision_mask = 256
 collision/safe_margin = 0.08
 script = ExtResource( 1 )

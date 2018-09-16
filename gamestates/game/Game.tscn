@@ -62,10 +62,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="HUD" parent="InputControl" index="0" instance=ExtResource( 4 )]
+[node name="HUD" parent="." index="2" instance=ExtResource( 4 )]
 
-[node name="Camera" type="Camera2D" parent="InputControl" index="1"]
+[node name="Camera" type="Camera2D" parent="." index="3"]
 
+position = Vector2( 0, 1.22775 )
 anchor_mode = 0
 rotating = false
 current = true
@@ -93,23 +94,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" parent="InputControl" index="2" instance=ExtResource( 5 )]
+[node name="Player" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 452.087, 334.394 )
+position = Vector2( 452.087, 335.622 )
 speed = 2
 
-[node name="WaveController" parent="." index="2" instance=ExtResource( 6 )]
+[node name="WaveController" parent="." index="5" instance=ExtResource( 6 )]
 
-[node name="Iron" parent="." index="3" instance=ExtResource( 7 )]
+[node name="Iron" parent="." index="6" instance=ExtResource( 7 )]
 
 position = Vector2( 317.855, 281.426 )
 
-[node name="PaperClipFactory" parent="." index="4" instance=ExtResource( 8 )]
+[node name="PaperClipFactory" parent="." index="7" instance=ExtResource( 8 )]
 
-position = Vector2( 421.879, 193.398 )
+position = Vector2( 451.395, 210.541 )
 
-[connection signal="build" from="InputControl/HUD" to="." method="_on_HUD_build"]
-
-[connection signal="kill" from="InputControl/Player" to="." method="_on_Player_kill"]
+[connection signal="kill" from="Player" to="." method="_on_Player_kill"]
 
 

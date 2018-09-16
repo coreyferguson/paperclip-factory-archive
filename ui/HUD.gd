@@ -11,9 +11,6 @@ func deselect():
 func collect(item):
 	$Inventory.collect(item)
 
-func _on_BuildMenu_build(node):
-	emit_signal('build', node)
-
 func _on_WaveController_score_change(score):
 	$HUDScore.set_score(score)
 

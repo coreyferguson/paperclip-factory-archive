@@ -41,6 +41,4 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="HUDScore" parent="." index="3" instance=ExtResource( 4 )]
 
-[connection signal="build" from="BuildMenu" to="." method="_on_BuildMenu_build"]
-
 

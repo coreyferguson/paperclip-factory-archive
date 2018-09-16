@@ -5,6 +5,15 @@ var is_right_down = false
 var left_down_origin
 var is_dragging = false
 
+var camera
+var player
+var hud
+
+func _ready():
+	camera = $'/root/Game/Camera'
+	player = $'/root/Game/Player'
+	hud = $'/root/Game/HUD'
+
 func _unhandled_input(event):
 	handleKeyEvents(event)
 	handleMouseEvents(event)
@@ -46,15 +55,15 @@ func handleMouseEvents(event):
 	elif is_left_click:
 		leftClick(event)
 	elif is_right_click:
-		$Player.move_to(get_global_mouse_position())
+		player.move_to(get_global_mouse_position())
 
 func leftClick(event):
 	get_tree().set_input_as_handled()
 	var space = get_world_2d().get_direct_space_state();
 	var intersections = space.intersect_point(get_global_mouse_position())
 	var colliders = to_colliders(intersections)
-	if colliders.size() > 0: $HUD.select(colliders)
-	else: $HUD.deselect()
+	if colliders.size() > 0: hud.select(colliders)
+	else: hud.deselect()
 	for collider in colliders:
 		if (collider.has_method('select')): 
 			collider.select()
@@ -62,10 +71,10 @@ func leftClick(event):
 func drag(event):
 	if event is InputEventMouseMotion:
 		get_tree().set_input_as_handled()
-		$Camera.position -= event.relative
+		camera.position -= event.relative
 		var screenSize = OS.get_real_window_size()
-		$Camera.position.x = clamp($Camera.position.x, $Camera.limit_left, $Camera.limit_right-screenSize.x)
-		$Camera.position.y = clamp($Camera.position.y, $Camera.limit_top, $Camera.limit_bottom-screenSize.y)
+		camera.position.x = clamp(camera.position.x, camera.limit_left, camera.limit_right-screenSize.x)
+		camera.position.y = clamp(camera.position.y, camera.limit_top, camera.limit_bottom-screenSize.y)
 
 func to_colliders(intersections):
 	var colliders = Array()
