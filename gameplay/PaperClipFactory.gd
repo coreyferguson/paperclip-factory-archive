@@ -4,7 +4,7 @@ signal kill
 
 func _on_Harvester_harvest(node):
 	var resource = node.harvest()
-	if resource.type == 'iron': score.increment(resource.quantity)
+	if resource and resource.type == 'iron': score.increment(resource.quantity)
 
 func kill():
 	queue_free()

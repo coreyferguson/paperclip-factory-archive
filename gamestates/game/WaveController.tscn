@@ -2,10 +2,20 @@
 
 [ext_resource path="res://gamestates/game/WaveController.gd" type="Script" id=1]
 
-[node name="WaveController" type="Node" index="0"]
+[node name="WaveController" type="Node"]
 
 script = ExtResource( 1 )
 enabled = true
-waveTriggerIncrements = 2
+firstWaveTriggerTime = 10
+waveTriggerIncrements = 90
+
+[node name="Timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

@@ -4,20 +4,21 @@ export (bool) var enabled = true
 export (int) var firstWaveTriggerTime = 10
 export (int) var waveTriggerIncrements = 90
 
+var elapsedTime = 0
 var waveTrigger = firstWaveTriggerTime
 
 func _ready():
 	waveTrigger = firstWaveTriggerTime
-	score.connect('change', self, '_on_score_change')
-	spawnWave()
 
-func _on_score_change():
-	if score.get_paperclips() >= waveTrigger: 
+func _on_Timer_timeout():
+	elapsedTime += 1
+	if elapsedTime >= waveTrigger: 
 		waveTrigger += waveTriggerIncrements
 		if enabled: spawnWave()
 
 func spawnWave():
-	var enemiesToSpawn = pow(2, (score.get_paperclips()-firstWaveTriggerTime)/waveTriggerIncrements)
+	var enemiesToSpawn = pow(2, (elapsedTime-firstWaveTriggerTime)/waveTriggerIncrements)
+	enemiesToSpawn = clamp(enemiesToSpawn, 1, 500)
 	var randomSide = randi() % 4
 	var world_width = 10000
 	var world_width_half = world_width / 2
@@ -45,3 +46,4 @@ func spawnWave():
 		var scout = scoutResource.instance()
 		scout.position = pos
 		$'/root/Game'.add_child(scout)
+
