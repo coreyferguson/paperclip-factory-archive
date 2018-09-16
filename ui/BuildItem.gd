@@ -12,6 +12,9 @@ const STATE_CHOOSE_LOCATION = 1
 var state = STATE_DEFAULT
 var toBeBuilt = null
 
+func _ready():
+	_on_Timer_timeout()
+
 func _on_Timer_timeout():
 	var quantity = 0
 	for item in inventory.items:
