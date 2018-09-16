@@ -11,4 +11,4 @@ func _on_Timer_timeout():
 		for node in overlapping:
 			if node.has_method('harvest'):
 				var resource = node.harvest()
-				inventory.add(resource)
+				if resource: inventory.add(resource)

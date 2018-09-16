@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 50.5077, 50.5101 )
 
-[node name="BuildPaperClipFactory" type="Area2D" index="0"]
+[node name="BuildPaperClipFactory" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

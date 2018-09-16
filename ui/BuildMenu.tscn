@@ -9,7 +9,7 @@
 [ext_resource path="res://ui/BuildPaperClipFactory.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=8]
 
-[node name="BuildMenu" type="GridContainer" index="0"]
+[node name="BuildMenu" type="GridContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.5
@@ -46,7 +46,7 @@ margin_right = 52.0
 margin_bottom = 96.0
 icon = ExtResource( 6 )
 required_item_type = "iron"
-required_item_quantity = 2
+required_item_quantity = 10
 placement_resource = ExtResource( 7 )
 build_resource = ExtResource( 8 )
 

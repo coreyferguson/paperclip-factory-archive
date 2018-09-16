@@ -1,13 +1,15 @@
 extends Node
 
 export (bool) var enabled = true
-export (int) var waveTriggerIncrements = 30
+export (int) var firstWaveTriggerTime = 10
+export (int) var waveTriggerIncrements = 90
 
-var waveTrigger = score.get_paperclips() + waveTriggerIncrements
+var waveTrigger = firstWaveTriggerTime
 
 func _ready():
-	waveTrigger = score.get_paperclips() + waveTriggerIncrements
+	waveTrigger = firstWaveTriggerTime
 	score.connect('change', self, '_on_score_change')
+	spawnWave()
 
 func _on_score_change():
 	if score.get_paperclips() >= waveTrigger: 
@@ -15,13 +17,14 @@ func _on_score_change():
 		if enabled: spawnWave()
 
 func spawnWave():
-	var enemiesToSpawn = pow(2, score.get_paperclips()/waveTriggerIncrements)
+	var enemiesToSpawn = pow(2, (score.get_paperclips()-firstWaveTriggerTime)/waveTriggerIncrements)
 	var randomSide = randi() % 4
-	var world_width = 1000
+	var world_width = 10000
 	var world_width_half = world_width / 2
-	var offset = 500
+	var offset = 200
 	var x
 	var y
+	randomize()
 	if randomSide == 0:
 		x = randi() % world_width - world_width_half
 		y = -world_width_half + offset*-1
