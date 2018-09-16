@@ -1,10 +1,14 @@
 extends KinematicBody2D
 
 export (int) var speed = 1
+export (bool) var shouldFireMissiles = true
+export (int) var missileTimerWaitTime = 20
 
 var target = null
 
 func _ready():
+	$MissileTimer.wait_time = missileTimerWaitTime
+	if shouldFireMissiles: $MissileTimer.start()
 	retarget()
 	
 func _physics_process(delta):

@@ -8,7 +8,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 3.70335, 15.1539 )
 
-[node name="Missile" type="KinematicBody2D"]
+[node name="Missile" type="KinematicBody2D" groups=[
+"enemy-projectile",
+]]
 
 input_pickable = false
 collision_layer = 256

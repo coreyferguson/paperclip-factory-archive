@@ -19,7 +19,7 @@ collision_layer = 2048
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

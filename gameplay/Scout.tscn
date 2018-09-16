@@ -21,6 +21,8 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 speed = 1
+shouldFireMissiles = true
+missileTimerWaitTime = 20
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -45,7 +47,7 @@ autostart = true
 process_mode = 1
 wait_time = 20.0
 one_shot = false
-autostart = true
+autostart = false
 
 [connection signal="timeout" from="TargetTimer" to="." method="_on_Timer_timeout"]
 

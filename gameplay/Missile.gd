@@ -40,6 +40,9 @@ func listen_to_target_killed(target):
 func on_target_killed():
 	retarget()
 
+func kill():
+	queue_free()
+
 func retarget():
 	target = get_closest_player_node()
 	if !target || !target.get_ref(): queue_free()

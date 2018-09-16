@@ -5,7 +5,7 @@
 [ext_resource path="res://ui/BuildMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/HUDScore.tscn" type="PackedScene" id=4]
 
-[node name="HUD" type="CanvasLayer" index="0"]
+[node name="HUD" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
