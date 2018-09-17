@@ -96,18 +96,18 @@ __meta__ = {
 
 [node name="Player" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 452.087, 335.622 )
+position = Vector2( 541.838, 415.4 )
 speed = 2
 
 [node name="WaveController" parent="." index="5" instance=ExtResource( 6 )]
 
 [node name="Iron" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 317.855, 281.426 )
+position = Vector2( 394.309, 347.908 )
 
 [node name="PaperClipFactory" parent="." index="7" instance=ExtResource( 8 )]
 
-position = Vector2( 451.395, 210.541 )
+position = Vector2( 503.473, 258.186 )
 
 [connection signal="kill" from="Player" to="." method="_on_Player_kill"]
 
