@@ -19,7 +19,7 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.has_method('kill'):
 			collision.collider.kill()
-			queue_free()
+			enemies.remove_enemy(self)
 
 func get_closest_player_node():
 	var playerNodes = get_tree().get_nodes_in_group('player')
@@ -42,7 +42,7 @@ func retarget():
 	if target and target.get_ref():
 		target.get_ref().disconnect('kill', self, 'on_target_killed')
 	target = get_closest_player_node()
-	if !target || !target.get_ref(): queue_free()
+	if !target || !target.get_ref(): enemies.remove_enemy(self)
 	else: listen_to_target_killed(target)
 
 func _on_Timer_timeout():

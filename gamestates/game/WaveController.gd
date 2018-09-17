@@ -45,5 +45,5 @@ func spawnWave():
 		var pos = Vector2(x, y)
 		var scout = scoutResource.instance()
 		scout.position = pos
-		$'/root/Game'.add_child(scout)
+		enemies.add_enemy(scout)
 

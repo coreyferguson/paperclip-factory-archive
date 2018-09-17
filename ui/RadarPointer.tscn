@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/radar-pointer.png" type="Texture" id=1]
+
+[node name="RadarPointer" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+offset = Vector2( -15, 0 )
+_sections_unfolded = [ "Offset" ]
+
+
