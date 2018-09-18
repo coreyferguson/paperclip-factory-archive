@@ -26,6 +26,11 @@ func remove(type, quantity):
 			return true
 	return false
 
+func get(type):
+	for item in items:
+		if item && item.type == type: return item
+	return null
+
 func reset():
 	for i in range(capacity):
 		items[i] = null

@@ -2,8 +2,8 @@ extends Button
 
 signal build
 
-export (String) var required_item_type
-export (int) var required_item_quantity
+export (Array, String) var required_item_types
+export (Array, int) var required_item_quantities
 export (PackedScene) var placement_resource
 export (PackedScene) var build_resource
 
@@ -26,11 +26,7 @@ func _ready():
 	_on_Timer_timeout()
 
 func _on_Timer_timeout():
-	var quantity = 0
-	for item in inventory.items:
-		if item != null and item.type == required_item_type: 
-			quantity = item.quantity
-	if quantity >= required_item_quantity: visible = true
+	if has_required_items(): visible = true
 	else: visible = false
 
 func _on_BuildItem_pressed():
@@ -67,5 +63,16 @@ func build():
 	build_delivery_instance.position = player.position
 	build_delivery_instance.build_resource = build_resource
 	build_delivery_instance.build_position = get_global_mouse_position() + camera.position
-	inventory.remove(required_item_type, required_item_quantity)
+	spend_required_items()
 	game.add_child(build_delivery_instance)
+
+func has_required_items():
+	var required = {}
+	for i in range(required_item_types.size()):
+		var item = inventory.get(required_item_types[i])
+		if !item || item.quantity < required_item_quantities[i]: return false
+	return true
+
+func spend_required_items():
+	for i in range(required_item_types.size()):
+		inventory.remove(required_item_types[i], required_item_quantities[i])

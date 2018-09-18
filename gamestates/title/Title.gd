@@ -12,4 +12,3 @@ func _unhandled_input(event):
 		elif is_mouse_down:
 			is_mouse_down = false
 			get_tree().change_scene('res://gamestates/game/Game.tscn')
-

@@ -26,8 +26,8 @@ flat = false
 align = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Rect" ]
-required_item_type = null
-required_item_quantity = null
+required_item_types = null
+required_item_quantities = null
 placement_resource = null
 build_resource = null
 

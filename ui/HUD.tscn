@@ -6,7 +6,7 @@
 [ext_resource path="res://ui/HUDScore.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/Radar.tscn" type="PackedScene" id=5]
 
-[node name="HUD" type="CanvasLayer" index="0"]
+[node name="HUD" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -43,7 +43,5 @@ _sections_unfolded = [ "Visibility" ]
 [node name="HUDScore" parent="." index="3" instance=ExtResource( 4 )]
 
 [node name="Radar" parent="." index="4" instance=ExtResource( 5 )]
-
-position = Vector2( -1.22775, 0 )
 
 

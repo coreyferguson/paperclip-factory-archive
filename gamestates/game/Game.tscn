@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://gamestates/game/Game.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
@@ -6,8 +6,10 @@
 [ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gamestates/game/WaveController.tscn" type="PackedScene" id=6]
-[ext_resource path="res://gameplay/Iron.tscn" type="PackedScene" id=7]
-[ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=7]
+[ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/iron_100x100.png" type="Texture" id=9]
+[ext_resource path="res://assets/energy_150x150.png" type="Texture" id=10]
 
 [node name="Game" type="Node"]
 
@@ -96,18 +98,28 @@ __meta__ = {
 
 [node name="Player" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 541.838, 415.4 )
+position = Vector2( 541.838, 414.292 )
 speed = 2
 
 [node name="WaveController" parent="." index="5" instance=ExtResource( 6 )]
 
-[node name="Iron" parent="." index="6" instance=ExtResource( 7 )]
+[node name="PaperClipFactory" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 394.309, 347.908 )
+position = Vector2( 433.667, 279.239 )
 
-[node name="PaperClipFactory" parent="." index="7" instance=ExtResource( 8 )]
+[node name="Iron" parent="." index="7" instance=ExtResource( 8 )]
 
-position = Vector2( 503.473, 258.186 )
+position = Vector2( 308.033, 405.54 )
+type = "iron"
+texture = ExtResource( 9 )
+
+[node name="Energy" parent="." index="8" instance=ExtResource( 8 )]
+
+position = Vector2( 651.523, 320.221 )
+type = "energy"
+texture = ExtResource( 10 )
+capacity = 1000
+quantity_per_harvest = 3
 
 [connection signal="kill" from="Player" to="." method="_on_Player_kill"]
 
