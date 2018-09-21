@@ -6,8 +6,8 @@
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 36.7328
-height = 28.8554
+radius = 32.4415
+height = 29.2391
 
 [node name="Scout" type="KinematicBody2D" groups=[
 "enemy",
@@ -31,7 +31,7 @@ _sections_unfolded = [ "Offset" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
+position = Vector2( 3.98708, -0.28479 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
 

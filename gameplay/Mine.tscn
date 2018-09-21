@@ -1,26 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gameplay/Mine.gd" type="Script" id=1]
 [ext_resource path="res://assets/mine.png" type="Texture" id=2]
+[ext_resource path="res://gameplay/Detector.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 23.1625, 25.5534 )
+extents = Vector2( 13.927, 14.3135 )
 
-[node name="Mine" type="StaticBody2D" groups=[
-"player",
-]]
+[node name="Mine" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 2
 collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
+collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
+speed = 10
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -33,7 +30,15 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Detector" parent="." index="2" instance=ExtResource( 3 )]
+
+collision_layer = 2
+collision_mask = 256
+groupDetected = "enemy"
+
+[connection signal="detection" from="Detector" to="." method="_on_Detector_detection"]
 
 

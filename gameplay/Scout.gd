@@ -61,3 +61,6 @@ func listen_to_target_killed(target):
 
 func on_target_killed():
 	retarget()
+
+func kill():
+	queue_free()
