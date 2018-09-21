@@ -26,3 +26,7 @@ func move_to(position):
 func kill():
 	queue_free()
 	emit_signal('kill')
+
+func _on_EnergyTimer_timeout():
+	if !inventory.remove('energy', 1):
+		kill()

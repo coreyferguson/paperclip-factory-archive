@@ -10,7 +10,7 @@
 [ext_resource path="res://assets/moon.png" type="Texture" id=8]
 [ext_resource path="res://assets/sun.png" type="Texture" id=9]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -97,20 +97,20 @@ __meta__ = {
 
 [node name="Player" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 305.868, 478.562 )
+position = Vector2( 738.031, 413.492 )
 speed = 2
 
 [node name="WaveController" parent="." index="5" instance=ExtResource( 6 )]
 
 [node name="Iron" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 240.97, 109.427 )
+position = Vector2( 89.9586, 92.2387 )
 type = "iron"
 texture = ExtResource( 8 )
 
 [node name="Energy" parent="." index="7" instance=ExtResource( 7 )]
 
-position = Vector2( 762.123, 484.937 )
+position = Vector2( 728.974, 493.531 )
 type = "energy"
 texture = ExtResource( 9 )
 capacity = 1000
