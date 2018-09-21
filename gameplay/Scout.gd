@@ -17,7 +17,7 @@ func _physics_process(delta):
 		velocity = velocity.normalized() * speed
 		rotation = velocity.angle()
 		var collision = move_and_collide(velocity)
-		if collision and collision.collider.has_method('kill'):
+		if collision and collision.collider.is_in_group('player'):
 			collision.collider.kill()
 			enemies.remove_enemy(self)
 
