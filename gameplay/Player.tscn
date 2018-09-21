@@ -1,21 +1,21 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gameplay/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/player_100x100.png" type="Texture" id=2]
+[ext_resource path="res://assets/player.png" type="Texture" id=2]
 [ext_resource path="res://gameplay/Harvester.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 37.9933
-height = 18.5666
+radius = 47.8582
+height = 23.8592
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 151.016
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="KinematicBody2D" index="0" groups=[
 "player",
 ]]
 

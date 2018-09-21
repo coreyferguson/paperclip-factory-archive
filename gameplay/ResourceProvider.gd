@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+tool
+
 export (String) var type
 export (Texture) var texture
 export (int) var capacity = 500
@@ -11,6 +13,9 @@ func _ready():
 	$Sprite.texture = texture
 	$CollisionShape2D.shape.radius = max(texture.get_size().x/2, texture.get_size().y/2)
 	quantity = capacity
+
+func can_harvest_type(value):
+	return type == value
 
 func harvest():
 	if quantity > 0:

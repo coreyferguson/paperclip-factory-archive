@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player_100x100.png-2cdc107f9c0d8f47b65a1b02e26cce61.stex"
+path="res://.import/sun.png-96654e2514e117453f5b519ac98c70c7.stex"
 
 [deps]
 
-source_file="res://assets/player_100x100.png"
-dest_files=[ "res://.import/player_100x100.png-2cdc107f9c0d8f47b65a1b02e26cce61.stex" ]
+source_file="res://assets/sun.png"
+dest_files=[ "res://.import/sun.png-96654e2514e117453f5b519ac98c70c7.stex" ]
 
 [params]
 

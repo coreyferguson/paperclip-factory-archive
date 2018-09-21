@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/energy_150x150.png-4dda06d240ea636c8c317ad8b3b4b659.stex"
+path="res://.import/player.png-be2216fcaabb5c62aa2466cd9a5726a8.stex"
 
 [deps]
 
-source_file="res://assets/energy_150x150.png"
-dest_files=[ "res://.import/energy_150x150.png-4dda06d240ea636c8c317ad8b3b4b659.stex" ]
+source_file="res://assets/player.png"
+dest_files=[ "res://.import/player.png-be2216fcaabb5c62aa2466cd9a5726a8.stex" ]
 
 [params]
 
