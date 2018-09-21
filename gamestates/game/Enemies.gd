@@ -11,6 +11,6 @@ func add_enemy(enemy):
 	emit_signal('add_enemy', enemy)
 
 func remove_enemy(enemy):
-	enemy.queue_free()
 	enemies.remove(enemies.find(enemy))
 	emit_signal('remove_enemy', enemy)
+	enemy.queue_free()

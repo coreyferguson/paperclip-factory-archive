@@ -23,7 +23,7 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.has_method('kill'):
 			collision.collider.kill()
-			queue_free()
+			enemies.remove_enemy(self)
 
 func switch_mode():
 	if mode == Mode.ATTACK: mode = Mode.DODGE
@@ -54,4 +54,4 @@ func get_closest_player_node():
 	else: return weakref(closestNode)
 
 func kill():
-	queue_free()
+	enemies.remove_enemy(self)

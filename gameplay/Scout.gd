@@ -63,4 +63,4 @@ func on_target_killed():
 	retarget()
 
 func kill():
-	queue_free()
+	enemies.remove_enemy(self)

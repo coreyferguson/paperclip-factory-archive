@@ -6,6 +6,7 @@ export (Array, String) var required_item_types
 export (Array, int) var required_item_quantities
 export (PackedScene) var placement_resource
 export (PackedScene) var build_resource
+export (int) var hotkey
 
 const STATE_DEFAULT = 0
 const STATE_CHOOSE_LOCATION = 1
@@ -25,16 +26,24 @@ func _ready():
 	player = $'/root/Game/Player'
 	_on_Timer_timeout()
 
+func _unhandled_key_input(event):
+	if event is InputEventKey and event.pressed and event.scancode == hotkey:
+		choose_location()
+
 func _on_Timer_timeout():
 	if has_required_items(): visible = true
 	else: visible = false
 
 func _on_BuildItem_pressed():
-	state = STATE_CHOOSE_LOCATION
-	to_be_built = placement_resource.instance()
-	game.add_child(to_be_built)
-	position_valid_instance = position_valid_resource.instance()
-	game.add_child(position_valid_instance)
+	choose_location()
+
+func choose_location():
+	if has_required_items():
+		state = STATE_CHOOSE_LOCATION
+		to_be_built = placement_resource.instance()
+		game.add_child(to_be_built)
+		position_valid_instance = position_valid_resource.instance()
+		game.add_child(position_valid_instance)
 
 func _unhandled_input(event):
 	if state == STATE_CHOOSE_LOCATION:
