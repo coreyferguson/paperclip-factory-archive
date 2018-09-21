@@ -29,7 +29,9 @@ missileTimerWaitTime = 20
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Offset" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1" groups=[
+"enemy",
+]]
 
 position = Vector2( 3.98708, -0.28479 )
 shape = SubResource( 1 )

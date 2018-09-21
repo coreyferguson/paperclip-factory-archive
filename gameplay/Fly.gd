@@ -26,7 +26,6 @@ func _physics_process(delta):
 			queue_free()
 
 func switch_mode():
-	print('switching mode')
 	if mode == Mode.ATTACK: mode = Mode.DODGE
 	else: mode = Mode.ATTACK
 	retarget()

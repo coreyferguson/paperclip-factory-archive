@@ -15,8 +15,9 @@ func _on_add_enemy(enemy):
 	blips[enemy] = blip
 
 func _on_remove_enemy(enemy):
-	if blips.has(enemy): blips[enemy].queue_free()
-	blips.erase(enemy)
+	if blips.has(enemy): 
+		blips[enemy].queue_free()
+		blips.erase(enemy)
 	
 func _process(delta):
 	rect_size = OS.window_size

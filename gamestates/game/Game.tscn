@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gamestates/game/Game.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
@@ -6,10 +6,9 @@
 [ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gamestates/game/WaveController.tscn" type="PackedScene" id=6]
-[ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=7]
-[ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/moon.png" type="Texture" id=9]
-[ext_resource path="res://assets/sun.png" type="Texture" id=10]
+[ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/moon.png" type="Texture" id=8]
+[ext_resource path="res://assets/sun.png" type="Texture" id=9]
 
 [node name="Game" type="Node" index="0"]
 
@@ -98,26 +97,22 @@ __meta__ = {
 
 [node name="Player" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 610.591, 436.391 )
+position = Vector2( 305.868, 478.562 )
 speed = 2
 
 [node name="WaveController" parent="." index="5" instance=ExtResource( 6 )]
 
-[node name="PaperClipFactory" parent="." index="6" instance=ExtResource( 7 )]
+[node name="Iron" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 820.995, 69.9847 )
-
-[node name="Iron" parent="." index="7" instance=ExtResource( 8 )]
-
-position = Vector2( 657.244, 148.878 )
+position = Vector2( 240.97, 109.427 )
 type = "iron"
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 
-[node name="Energy" parent="." index="8" instance=ExtResource( 8 )]
+[node name="Energy" parent="." index="7" instance=ExtResource( 7 )]
 
-position = Vector2( 756.682, 313.53 )
+position = Vector2( 762.123, 484.937 )
 type = "energy"
-texture = ExtResource( 10 )
+texture = ExtResource( 9 )
 capacity = 1000
 quantity_per_harvest = 3
 
