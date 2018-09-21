@@ -24,6 +24,7 @@ func _process(delta):
 	var centerOfScreen = OS.window_size/2
 	var radar_mid = rect_size/2
 	for enemy in blips:
+		if !weakref(enemy).get_ref(): continue
 		var blip = blips[enemy]
 		var relative_pos = enemy.position - camera.position - centerOfScreen
 		if relative_pos.length() <= min(rect_size.x/2, rect_size.y/2): blip.visible = false

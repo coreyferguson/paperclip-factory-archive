@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://gamestates/game/Game.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
@@ -10,8 +10,6 @@
 [ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/moon.png" type="Texture" id=9]
 [ext_resource path="res://assets/sun.png" type="Texture" id=10]
-[ext_resource path="res://gameplay/Scout.tscn" type="PackedScene" id=11]
-[ext_resource path="res://gameplay/Mine.tscn" type="PackedScene" id=12]
 
 [node name="Game" type="Node" index="0"]
 
@@ -100,36 +98,28 @@ __meta__ = {
 
 [node name="Player" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 541.838, 414.292 )
+position = Vector2( 610.591, 436.391 )
 speed = 2
 
 [node name="WaveController" parent="." index="5" instance=ExtResource( 6 )]
 
 [node name="PaperClipFactory" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 602.458, 31.9249 )
+position = Vector2( 820.995, 69.9847 )
 
 [node name="Iron" parent="." index="7" instance=ExtResource( 8 )]
 
-position = Vector2( 741.958, 78.8967 )
+position = Vector2( 657.244, 148.878 )
 type = "iron"
 texture = ExtResource( 9 )
 
 [node name="Energy" parent="." index="8" instance=ExtResource( 8 )]
 
-position = Vector2( 652.325, 215.311 )
+position = Vector2( 756.682, 313.53 )
 type = "energy"
 texture = ExtResource( 10 )
 capacity = 1000
 quantity_per_harvest = 3
-
-[node name="Scout" parent="." index="9" instance=ExtResource( 11 )]
-
-position = Vector2( 79.8027, 480.044 )
-
-[node name="Mine" parent="." index="10" instance=ExtResource( 12 )]
-
-position = Vector2( 272.557, 392.875 )
 
 [connection signal="kill" from="Player" to="." method="_on_Player_kill"]
 
