@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/panel.png" type="Texture" id=1]
 [ext_resource path="res://ui/MiniMap.gd" type="Script" id=2]
+[ext_resource path="res://ui/MiniMapReferenceRect.gd" type="Script" id=3]
 
-[node name="MiniMap" type="NinePatchRect"]
+[node name="MiniMap" type="NinePatchRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 1.0
@@ -41,6 +42,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-_sections_unfolded = [ "Rect" ]
+script = ExtResource( 3 )
 
 

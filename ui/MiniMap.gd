@@ -17,6 +17,8 @@ func _ready():
 	camera = $'/root/Game/Camera'
 	player = $'/root/Game/Player'
 	rect = $ReferenceRect
+	rect.connect('mouse_button_pressed', self, 'mouse_button_pressed')
+	
 	# world map size
 	world_map_size = Vector2(
 		camera.limit_right - camera.limit_left, 
@@ -42,8 +44,14 @@ func _process(delta):
 	var minimap_size = Vector2(200, 200)
 	screen_blip.rect_size = OS.window_size * minimap_size / world_map_size
 	screen_blip.rect_position = relative_position_of(camera)
-#	screen_blip.rect_position += screen_blip.rect_size/2
-	
+
+func mouse_button_pressed(local_position):
+	var global_position = global_position_of(local_position)
+	var screenSize = OS.get_real_window_size()
+	camera.position = global_position - screenSize/2
+	camera.position.x = clamp(camera.position.x, camera.limit_left, camera.limit_right-screenSize.x)
+	camera.position.y = clamp(camera.position.y, camera.limit_top, camera.limit_bottom-screenSize.y)
+
 func track_player():
 	var blip = TextureRect.new()
 	blip.texture = minimap_player_blip_resource
@@ -99,3 +107,6 @@ func relative_position_of(node):
 	pos_x = pos_x * rect.rect_size.x / world_map_size.x
 	pos_y = pos_y * rect.rect_size.y / world_map_size.y
 	return Vector2(pos_x, pos_y)
+
+func global_position_of(local_position):
+	return local_position * world_map_size / rect.rect_size - world_map_size/2
