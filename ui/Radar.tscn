@@ -2,8 +2,6 @@
 
 [ext_resource path="res://Radar.gd" type="Script" id=1]
 
-
-
 [node name="Radar" type="Container"]
 
 anchor_left = 0.5

@@ -3,14 +3,14 @@
 [ext_resource path="res://assets/panel.png" type="Texture" id=1]
 [ext_resource path="res://ui/MiniMap.gd" type="Script" id=2]
 
-[node name="MiniMap" type="NinePatchRect" index="0"]
+[node name="MiniMap" type="NinePatchRect"]
 
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 0.0
 anchor_bottom = 1.0
-margin_top = -215.0
-margin_right = 215.0
+margin_top = -230.0
+margin_right = 230.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -24,5 +24,23 @@ patch_margin_right = 15
 patch_margin_bottom = 15
 script = ExtResource( 2 )
 _sections_unfolded = [ "Patch Margin", "Rect" ]
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 215.0
+margin_bottom = 215.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
 
 

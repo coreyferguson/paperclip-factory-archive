@@ -28,7 +28,7 @@ collision_mask = 385
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
-speed = 1
+speed = 2
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

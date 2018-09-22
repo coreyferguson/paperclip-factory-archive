@@ -26,15 +26,19 @@ func spawnWave():
 	var offset = 200
 	var x
 	var y
+	# top
 	if randomSide == 0:
 		x = randi() % world_width - world_width_half
 		y = -world_width_half + offset*-1
+	# right
 	elif randomSide == 1:
 		x = world_width_half + offset
 		y = randi() % world_width - world_width_half
+	# bottom
 	elif randomSide == 2:
 		x = randi() % world_width - world_width_half
 		y = world_width_half + offset
+	# left
 	elif randomSide == 3:
 		x = -world_width_half + offset*-1
 		y = randi() % world_width - world_width/2
