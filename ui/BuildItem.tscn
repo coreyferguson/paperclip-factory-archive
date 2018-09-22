@@ -13,6 +13,7 @@ margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+hint_tooltip = "press me"
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -25,7 +26,7 @@ group = null
 flat = false
 align = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Anchor", "Grow Direction", "Hint", "Margin", "Rect" ]
 required_item_types = null
 required_item_quantities = null
 placement_resource = null
@@ -38,6 +39,10 @@ process_mode = 1
 wait_time = 0.25
 one_shot = false
 autostart = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_BuildItem_mouse_entered"]
+
+[connection signal="mouse_exited" from="." to="." method="_on_BuildItem_mouse_exited"]
 
 [connection signal="pressed" from="." to="." method="_on_BuildItem_pressed"]
 

@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 inventory="*res://gamestates/game/Inventory.gd"
 score="*res://gamestates/game/Score.gd"
 enemies="*res://gamestates/game/Enemies.gd"
+resource="*res://gamestates/game/Resource.gd"
 
 [display]
 

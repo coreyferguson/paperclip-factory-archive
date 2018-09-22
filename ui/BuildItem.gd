@@ -1,6 +1,8 @@
 extends Button
 
 signal build
+signal hover_in(build_item)
+signal hover_out(build_item)
 
 export (Array, String) var required_item_types
 export (Array, int) var required_item_quantities
@@ -31,8 +33,8 @@ func _unhandled_key_input(event):
 		choose_location()
 
 func _on_Timer_timeout():
-	if has_required_items(): visible = true
-	else: visible = false
+	if has_required_items(): disabled = false
+	else: disabled = true
 
 func _on_BuildItem_pressed():
 	choose_location()
@@ -76,6 +78,7 @@ func build():
 	game.add_child(build_delivery_instance)
 
 func has_required_items():
+	if !required_item_types: return true
 	var required = {}
 	for i in range(required_item_types.size()):
 		var item = inventory.get(required_item_types[i])
@@ -83,5 +86,12 @@ func has_required_items():
 	return true
 
 func spend_required_items():
+	if !required_item_types: return
 	for i in range(required_item_types.size()):
 		inventory.remove(required_item_types[i], required_item_quantities[i])
+
+func _on_BuildItem_mouse_entered():
+	emit_signal('hover_in', self)
+
+func _on_BuildItem_mouse_exited():
+	emit_signal('hover_out', self)
