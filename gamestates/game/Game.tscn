@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://gamestates/game/Game.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/moon.png" type="Texture" id=8]
 [ext_resource path="res://assets/sun.png" type="Texture" id=9]
+[ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node"]
 
@@ -116,6 +117,10 @@ type = "energy"
 texture = ExtResource( 9 )
 capacity = 1000
 quantity_per_harvest = 3
+
+[node name="PaperClipFactory" parent="." index="8" instance=ExtResource( 10 )]
+
+position = Vector2( 261.191, 87.0638 )
 
 [connection signal="kill" from="Player" to="." method="_on_Player_kill"]
 

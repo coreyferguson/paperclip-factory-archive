@@ -17,6 +17,7 @@ func _on_Timer_timeout():
 		if enabled: spawnWave()
 
 func spawnWave():
+	randomize()
 	var enemiesToSpawn = pow(2, (elapsedTime-firstWaveTriggerTime)/waveTriggerIncrements)
 	enemiesToSpawn = clamp(enemiesToSpawn, 1, 500)
 	var randomSide = randi() % 4
@@ -25,7 +26,6 @@ func spawnWave():
 	var offset = 200
 	var x
 	var y
-	randomize()
 	if randomSide == 0:
 		x = randi() % world_width - world_width_half
 		y = -world_width_half + offset*-1

@@ -1,22 +1,28 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://ui/MiniMap.gd" type="Script" id=1]
+[ext_resource path="res://assets/panel.png" type="Texture" id=1]
+[ext_resource path="res://ui/MiniMap.gd" type="Script" id=2]
 
-[node name="MiniMap" type="Panel" index="0"]
+[node name="MiniMap" type="NinePatchRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 0.0
 anchor_bottom = 1.0
-margin_top = -200.0
-margin_right = 200.0
+margin_top = -215.0
+margin_right = 215.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 1 )
-_sections_unfolded = [ "Rect" ]
+texture = ExtResource( 1 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+script = ExtResource( 2 )
+_sections_unfolded = [ "Patch Margin", "Rect" ]
 
 

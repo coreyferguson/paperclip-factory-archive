@@ -20,6 +20,7 @@ inventory="*res://gamestates/game/Inventory.gd"
 score="*res://gamestates/game/Score.gd"
 enemies="*res://gamestates/game/Enemies.gd"
 resource="*res://gamestates/game/Resource.gd"
+buildings="*res://gamestates/game/Buildings.gd"
 
 [display]
 
