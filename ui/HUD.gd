@@ -3,10 +3,12 @@ extends CanvasLayer
 signal build
 
 func select(nodes):
-	$Selected.visible = true
+#	$Selected.visible = true
+	pass
 
 func deselect():
-	$Selected.visible = false
+#	$Selected.visible = false
+	pass
 
 func collect(item):
 	$Inventory.collect(item)
