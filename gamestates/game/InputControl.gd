@@ -15,13 +15,7 @@ func _ready():
 	hud = $'/root/Game/HUD'
 
 func _unhandled_input(event):
-	handleKeyEvents(event)
 	handleMouseEvents(event)
-	
-func handleKeyEvents(event):
-	if event is InputEventKey and event.pressed:
-		if event.scancode == KEY_F11:
-		    OS.window_fullscreen = !OS.window_fullscreen
 	
 func handleMouseEvents(event):
 	var is_left_click = false
