@@ -8,7 +8,7 @@
 [ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=7]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -67,8 +67,6 @@ should_generate_worlds = true
 
 [node name="WaveController" parent="." index="3" instance=ExtResource( 5 )]
 
-firstWaveTriggerTime = 2
-
 [node name="HUD" parent="." index="4" instance=ExtResource( 6 )]
 
 [node name="Camera" type="Camera2D" parent="." index="5"]
@@ -103,7 +101,7 @@ __meta__ = {
 
 [node name="Player" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 368.01, 482.871 )
+position = Vector2( 403.38, 265.211 )
 
 [connection signal="kill" from="Player" to="." method="_on_Player_kill"]
 

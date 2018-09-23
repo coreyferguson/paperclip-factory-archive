@@ -43,8 +43,7 @@ func retarget():
 	if target and target.get_ref():
 		target.get_ref().disconnect('kill', self, 'on_target_killed')
 	target = get_closest_player_node()
-	if !target || !target.get_ref(): enemies.remove_enemy(self)
-	else: listen_to_target_killed(target)
+	if target: listen_to_target_killed(target)
 
 func _on_Timer_timeout():
 	retarget()

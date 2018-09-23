@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 32.4415
 height = 29.2391
 
-[node name="Scout" type="KinematicBody2D" groups=[
+[node name="Scout" type="KinematicBody2D" index="0" groups=[
 "enemy",
 ]]
 
@@ -40,7 +40,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="TargetTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 0.25
 one_shot = false
 autostart = true
 
