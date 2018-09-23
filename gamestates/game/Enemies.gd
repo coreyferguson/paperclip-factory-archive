@@ -7,7 +7,6 @@ var enemies = []
 
 func add_enemy(enemy):
 	print('add_enemy: ', enemy.get_instance_id())
-	$'/root/Game'.add_child(enemy)
 	enemies.push_back(enemy)
 	emit_signal('add_enemy', enemy)
 

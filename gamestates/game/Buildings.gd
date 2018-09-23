@@ -12,3 +12,4 @@ func add_building(building):
 func remove_building(building):
 	buildings.erase(building)
 	emit_signal('remove_building', building)
+	building.queue_free()

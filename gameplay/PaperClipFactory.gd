@@ -10,6 +10,5 @@ func _on_Harvester_harvest(node):
 	if resource and resource.type == 'iron': score.increment(resource.quantity)
 
 func kill():
-	buildings.remove_building(self)
 	emit_signal('kill')
-	queue_free()
+	buildings.remove_building(self)

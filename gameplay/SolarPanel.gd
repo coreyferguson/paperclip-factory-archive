@@ -26,6 +26,6 @@ func _on_EnergyToPlayer_player_overlap():
 		})
 
 func kill():
-	buildings.remove_building(self)
 	emit_signal('kill')
-	queue_free()
+	buildings.remove_building(self)
+

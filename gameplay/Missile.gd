@@ -45,5 +45,7 @@ func kill():
 
 func retarget():
 	target = get_closest_player_node()
-	if !target || !target.get_ref(): queue_free()
-	else: listen_to_target_killed(target)
+	if target: listen_to_target_killed(target)
+
+func _on_Timer_timeout():
+	retarget()

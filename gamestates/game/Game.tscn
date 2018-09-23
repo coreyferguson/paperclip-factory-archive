@@ -101,7 +101,7 @@ __meta__ = {
 
 [node name="Player" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 403.38, 265.211 )
+position = Vector2( 479.561, 270.652 )
 
 [connection signal="kill" from="Player" to="." method="_on_Player_kill"]
 
