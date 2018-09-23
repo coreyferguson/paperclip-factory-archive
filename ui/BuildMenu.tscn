@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://ui/BuildMenu.gd" type="Script" id=1]
 [ext_resource path="res://ui/BuildItem.tscn" type="PackedScene" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://assets/solar-panel_icon.png" type="Texture" id=12]
 [ext_resource path="res://ui/BuildSolarPanel.tscn" type="PackedScene" id=13]
 [ext_resource path="res://gameplay/SolarPanel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/ironfactory_icon.png" type="Texture" id=15]
+[ext_resource path="res://ui/BuildIronFactory.tscn" type="PackedScene" id=16]
+[ext_resource path="res://gameplay/IronFactory.tscn" type="PackedScene" id=17]
 
 [node name="BuildMenu" type="GridContainer"]
 
@@ -21,9 +24,9 @@ anchor_left = 0.0
 anchor_top = 0.5
 anchor_right = 0.0
 anchor_bottom = 0.5
-margin_top = -79.0
+margin_top = -133.0
 margin_right = 52.0
-margin_bottom = 79.0
+margin_bottom = 133.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -76,12 +79,25 @@ hotkey = 80
 margin_top = 162.0
 margin_right = 52.0
 margin_bottom = 212.0
+hint_tooltip = ""
 icon = ExtResource( 12 )
 required_item_types = [ "iron", "energy" ]
-required_item_quantities = [ 5, 10 ]
+required_item_quantities = [ 20, 10 ]
 placement_resource = ExtResource( 13 )
 build_resource = ExtResource( 14 )
 hotkey = 83
+
+[node name="IronFactory" parent="." index="4" instance=ExtResource( 2 )]
+
+margin_top = 216.0
+margin_right = 52.0
+margin_bottom = 266.0
+icon = ExtResource( 15 )
+required_item_types = [ "iron", "energy" ]
+required_item_quantities = [ 20, 10 ]
+placement_resource = ExtResource( 16 )
+build_resource = ExtResource( 17 )
+hotkey = 73
 
 [connection signal="build" from="LowYieldMine" to="." method="_on_BuildItem_build"]
 

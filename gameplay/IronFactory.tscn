@@ -1,69 +1,62 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://gameplay/SolarPanel.gd" type="Script" id=1]
-[ext_resource path="res://assets/solar-panel.png" type="Texture" id=2]
+[ext_resource path="res://gameplay/IronFactory.gd" type="Script" id=1]
+[ext_resource path="res://assets/ironfactory.png" type="Texture" id=2]
 [ext_resource path="res://gameplay/Harvester.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gameplay/EnergyToPlayer.gd" type="Script" id=4]
+[ext_resource path="res://gameplay/IronToPlayer.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 7.43491, 25.0089 )
+extents = Vector2( 24.8387, 24.3218 )
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 150.0
 
-[node name="SolarPanel" type="StaticBody2D" groups=[
-"player",
-]]
+[node name="IronFactory" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 1
-collision_mask = 385
+collision_mask = 1
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Pickable" ]
 capacity = 30
 harvest_rate = 10
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-position = Vector2( -0.358475, 0 )
+visible = false
 shape = SubResource( 1 )
 
 [node name="Harvester" parent="." index="2" instance=ExtResource( 3 )]
 
-type = "energy"
+type = "iron"
 
-[node name="EnergyToPlayer" type="Area2D" parent="." index="3"]
+[node name="IronToPlayer" type="Area2D" parent="." index="3"]
 
-visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-collision_layer = 0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 4 )
-_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnergyToPlayer" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IronToPlayer" index="0"]
 
 shape = SubResource( 2 )
 
-[node name="Timer" type="Timer" parent="EnergyToPlayer" index="1"]
+[node name="Timer" type="Timer" parent="IronToPlayer" index="1"]
 
 process_mode = 1
 wait_time = 1.0
@@ -72,8 +65,8 @@ autostart = true
 
 [connection signal="harvest" from="Harvester" to="." method="_on_Harvester_harvest"]
 
-[connection signal="player_overlap" from="EnergyToPlayer" to="." method="_on_EnergyToPlayer_player_overlap"]
+[connection signal="player_overlap" from="IronToPlayer" to="." method="_on_IronToPlayer_player_overlap"]
 
-[connection signal="timeout" from="EnergyToPlayer/Timer" to="EnergyToPlayer" method="_on_Timer_timeout"]
+[connection signal="timeout" from="IronToPlayer/Timer" to="IronToPlayer" method="_on_Timer_timeout"]
 
 

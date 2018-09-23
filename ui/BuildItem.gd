@@ -55,10 +55,7 @@ func _unhandled_input(event):
 			checkValidPosition()
 		if event is InputEventMouseButton:
 			if event.button_index == BUTTON_LEFT:
-				var is_valid = true
-				if to_be_built.has_method('is_valid_position'): is_valid = to_be_built.is_valid_position()
-				is_valid = is_valid and position_valid_instance.is_valid()
-				if is_valid: build()
+				if position_valid_instance.is_valid(): build()
 			to_be_built.queue_free()
 			to_be_built = null
 			position_valid_instance.queue_free()
@@ -66,8 +63,10 @@ func _unhandled_input(event):
 			state = STATE_DEFAULT
 
 func checkValidPosition():
+	var to_be_built_valid = true
+	if to_be_built.has_method('is_valid_position'): to_be_built_valid = to_be_built.is_valid_position()
 	var nodes = position_valid_instance.get_overlapping_bodies()
-	position_valid_instance.set_valid(nodes.size() == 0)
+	position_valid_instance.set_valid(nodes.size() == 0 && to_be_built_valid)
 
 func build():
 	var build_delivery_instance = build_delivery_resource.instance()
