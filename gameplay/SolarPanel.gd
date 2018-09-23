@@ -1,10 +1,15 @@
 extends StaticBody2D
 
+signal kill
+
 export (int) var capacity = 30
 export (int) var harvest_rate = 10
 var quantity = 0
 
 var texture = load('res://assets/sun.png')
+
+func _ready():
+	buildings.add_building(self)
 
 func _on_Harvester_harvest(node):
 	if quantity < capacity:
@@ -20,3 +25,7 @@ func _on_EnergyToPlayer_player_overlap():
 			'quantity': harvest_rate
 		})
 
+func kill():
+	buildings.remove_building(self)
+	emit_signal('kill')
+	queue_free()
