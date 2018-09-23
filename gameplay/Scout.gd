@@ -7,6 +7,7 @@ export (int) var missileTimerWaitTime = 20
 var target = null
 
 func _ready():
+	enemies.add_enemy(self)
 	$MissileTimer.wait_time = missileTimerWaitTime
 	if shouldFireMissiles: $MissileTimer.start()
 	retarget()

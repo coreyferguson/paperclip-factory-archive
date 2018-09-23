@@ -10,6 +10,7 @@ var mode = Mode.ATTACK
 var target = null
 
 func _ready():
+	enemies.add_enemy(self)
 	$Timer.wait_time = mode_switch_time
 	retarget()
 	

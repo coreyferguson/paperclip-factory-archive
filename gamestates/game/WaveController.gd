@@ -53,5 +53,5 @@ func spawnWave():
 		var pos = Vector2(x, y)
 		var enemy = enemyResource.instance()
 		enemy.position = pos
-		enemies.add_enemy(enemy)
+		$'/root/Game'.add_child(enemy)
 
