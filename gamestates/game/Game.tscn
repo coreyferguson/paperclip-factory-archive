@@ -1,14 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gamestates/game/Game.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
 [ext_resource path="res://gamestates/game/InputControl.gd" type="Script" id=3]
-[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gamestates/game/WaveController.tscn" type="PackedScene" id=6]
-[ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/moon.png" type="Texture" id=8]
-[ext_resource path="res://assets/sun.png" type="Texture" id=9]
+[ext_resource path="res://gamestates/game/WaveController.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gamestates/game/WorldGenerator.tscn" type="PackedScene" id=7]
 
 [node name="Game" type="Node" index="0"]
 
@@ -63,9 +61,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="HUD" parent="." index="2" instance=ExtResource( 4 )]
+[node name="WaveController" parent="." index="2" instance=ExtResource( 4 )]
 
-[node name="Camera" type="Camera2D" parent="." index="3"]
+firstWaveTriggerTime = 2
+
+[node name="HUD" parent="." index="3" instance=ExtResource( 5 )]
+
+[node name="Camera" type="Camera2D" parent="." index="4"]
 
 position = Vector2( 0, 1.22775 )
 anchor_mode = 0
@@ -95,27 +97,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Player" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( 597.913, 127.814 )
+position = Vector2( 449.632, 267.932 )
 
-[node name="WaveController" parent="." index="5" instance=ExtResource( 6 )]
-
-firstWaveTriggerTime = 2
-
-[node name="Iron" parent="." index="6" instance=ExtResource( 7 )]
-
-position = Vector2( 306.258, 360.232 )
-type = "iron"
-texture = ExtResource( 8 )
-
-[node name="Energy" parent="." index="7" instance=ExtResource( 7 )]
-
-position = Vector2( 697.685, 164.321 )
-type = "energy"
-texture = ExtResource( 9 )
-capacity = 1000
-quantity_per_harvest = 3
+[node name="WorldGenerator" parent="." index="6" instance=ExtResource( 7 )]
 
 [connection signal="kill" from="Player" to="." method="_on_Player_kill"]
 

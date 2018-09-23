@@ -7,6 +7,9 @@ func _init():
 	for i in range(capacity):
 		items.push_back(null)
 
+func _ready():
+	reset()
+
 func add(item):
 	for index in range(capacity):
 		if items[index] != null and items[index].type == item.type:
@@ -39,3 +42,10 @@ func get(type):
 func reset():
 	for i in range(capacity):
 		items[i] = null
+	var energy = resource.get('energy')
+	energy = {
+		'type': 'energy',
+		'quantity': 10,
+		'texture': energy.world_texture
+	}
+	items[0] = energy
