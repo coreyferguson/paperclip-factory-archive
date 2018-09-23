@@ -1,26 +1,26 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://ui/BuildPaperClipFactory.gd" type="Script" id=1]
-[ext_resource path="res://assets/paperclipfactory.png" type="Texture" id=2]
+[ext_resource path="res://ui/BuildSolarPanel.gd" type="Script" id=1]
+[ext_resource path="res://assets/solar-panel.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 25.5925, 24.4724 )
+radius = 150.0
 
-[node name="BuildPaperClipFactory" type="Area2D"]
+[node name="BuildSolarPanel" type="Area2D"]
 
-z_index = 1
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
-collision_layer = 2048
+collision_layer = 0
+collision_mask = 16
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+_sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

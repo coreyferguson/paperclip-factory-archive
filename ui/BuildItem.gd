@@ -74,6 +74,7 @@ func build():
 	build_delivery_instance.position = player.position
 	build_delivery_instance.build_resource = build_resource
 	build_delivery_instance.build_position = get_global_mouse_position() + camera.position
+	build_delivery_instance.build_rotation = to_be_built.rotation
 	spend_required_items()
 	game.add_child(build_delivery_instance)
 

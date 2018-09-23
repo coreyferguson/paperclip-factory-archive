@@ -1,6 +1,6 @@
 extends Area2D
 
-signal harvest
+signal harvest(node)
 
 export (String) var type
 export (int) var radius = 150

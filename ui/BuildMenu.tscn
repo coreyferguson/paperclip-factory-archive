@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://ui/BuildMenu.gd" type="Script" id=1]
 [ext_resource path="res://ui/BuildItem.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://assets/paperclipfactory_icon.png" type="Texture" id=9]
 [ext_resource path="res://ui/BuildPaperClipFactory.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/solar-panel_icon.png" type="Texture" id=12]
+[ext_resource path="res://ui/BuildSolarPanel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://gameplay/SolarPanel.tscn" type="PackedScene" id=14]
 
 [node name="BuildMenu" type="GridContainer"]
 
@@ -67,6 +70,18 @@ required_item_quantities = [ 15 ]
 placement_resource = ExtResource( 10 )
 build_resource = ExtResource( 11 )
 hotkey = 80
+
+[node name="SolarPanel" parent="." index="3" instance=ExtResource( 2 )]
+
+margin_top = 162.0
+margin_right = 52.0
+margin_bottom = 212.0
+icon = ExtResource( 12 )
+required_item_types = [ "iron", "energy" ]
+required_item_quantities = [ 5, 10 ]
+placement_resource = ExtResource( 13 )
+build_resource = ExtResource( 14 )
+hotkey = 83
 
 [connection signal="build" from="LowYieldMine" to="." method="_on_BuildItem_build"]
 

@@ -45,7 +45,6 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 
 [node name="Harvester" type="Area2D" parent="." index="2"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( 0, -1.52588e-05 )
 input_pickable = true

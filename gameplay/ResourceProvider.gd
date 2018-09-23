@@ -1,6 +1,5 @@
-extends StaticBody2D
-
 tool
+extends StaticBody2D
 
 export (String) var type
 export (Texture) var texture
