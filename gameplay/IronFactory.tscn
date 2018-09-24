@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gameplay/IronFactory.gd" type="Script" id=1]
 [ext_resource path="res://assets/ironfactory.png" type="Texture" id=2]
 [ext_resource path="res://gameplay/Harvester.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gameplay/IronToPlayer.gd" type="Script" id=4]
+[ext_resource path="res://gameplay/ProgressBar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -15,7 +16,7 @@ extents = Vector2( 24.8387, 24.3218 )
 custom_solver_bias = 0.0
 radius = 150.0
 
-[node name="IronFactory" type="StaticBody2D"]
+[node name="IronFactory" type="StaticBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -39,10 +40,12 @@ shape = SubResource( 1 )
 
 [node name="Harvester" parent="." index="2" instance=ExtResource( 3 )]
 
+position = Vector2( -0.214638, 0 )
 type = "iron"
 
 [node name="IronToPlayer" type="Area2D" parent="." index="3"]
 
+visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -62,6 +65,14 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = true
+
+[node name="ProgressBar" parent="." index="4" instance=ExtResource( 5 )]
+
+margin_top = 30.0
+margin_bottom = 30.0
+size = Vector2( 100, 10 )
+capacity = 30
+current = 0
 
 [connection signal="harvest" from="Harvester" to="." method="_on_Harvester_harvest"]
 

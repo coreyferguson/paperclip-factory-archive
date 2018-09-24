@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gameplay/ResourceProvider.gd" type="Script" id=1]
+[ext_resource path="res://gameplay/ProgressBar.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 75.0
 
-[node name="ResourceProvider" type="StaticBody2D" index="0"]
+[node name="ResourceProvider" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 16
@@ -31,5 +32,13 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
+
+[node name="ProgressBar" parent="." index="2" instance=ExtResource( 2 )]
+
+margin_top = 70.0
+margin_bottom = 70.0
+size = Vector2( 100, 10 )
+capacity = 100
+current = 0
 
 

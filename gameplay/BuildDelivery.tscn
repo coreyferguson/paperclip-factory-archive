@@ -14,5 +14,6 @@ speed = 10
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 

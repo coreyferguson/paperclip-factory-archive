@@ -18,5 +18,5 @@ func build():
 	queue_free()
 	var build_instance = build_resource.instance()
 	build_instance.position = position
-	build_instance.rotation = build_rotation
+	if build_rotation: build_instance.set_sprite_rotation(build_rotation)
 	$'/root/Game'.add_child(build_instance)

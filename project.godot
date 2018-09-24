@@ -12,7 +12,7 @@ config_version=3
 
 config/name="Paperclip Factory"
 run/main_scene="res://gamestates/title/Title.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/paperclipfactory.png"
 
 [autoload]
 
