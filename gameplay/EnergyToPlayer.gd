@@ -12,5 +12,4 @@ func _on_Timer_timeout():
 	if overlapping.size() > 0:
 		for node in overlapping:
 			if node == player:
-				print('player overlap')
 				emit_signal('player_overlap')

@@ -87,9 +87,12 @@ func add_building(building):
 	rect.add_child(blip)
 
 func remove_building(building):
-	var blip = blips[building]
-	blips.erase(building)
-	blip.queue_free()
+	if blips.has(building):
+		var blip = blips[building]
+		blips.erase(building)
+		blip.queue_free()
+	else:
+		print('WARNING: Building removed not currently tracked by MiniMap')
 
 func relative_position_of(node):
 	# node position relative to world map limits
