@@ -3,7 +3,7 @@
 [ext_resource path="res://ui/HUDScore.gd" type="Script" id=1]
 [ext_resource path="res://assets/RobotoMono-Medium.tres" type="DynamicFont" id=2]
 
-[node name="HUDScore" type="MarginContainer"]
+[node name="HUDScore" type="MarginContainer" index="0"]
 
 anchor_left = 1.0
 anchor_top = 0.0

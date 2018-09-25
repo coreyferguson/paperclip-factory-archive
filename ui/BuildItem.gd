@@ -57,6 +57,7 @@ func _unhandled_input(event):
 		if event is InputEventMouseButton:
 			if event.button_index == BUTTON_LEFT:
 				if position_valid_instance.is_valid(): build()
+				get_tree().set_input_as_handled()
 			to_be_built.queue_free()
 			to_be_built = null
 			position_valid_instance.queue_free()

@@ -5,7 +5,7 @@ var is_mouse_down = false
 
 func _ready():
 	set_process_input(true)
-	$Score/Value.text = str(score.get_paperclips())
+	$Score.text = 'Score: ' + str(score.get_paperclips())
 	
 func _unhandled_input(event):
 	if event is InputEventMouseButton:

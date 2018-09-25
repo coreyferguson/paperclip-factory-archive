@@ -18,7 +18,7 @@
 [ext_resource path="res://ui/BuildIronFactory.tscn" type="PackedScene" id=16]
 [ext_resource path="res://gameplay/IronFactory.tscn" type="PackedScene" id=17]
 
-[node name="BuildMenu" type="GridContainer" index="0"]
+[node name="BuildMenu" type="GridContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.5
