@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://ui/BuildItemHoverRequirement.gd" type="Script" id=1]
-[ext_resource path="res://assets/moon_icon.png" type="Texture" id=2]
 
 [node name="BuildItemHoverRequirement" type="HBoxContainer"]
 
@@ -30,7 +29,6 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -38,7 +36,6 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 2 )
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="." index="1"]
@@ -47,9 +44,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 44.0
+margin_left = 4.0
 margin_top = 13.0
-margin_right = 52.0
+margin_right = 30.0
 margin_bottom = 27.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -57,7 +54,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-text = "2"
+text = "Null"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

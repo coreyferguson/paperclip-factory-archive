@@ -9,6 +9,7 @@ export (Array, int) var required_item_quantities
 export (PackedScene) var placement_resource
 export (PackedScene) var build_resource
 export (int) var hotkey
+export (String) var description
 
 const STATE_DEFAULT = 0
 const STATE_CHOOSE_LOCATION = 1

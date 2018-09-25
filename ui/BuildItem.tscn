@@ -31,6 +31,7 @@ required_item_quantities = null
 placement_resource = null
 build_resource = null
 hotkey = null
+description = null
 
 [node name="Timer" type="Timer" parent="." index="0"]
 
