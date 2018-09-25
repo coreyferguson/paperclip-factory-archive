@@ -1,20 +1,6 @@
 extends CanvasLayer
 
-signal build
+onready var notification = $Notification
 
-func select(nodes):
-#	$Selected.visible = true
-	pass
-
-func deselect():
-#	$Selected.visible = false
-	pass
-
-func collect(item):
-	$Inventory.collect(item)
-
-func _on_WaveController_score_change(score):
-	$HUDScore.set_score(score)
-
-func _on_WaveController_score_trigger_change(scoreTrigger):
-	pass
+func _on_WaveController_notify_encounter(seconds):
+	notification.notify_encounter(seconds)

@@ -16,7 +16,7 @@ extents = Vector2( 24.8387, 24.3218 )
 custom_solver_bias = 0.0
 radius = 150.0
 
-[node name="IronFactory" type="StaticBody2D" index="0"]
+[node name="IronFactory" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 1

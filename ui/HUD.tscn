@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ui/HUD.gd" type="Script" id=1]
 [ext_resource path="res://ui/HUDInventory.tscn" type="PackedScene" id=2]
@@ -6,8 +6,18 @@
 [ext_resource path="res://ui/HUDScore.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/BuildItemHover.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/MiniMap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/Notification.gd" type="Script" id=7]
+[ext_resource path="res://assets/Roboto_Mono/RobotoMono-Medium.ttf" type="DynamicFontData" id=8]
 
-[node name="HUD" type="CanvasLayer" index="0"]
+[sub_resource type="DynamicFont" id=1]
+
+size = 18
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 8 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="HUD" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -25,11 +35,6 @@ margin_bottom = 106.0
 
 [node name="HUDScore" parent="." index="2" instance=ExtResource( 4 )]
 
-anchor_top = 0.0
-anchor_bottom = 0.0
-margin_top = 0.0
-margin_bottom = 24.0
-
 [node name="BuildItemHover" parent="." index="3" instance=ExtResource( 5 )]
 
 visible = false
@@ -41,8 +46,74 @@ anchor_right = 1.0
 margin_left = -230.0
 margin_right = 0.0
 
+[node name="Notification" type="Control" parent="." index="5"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -450.0
+margin_right = 450.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 7 )
+_sections_unfolded = [ "Grow Direction", "Mouse", "Visibility" ]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Notification" index="0"]
+
+modulate = Color( 0.933333, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -300.0
+margin_right = 300.0
+margin_bottom = 57.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "next encounter in 5 seconds"
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Grow Direction", "Material", "Rect", "Size Flags", "Visibility", "custom_fonts" ]
+
+[node name="Tween" type="Tween" parent="Notification" index="1"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Timer" type="Timer" parent="Notification" index="2"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
 [connection signal="hover_in" from="BuildMenu" to="BuildItemHover" method="_on_BuildMenu_hover_in"]
 
 [connection signal="hover_out" from="BuildMenu" to="BuildItemHover" method="_on_BuildMenu_hover_out"]
+
+[connection signal="timeout" from="Notification/Timer" to="Notification" method="notify_timer_fade_out"]
 
 

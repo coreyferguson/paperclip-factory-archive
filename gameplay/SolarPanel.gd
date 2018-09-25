@@ -14,7 +14,7 @@ func _ready():
 func _on_Harvester_harvest(node):
 	if quantity < capacity:
 		var resource = node.harvest()
-		if resource: quantity += resource.quantity
+		if resource: quantity += resource.quantity/4.0
 	update_progress_bar()
 
 func _on_EnergyToPlayer_player_overlap():

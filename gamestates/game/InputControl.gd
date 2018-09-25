@@ -47,20 +47,20 @@ func handleMouseEvents(event):
 	if is_dragging:
 		drag(event)
 	elif is_left_click:
-		leftClick(event)
-	elif is_right_click:
 		player.move_to(get_global_mouse_position())
+	elif is_right_click:
+		pass
 
-func leftClick(event):
-	get_tree().set_input_as_handled()
-	var space = get_world_2d().get_direct_space_state();
-	var intersections = space.intersect_point(get_global_mouse_position())
-	var colliders = to_colliders(intersections)
-	if colliders.size() > 0: hud.select(colliders)
-	else: hud.deselect()
-	for collider in colliders:
-		if (collider.has_method('select')): 
-			collider.select()
+#func leftClick(event):
+#	get_tree().set_input_as_handled()
+#	var space = get_world_2d().get_direct_space_state();
+#	var intersections = space.intersect_point(get_global_mouse_position())
+#	var colliders = to_colliders(intersections)
+#	if colliders.size() > 0: hud.select(colliders)
+#	else: hud.deselect()
+#	for collider in colliders:
+#		if (collider.has_method('select')): 
+#			collider.select()
 
 func drag(event):
 	if event is InputEventMouseMotion:

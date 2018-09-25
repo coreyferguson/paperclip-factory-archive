@@ -1,5 +1,7 @@
 extends Node
 
+signal notify_encounter(seconds)
+
 export (bool) var enabled = true
 export (int) var firstWaveTriggerTime = 10
 export (int) var waveTriggerIncrements = 90
@@ -12,6 +14,10 @@ func _ready():
 
 func _on_Timer_timeout():
 	elapsedTime += 1
+	if elapsedTime == waveTrigger-30:
+		emit_signal('notify_encounter', 30)
+	if elapsedTime == waveTrigger-10:
+		emit_signal('notify_encounter', 10)
 	if elapsedTime >= waveTrigger: 
 		waveTrigger += waveTriggerIncrements
 		if enabled: spawnWave()
@@ -54,4 +60,3 @@ func spawnWave():
 		var enemy = enemyResource.instance()
 		enemy.position = pos
 		$'/root/Game'.add_child(enemy)
-

@@ -101,7 +101,7 @@ required_item_quantities = [ 20, 10 ]
 placement_resource = ExtResource( 16 )
 build_resource = ExtResource( 17 )
 hotkey = 73
-description = "Iron Factory: Harvest and store energy while not present at a moon."
+description = "Iron Factory: Harvest and store iron while not present at a moon."
 
 [connection signal="build" from="LowYieldMine" to="." method="_on_BuildItem_build"]
 
