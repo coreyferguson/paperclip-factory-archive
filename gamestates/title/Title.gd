@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends MarginContainer
 
 var is_mouse_down = false
 

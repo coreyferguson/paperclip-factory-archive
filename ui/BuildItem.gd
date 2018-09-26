@@ -31,6 +31,7 @@ func _ready():
 
 func _unhandled_key_input(event):
 	if event is InputEventKey and event.pressed and event.scancode == hotkey:
+		get_tree().set_input_as_handled()
 		choose_location()
 
 func _on_Timer_timeout():
