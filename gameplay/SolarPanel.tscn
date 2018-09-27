@@ -16,7 +16,7 @@ extents = Vector2( 7.43491, 25.0089 )
 custom_solver_bias = 0.0
 radius = 150.0
 
-[node name="SolarPanel" type="StaticBody2D" index="0" groups=[
+[node name="SolarPanel" type="StaticBody2D" groups=[
 "player",
 ]]
 
@@ -39,6 +39,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 position = Vector2( -0.358475, 0 )
 shape = SubResource( 1 )
 

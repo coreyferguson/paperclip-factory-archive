@@ -8,13 +8,12 @@
 [ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=7]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
-editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -101,7 +100,7 @@ __meta__ = {
 
 [node name="Player" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 479.561, 270.652 )
+position = Vector2( 453.714, 301.941 )
 
 [connection signal="notify_encounter" from="WaveController" to="HUD" method="_on_WaveController_notify_encounter"]
 

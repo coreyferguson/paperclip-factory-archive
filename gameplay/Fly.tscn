@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 radius = 14.5504
 
-[node name="Fly" type="KinematicBody2D" groups=[
+[node name="Fly" type="KinematicBody2D" index="0" groups=[
 "enemy",
 ]]
 
