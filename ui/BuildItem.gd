@@ -10,6 +10,7 @@ export (PackedScene) var placement_resource
 export (PackedScene) var build_resource
 export (int) var hotkey
 export (String) var description
+export (bool) var has_position_indicator = true
 
 const STATE_DEFAULT = 0
 const STATE_CHOOSE_LOCATION = 1
@@ -46,23 +47,27 @@ func choose_location():
 		state = STATE_CHOOSE_LOCATION
 		to_be_built = placement_resource.instance()
 		game.add_child(to_be_built)
-		position_valid_instance = position_valid_resource.instance()
-		game.add_child(position_valid_instance)
+		if has_position_indicator:
+			position_valid_instance = position_valid_resource.instance()
+			game.add_child(position_valid_instance)
 
 func _unhandled_input(event):
 	if state == STATE_CHOOSE_LOCATION:
 		if event is InputEventMouseMotion:
 			to_be_built.position = get_global_mouse_position() + camera.position
-			position_valid_instance.position = get_global_mouse_position() + camera.position
-			checkValidPosition()
+			if has_position_indicator:
+				position_valid_instance.position = get_global_mouse_position() + camera.position
+				checkValidPosition()
 		if event is InputEventMouseButton:
 			if event.button_index == BUTTON_LEFT:
-				if position_valid_instance.is_valid(): build()
+				if has_position_indicator and position_valid_instance.is_valid(): build()
+				if !has_position_indicator: build()
 				get_tree().set_input_as_handled()
 			to_be_built.queue_free()
 			to_be_built = null
-			position_valid_instance.queue_free()
-			position_valid_instance = null
+			if has_position_indicator:
+				position_valid_instance.queue_free()
+				position_valid_instance = null
 			state = STATE_DEFAULT
 
 func checkValidPosition():

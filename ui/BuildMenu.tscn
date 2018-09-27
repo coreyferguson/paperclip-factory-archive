@@ -18,7 +18,7 @@
 [ext_resource path="res://ui/BuildIronFactory.tscn" type="PackedScene" id=16]
 [ext_resource path="res://gameplay/IronFactory.tscn" type="PackedScene" id=17]
 
-[node name="BuildMenu" type="GridContainer"]
+[node name="BuildMenu" type="GridContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.5
@@ -50,6 +50,7 @@ placement_resource = ExtResource( 4 )
 build_resource = ExtResource( 5 )
 hotkey = 78
 description = "Anti Missile Mine: Protect yourself from missiles."
+has_position_indicator = false
 
 [node name="Mine" parent="." index="1" instance=ExtResource( 2 )]
 
@@ -63,6 +64,7 @@ placement_resource = ExtResource( 7 )
 build_resource = ExtResource( 8 )
 hotkey = 77
 description = "Anti Ship Mine: Protect yourself from Kamakaze pilots."
+has_position_indicator = false
 
 [node name="PaperClipFactory" parent="." index="2" instance=ExtResource( 2 )]
 

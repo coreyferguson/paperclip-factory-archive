@@ -32,6 +32,7 @@ placement_resource = null
 build_resource = null
 hotkey = null
 description = null
+has_position_indicator = true
 
 [node name="Timer" type="Timer" parent="." index="0"]
 
