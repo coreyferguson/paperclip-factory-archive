@@ -3,6 +3,7 @@ extends Button
 signal build
 signal hover_in(build_item)
 signal hover_out(build_item)
+signal state_change(state)
 
 export (Array, String) var required_item_types
 export (Array, int) var required_item_quantities
@@ -19,6 +20,8 @@ var to_be_built = null
 var position_valid_resource = load('res://ui/ValidPositionIndicator.tscn')
 var position_valid_instance
 var build_delivery_resource = load('res://gameplay/BuildDelivery.tscn')
+var has_required_items = false
+var is_disabled_externally = false
 
 var game
 var camera
@@ -30,21 +33,25 @@ func _ready():
 	player = $'/root/Game/Player'
 	_on_Timer_timeout()
 
+func _process(delta):
+	if has_required_items and !is_disabled_externally: disabled = false
+	else: disabled = true
+
 func _unhandled_key_input(event):
 	if event is InputEventKey and event.pressed and event.scancode == hotkey:
 		get_tree().set_input_as_handled()
 		choose_location()
 
 func _on_Timer_timeout():
-	if has_required_items(): disabled = false
-	else: disabled = true
+	if has_required_items(): has_required_items = true
+	else: has_required_items = false
 
 func _on_BuildItem_pressed():
 	choose_location()
 
 func choose_location():
 	if has_required_items():
-		state = STATE_CHOOSE_LOCATION
+		set_state(STATE_CHOOSE_LOCATION)
 		to_be_built = placement_resource.instance()
 		game.add_child(to_be_built)
 		if has_position_indicator:
@@ -68,7 +75,7 @@ func _unhandled_input(event):
 			if has_position_indicator:
 				position_valid_instance.queue_free()
 				position_valid_instance = null
-			state = STATE_DEFAULT
+			set_state(STATE_DEFAULT)
 
 func checkValidPosition():
 	var to_be_built_valid = true
@@ -103,3 +110,10 @@ func _on_BuildItem_mouse_entered():
 
 func _on_BuildItem_mouse_exited():
 	emit_signal('hover_out', self)
+
+func set_state(value):
+	state = value
+	var string_value
+	if value == STATE_DEFAULT: string_value = 'default'
+	elif value == STATE_CHOOSE_LOCATION: string_value = 'choose_location'
+	emit_signal('state_change', string_value)
