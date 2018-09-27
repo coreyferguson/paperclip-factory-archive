@@ -43,9 +43,8 @@ func reset():
 	for i in range(capacity):
 		items[i] = null
 	var energy = resource.get('energy')
-	energy = {
+	items[0] = {
 		'type': 'energy',
-		'quantity': 10,
+		'quantity': 20,
 		'texture': energy.world_texture
 	}
-	items[0] = energy
