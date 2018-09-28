@@ -4,6 +4,7 @@ var is_left_down = false
 var is_right_down = false
 var left_down_origin
 var is_dragging = false
+var is_following_player = false
 
 var camera
 var player
@@ -13,6 +14,12 @@ func _ready():
 	camera = $'/root/Game/Camera'
 	player = $'/root/Game/Player'
 	hud = $'/root/Game/HUD'
+
+func _process(delta):
+	if is_following_player: move_camera_to_player()
+
+func _unhandled_key_input(event):
+	handleKeyEvents(event)
 
 func _unhandled_input(event):
 	handleMouseEvents(event)
@@ -70,8 +77,16 @@ func drag(event):
 		camera.position.x = clamp(camera.position.x, camera.limit_left, camera.limit_right-screenSize.x)
 		camera.position.y = clamp(camera.position.y, camera.limit_top, camera.limit_bottom-screenSize.y)
 
+func handleKeyEvents(event):
+	if event is InputEventKey and event.scancode == KEY_SPACE and event.pressed: is_following_player = true
+	else: is_following_player = false
+
 func to_colliders(intersections):
 	var colliders = Array()
 	for i in intersections:
 		colliders.push_back(i.collider)
 	return colliders
+
+func move_camera_to_player():
+	var screen_size = OS.get_real_window_size()
+	camera.position = player.position - screen_size/2
