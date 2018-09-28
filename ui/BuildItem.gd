@@ -52,7 +52,7 @@ func _on_BuildItem_pressed():
 	choose_location()
 
 func choose_location():
-	if has_required_items():
+	if state != STATE_CHOOSE_LOCATION and has_required_items():
 		set_state(STATE_CHOOSE_LOCATION)
 		to_be_built = placement_resource.instance()
 		game.add_child(to_be_built)
