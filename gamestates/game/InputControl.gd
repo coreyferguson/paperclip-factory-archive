@@ -1,5 +1,9 @@
 extends Node
 
+export (float) var max_zoom_in = 1
+export (float) var max_zoom_out = 10
+export (float) var zoom_speed = 0.1
+
 var is_left_down = false
 var is_right_down = false
 var left_down_origin
@@ -45,6 +49,12 @@ func handleMouseEvents(event):
 	if !is_dragging and is_left_down and event is InputEventMouseMotion:
 		var magnitude = event.position.distance_to(left_down_origin)
 		if magnitude > 25: is_dragging = true
+	
+	# mouse scroll wheel
+	
+	if event is InputEventMouseButton:
+		if event.button_index == 5: zoom_out()
+		elif event.button_index == 4: zoom_in()
 
 	if is_dragging:
 		drag(event)
@@ -67,10 +77,8 @@ func handleMouseEvents(event):
 func drag(event):
 	if event is InputEventMouseMotion:
 		get_tree().set_input_as_handled()
-		camera.position -= event.relative
-		var screenSize = OS.get_real_window_size()
-		camera.position.x = clamp(camera.position.x, camera.limit_left, camera.limit_right-screenSize.x)
-		camera.position.y = clamp(camera.position.y, camera.limit_top, camera.limit_bottom-screenSize.y)
+		camera.position -= event.relative * camera.zoom
+		clamp_camera_position()
 
 func handleKeyEvents(event):
 	if event is InputEventKey and event.scancode == KEY_SPACE and event.pressed: is_following_player = true
@@ -84,4 +92,21 @@ func to_colliders(intersections):
 
 func move_camera_to_player():
 	var screen_size = OS.get_real_window_size()
-	camera.position = player.position - screen_size/2
+	camera.position = player.position - screen_size/2*camera.zoom
+
+func zoom_out():
+	if camera.zoom.x < max_zoom_out:
+		camera.zoom += Vector2(zoom_speed, zoom_speed)
+		camera.position -= OS.window_size/2 * zoom_speed
+		clamp_camera_position()
+
+func zoom_in():
+	if camera.zoom.x > max_zoom_in:
+		camera.zoom -= Vector2(zoom_speed, zoom_speed)
+		camera.position += OS.window_size/2 * zoom_speed
+		clamp_camera_position()
+
+func clamp_camera_position():
+	var window_size = OS.get_real_window_size()
+	camera.position.x = clamp(camera.position.x, camera.limit_left, camera.limit_right-window_size.x*camera.zoom.x)
+	camera.position.y = clamp(camera.position.y, camera.limit_top, camera.limit_bottom-window_size.y*camera.zoom.y)

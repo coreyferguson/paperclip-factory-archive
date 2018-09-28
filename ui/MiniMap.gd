@@ -34,15 +34,15 @@ func _process(delta):
 		else: blip.visible = false
 	# screen boundary
 	var minimap_size = Vector2(200, 200)
-	screen_blip.rect_size = OS.window_size * minimap_size / world.get_map_size()
 	screen_blip.rect_position = relative_position_of(camera)
+	screen_blip.rect_size = OS.window_size * minimap_size / world.get_map_size() * camera.zoom
 
 func mouse_button_pressed(local_position):
 	var global_position = global_position_of(local_position)
 	var screenSize = OS.get_real_window_size()
-	camera.position = global_position - screenSize/2
-	camera.position.x = clamp(camera.position.x, camera.limit_left, camera.limit_right-screenSize.x)
-	camera.position.y = clamp(camera.position.y, camera.limit_top, camera.limit_bottom-screenSize.y)
+	camera.position = global_position - camera.zoom*screenSize/2
+	camera.position.x = clamp(camera.position.x, camera.limit_left, camera.limit_right-screenSize.x*camera.zoom.x)
+	camera.position.y = clamp(camera.position.y, camera.limit_top, camera.limit_bottom-screenSize.y*camera.zoom.y)
 
 func track_player():
 	var blip = TextureRect.new()

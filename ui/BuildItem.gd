@@ -63,9 +63,9 @@ func choose_location():
 func _unhandled_input(event):
 	if state == STATE_CHOOSE_LOCATION:
 		if event is InputEventMouseMotion:
-			to_be_built.position = get_global_mouse_position() + camera.position
+			to_be_built.position = get_global_mouse_position()*camera.zoom + camera.position
 			if has_position_indicator:
-				position_valid_instance.position = get_global_mouse_position() + camera.position
+				position_valid_instance.position = get_global_mouse_position()*camera.zoom + camera.position
 				checkValidPosition()
 		if event is InputEventMouseButton:
 			if event.button_index == BUTTON_LEFT:
@@ -89,7 +89,7 @@ func build():
 	var build_delivery_instance = build_delivery_resource.instance()
 	build_delivery_instance.position = player.position
 	build_delivery_instance.build_resource = build_resource
-	build_delivery_instance.build_position = get_global_mouse_position() + camera.position
+	build_delivery_instance.build_position = get_global_mouse_position()*camera.zoom + camera.position
 	build_delivery_instance.build_rotation = to_be_built.rotation
 	spend_required_items()
 	game.add_child(build_delivery_instance)
