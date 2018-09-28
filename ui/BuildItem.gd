@@ -37,6 +37,7 @@ func _ready():
 func _process(delta):
 	if has_required_items and !is_disabled_externally: disabled = false
 	else: disabled = true
+	release_focus()
 
 func _unhandled_key_input(event):
 	if event is InputEventKey and event.pressed and event.scancode == hotkey:
