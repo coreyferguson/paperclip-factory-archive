@@ -6,14 +6,9 @@ var left_down_origin
 var is_dragging = false
 var is_following_player = false
 
-var camera
-var player
-var hud
-
-func _ready():
-	camera = $'/root/Game/Camera'
-	player = $'/root/Game/Player'
-	hud = $'/root/Game/HUD'
+onready var camera = $'/root/Game/Camera'
+onready var player = $'/root/Game/Player'
+onready var hud = $'/root/Game/HUD'
 
 func _process(delta):
 	if is_following_player: move_camera_to_player()
