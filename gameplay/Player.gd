@@ -14,7 +14,7 @@ func _process(delta):
 		else:
 			var velocity = target - position
 			velocity = velocity.normalized() * speed
-			move_and_collide(velocity)
+			position += velocity
 			rotation = velocity.angle()
 
 func select():
