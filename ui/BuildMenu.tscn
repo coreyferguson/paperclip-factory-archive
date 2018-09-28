@@ -18,7 +18,7 @@
 [ext_resource path="res://ui/BuildIronFactory.tscn" type="PackedScene" id=16]
 [ext_resource path="res://gameplay/IronFactory.tscn" type="PackedScene" id=17]
 
-[node name="BuildMenu" type="GridContainer"]
+[node name="BuildMenu" type="GridContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.5
@@ -49,6 +49,7 @@ required_item_quantities = [ 1, 1 ]
 placement_resource = ExtResource( 4 )
 build_resource = ExtResource( 5 )
 hotkey = 78
+hotkey_text = "N"
 description = "Anti Missile Mine: Protect yourself from missiles."
 has_position_indicator = false
 
@@ -63,6 +64,7 @@ required_item_quantities = [ 5 ]
 placement_resource = ExtResource( 7 )
 build_resource = ExtResource( 8 )
 hotkey = 77
+hotkey_text = "M"
 description = "Anti Ship Mine: Protect yourself from Kamakaze pilots."
 has_position_indicator = false
 
@@ -77,6 +79,7 @@ required_item_quantities = [ 15 ]
 placement_resource = ExtResource( 10 )
 build_resource = ExtResource( 11 )
 hotkey = 80
+hotkey_text = "P"
 description = "Paperclip Factory: Get points, but nothing else."
 
 [node name="SolarPanel" parent="." index="3" instance=ExtResource( 2 )]
@@ -90,6 +93,7 @@ required_item_quantities = [ 20, 10 ]
 placement_resource = ExtResource( 13 )
 build_resource = ExtResource( 14 )
 hotkey = 83
+hotkey_text = "S"
 description = "Solar Panel: Harvest and store energy while not present at a sun."
 
 [node name="IronFactory" parent="." index="4" instance=ExtResource( 2 )]
@@ -103,12 +107,7 @@ required_item_quantities = [ 20, 10 ]
 placement_resource = ExtResource( 16 )
 build_resource = ExtResource( 17 )
 hotkey = 73
+hotkey_text = "I"
 description = "Iron Factory: Harvest and store iron while not present at a moon."
-
-[connection signal="build" from="LowYieldMine" to="." method="_on_BuildItem_build"]
-
-[connection signal="build" from="Mine" to="." method="_on_BuildItem_build"]
-
-[connection signal="build" from="PaperClipFactory" to="." method="_on_BuildItem_build"]
 
 

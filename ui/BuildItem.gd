@@ -10,6 +10,7 @@ export (Array, int) var required_item_quantities
 export (PackedScene) var placement_resource
 export (PackedScene) var build_resource
 export (int) var hotkey
+export (String) var hotkey_text
 export (String) var description
 export (bool) var has_position_indicator = true
 
