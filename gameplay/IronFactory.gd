@@ -4,6 +4,7 @@ signal kill
 
 export (int) var capacity = 30
 export (int) var harvest_rate = 10
+export (int) var conversion_rate = 0.25
 var quantity = 0
 
 var texture = load('res://assets/moon.png')
@@ -18,7 +19,7 @@ func kill():
 func _on_Harvester_harvest(node):
 	if quantity < capacity:
 		var resource = node.harvest()
-		if resource: quantity += resource.quantity/4.0
+		if resource: quantity += resource.quantity * conversion_rate
 	update_progress_bar()
 
 func _on_IronToPlayer_player_overlap():

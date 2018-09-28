@@ -31,6 +31,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 capacity = 30
 harvest_rate = 10
+conversion_rate = 0.25
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

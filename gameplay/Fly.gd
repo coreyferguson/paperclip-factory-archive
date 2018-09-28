@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (int) var speed = 5
+export (int) var speed = 4
 export (int) var fire_wait_time = 0.5
 export (int) var mode_switch_time = 1
 

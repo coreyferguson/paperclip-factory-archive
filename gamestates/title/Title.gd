@@ -1,4 +1,4 @@
-extends MarginContainer
+extends Control
 
 var is_mouse_down = false
 

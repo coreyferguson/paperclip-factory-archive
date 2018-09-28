@@ -75,6 +75,9 @@ func add_enemy(enemy):
 	rect.add_child(blip)
 
 func remove_enemy(enemy):
+	if !blips.has(enemy):
+		print('Blip does not exist for given entity: ', enemy.get_instance_id())
+		return
 	var blip = blips[enemy]
 	blips.erase(enemy)
 	blip.queue_free()
