@@ -10,7 +10,7 @@ func _ready():
 		var cols = floor(world.get_map_size().x / world_chunk_size)
 		for row in range(rows):
 			for col in range(cols):
-				var random_resource = resource.get_random()
+				var random_resource = resource.generate()
 				var inst = resource_provider_resource.instance()
 				inst.type = random_resource.type
 				inst.texture = random_resource.world_texture
