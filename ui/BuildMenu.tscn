@@ -21,12 +21,6 @@
 [ext_resource path="res://ui/BuildDefenseGrid.tscn" type="PackedScene" id=19]
 [ext_resource path="res://gameplay/DefenseGrid.tscn" type="PackedScene" id=20]
 
-
-
-
-
-
-
 [node name="BuildMenu" type="GridContainer"]
 
 anchor_left = 0.0

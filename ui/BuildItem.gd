@@ -98,14 +98,14 @@ func has_required_items():
 	if !required_item_types: return true
 	var required = {}
 	for i in range(required_item_types.size()):
-		var item = inventory.get(required_item_types[i])
+		var item = Inventory.get(required_item_types[i])
 		if !item || item.quantity < required_item_quantities[i]: return false
 	return true
 
 func spend_required_items():
 	if !required_item_types: return
 	for i in range(required_item_types.size()):
-		inventory.remove(required_item_types[i], required_item_quantities[i])
+		Inventory.remove(required_item_types[i], required_item_quantities[i])
 
 func _on_BuildItem_mouse_entered():
 	emit_signal('hover_in', self)

@@ -21,7 +21,7 @@ func _on_Harvester_harvest(node):
 func _on_EnergyToPlayer_player_overlap():
 	if quantity >= harvest_rate:
 		quantity -= harvest_rate
-		inventory.add({
+		Inventory.add({
 			'type': 'energy',
 			'texture': texture,
 			'quantity': harvest_rate

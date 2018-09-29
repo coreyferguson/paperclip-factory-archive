@@ -6,8 +6,8 @@ var blips = {}
 
 func _ready():
 	camera = $'/root/Game/Camera'
-	enemies.connect('add_enemy', self, '_on_add_enemy')
-	enemies.connect('remove_enemy', self, '_on_remove_enemy')
+	Enemies.connect('add_enemy', self, '_on_add_enemy')
+	Enemies.connect('remove_enemy', self, '_on_remove_enemy')
 
 func _on_add_enemy(enemy):
 	var blip = radar_pointer_resource.instance()

@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/player/mine.png" type="Texture" id=2]
 [ext_resource path="res://gameplay/Detector.tscn" type="PackedScene" id=3]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -19,6 +18,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
 speed = 10
+default_detection_radius = 150
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

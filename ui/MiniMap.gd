@@ -17,8 +17,8 @@ func _ready():
 	rect = $ReferenceRect
 	rect.connect('mouse_button_pressed', self, 'mouse_button_pressed')
 	# dynamic entities
-	enemies.connect('add_enemy', self, 'add_enemy')
-	enemies.connect('remove_enemy', self, 'remove_enemy')
+	Enemies.connect('add_enemy', self, 'add_enemy')
+	Enemies.connect('remove_enemy', self, 'remove_enemy')
 	buildings.connect('add_building', self, 'add_building')
 	buildings.connect('remove_building', self, 'remove_building')
 	# static entities

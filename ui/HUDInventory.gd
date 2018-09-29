@@ -1,14 +1,14 @@
 extends GridContainer
 
 func collect(item):
-	inventory.add(item)
+	Inventory.add(item)
 
 func _on_Timer_timeout():
 	refresh()
-	
+
 func refresh():
-	for index in range(0, inventory.capacity):
-		var item = inventory.items[index]
+	for index in range(0, Inventory.capacity):
+		var item = Inventory.items[index]
 		if item != null:
 			get_node('InventorySlot'+str(index)).set_item(item.texture, item.quantity)
 		else:

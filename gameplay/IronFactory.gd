@@ -7,7 +7,7 @@ export (int) var harvest_rate = 10
 export (int) var conversion_rate = 0.25
 var quantity = 0
 
-var texture = load('res://assets/moon.png')
+var texture = load('res://assets/resources/moon.png')
 
 func _ready():
 	buildings.add_building(self)
@@ -25,7 +25,7 @@ func _on_Harvester_harvest(node):
 func _on_IronToPlayer_player_overlap():
 	if quantity >= harvest_rate:
 		quantity -= harvest_rate
-		inventory.add({
+		Inventory.add({
 			'type': 'iron',
 			'texture': texture,
 			'quantity': harvest_rate

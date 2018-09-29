@@ -10,7 +10,7 @@ var mode = Mode.ATTACK
 var target = null
 
 func _ready():
-	enemies.add_enemy(self)
+	Enemies.add_enemy(self)
 	$Timer.wait_time = mode_switch_time
 	retarget()
 	
@@ -24,7 +24,7 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.is_in_group('player'):
 			collision.collider.kill()
-			enemies.remove_enemy(self)
+			Enemies.remove_enemy(self)
 
 func switch_mode():
 	if mode == Mode.ATTACK: mode = Mode.DODGE
@@ -55,4 +55,4 @@ func get_closest_player_node():
 	else: return weakref(closestNode)
 
 func kill():
-	enemies.remove_enemy(self)
+	Enemies.remove_enemy(self)

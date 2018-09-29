@@ -7,7 +7,7 @@ export (int) var missileTimerWaitTime = 20
 var target = null
 
 func _ready():
-	enemies.add_enemy(self)
+	Enemies.add_enemy(self)
 	$MissileTimer.wait_time = missileTimerWaitTime
 	if shouldFireMissiles: $MissileTimer.start()
 	retarget()
@@ -20,7 +20,7 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.is_in_group('player'):
 			collision.collider.kill()
-			enemies.remove_enemy(self)
+			Enemies.remove_enemy(self)
 
 func get_closest_player_node():
 	var playerNodes = get_tree().get_nodes_in_group('player')
@@ -54,4 +54,4 @@ func _on_MissileTimer_timeout():
 		$'/root/Game'.add_child(missile)
 
 func kill():
-	enemies.remove_enemy(self)
+	Enemies.remove_enemy(self)

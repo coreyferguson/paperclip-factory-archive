@@ -12,17 +12,18 @@ config_version=3
 
 config/name="Paperclip Factory"
 run/main_scene="res://gamestates/title/Title.tscn"
-config/icon="res://assets/paperclipfactory.png"
+config/icon="res://assets/player/paperclipfactory_icon.png"
 
 [autoload]
 
-inventory="*res://gamestates/game/Inventory.gd"
+Inventory="*res://gamestates/game/Inventory.gd"
 score="*res://gamestates/game/Score.gd"
-enemies="*res://gamestates/game/Enemies.gd"
+Enemies="*res://gamestates/game/Enemies.gd"
 resource="*res://gamestates/game/Resource.gd"
 buildings="*res://gamestates/game/Buildings.gd"
 world="*res://gamestates/game/World.gd"
 GlobalShortcuts="*res://gamestates/game/GlobalShortcuts.gd"
+Science="*res://gamestates/game/Science.gd"
 
 [display]
 

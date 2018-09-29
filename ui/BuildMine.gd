@@ -11,7 +11,7 @@ var toBeBuilt = null
 
 func _on_Timer_timeout():
 	var ironQuantity = 0
-	for item in inventory.items:
+	for item in Inventory.items:
 		if item != null and item.type == 'iron':
 			ironQuantity = item.quantity
 	if ironQuantity >= required_iron:
@@ -32,7 +32,7 @@ func _unhandled_input(event):
 			remove_child(toBeBuilt)
 			if event.button_index == BUTTON_LEFT:
 				toBeBuilt.position = get_global_mouse_position()
-				inventory.remove('iron', required_iron)
+				Inventory.remove('iron', required_iron)
 				emit_signal('build', toBeBuilt)
 				state = STATE_DEFAULT
 				toBeBuilt = null

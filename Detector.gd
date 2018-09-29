@@ -15,3 +15,6 @@ func _on_Timer_timeout():
 		for node in overlapping:
 			if node.is_in_group(groupDetected):
 				emit_signal('detection', node)
+
+func set_radius(radius):
+	$CollisionShape2D.shape.radius = radius

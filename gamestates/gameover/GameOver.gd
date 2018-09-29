@@ -21,4 +21,4 @@ func _on_Timer_timeout():
 
 func reset():
 	score.reset()
-	inventory.reset()
+	Inventory.reset()

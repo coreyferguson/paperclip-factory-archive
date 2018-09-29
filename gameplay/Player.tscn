@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/player/player.png" type="Texture" id=2]
 [ext_resource path="res://gameplay/Harvester.gd" type="Script" id=3]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -16,7 +15,7 @@ height = 23.8592
 custom_solver_bias = 0.0
 radius = 151.016
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="KinematicBody2D" index="0" groups=[
 "player",
 ]]
 
@@ -29,7 +28,7 @@ collision_mask = 385
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
-speed = 2
+default_speed = 2
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

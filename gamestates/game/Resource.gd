@@ -14,14 +14,14 @@ var resource = {
 		'icon': load('res://assets/resources/sun_icon.png'),
 		'world_texture': load('res://assets/resources/sun.png'),
 		'initial_capacity': 10000,
-		'harvest_rate': 3,
+		'harvest_rate': 2,
 		'probability_range': [0.6, 0.9]
 	},
 	'organic': {
 		'type': 'organic',
 		'icon': load('res://assets/resources/earth_icon.png'),
 		'world_texture': load('res://assets/resources/earth.png'),
-		'initial_capacity': 1000,
+		'initial_capacity': 100,
 		'harvest_rate': 2,
 		'probability_range': [0.9, 1]
 	}
