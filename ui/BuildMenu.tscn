@@ -21,7 +21,7 @@
 [ext_resource path="res://ui/BuildDefenseGrid.tscn" type="PackedScene" id=19]
 [ext_resource path="res://gameplay/DefenseGrid.tscn" type="PackedScene" id=20]
 
-[node name="BuildMenu" type="GridContainer"]
+[node name="BuildMenu" type="GridContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.5
@@ -125,7 +125,7 @@ placement_resource = ExtResource( 19 )
 build_resource = ExtResource( 20 )
 hotkey = 68
 hotkey_text = "D"
-description = "Defense Grid will automatically place mines in front of the enemy."
+description = "Defense Grid will automatically place mines in a limited range."
 has_position_indicator = false
 
 
