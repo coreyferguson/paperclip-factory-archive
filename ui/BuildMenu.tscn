@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://ui/BuildMenu.gd" type="Script" id=1]
 [ext_resource path="res://ui/BuildItem.tscn" type="PackedScene" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://assets/ironfactory_icon.png" type="Texture" id=15]
 [ext_resource path="res://ui/BuildIronFactory.tscn" type="PackedScene" id=16]
 [ext_resource path="res://gameplay/IronFactory.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/defense-grid_icon.png" type="Texture" id=18]
+[ext_resource path="res://ui/BuildDefenseGrid.tscn" type="PackedScene" id=19]
+[ext_resource path="res://gameplay/DefenseGrid.tscn" type="PackedScene" id=20]
 
 [node name="BuildMenu" type="GridContainer"]
 
@@ -24,9 +27,9 @@ anchor_left = 0.0
 anchor_top = 0.5
 anchor_right = 0.0
 anchor_bottom = 0.5
-margin_top = -133.0
+margin_top = -160.0
 margin_right = 52.0
-margin_bottom = 133.0
+margin_bottom = 160.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -109,5 +112,20 @@ build_resource = ExtResource( 17 )
 hotkey = 73
 hotkey_text = "I"
 description = "Iron Factory: Harvest and store iron while not present at a moon."
+
+[node name="DefenseGrid" parent="." index="5" instance=ExtResource( 2 )]
+
+margin_top = 270.0
+margin_right = 52.0
+margin_bottom = 320.0
+icon = ExtResource( 18 )
+required_item_types = [ "iron", "energy" ]
+required_item_quantities = [ 60, 10 ]
+placement_resource = ExtResource( 19 )
+build_resource = ExtResource( 20 )
+hotkey = 68
+hotkey_text = "D"
+description = "Defense Grid will automatically place mines in front of the enemy."
+has_position_indicator = false
 
 

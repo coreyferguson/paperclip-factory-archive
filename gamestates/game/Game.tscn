@@ -103,7 +103,7 @@ __meta__ = {
 
 [node name="Player" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 453.714, 301.941 )
+position = Vector2( 434.525, 285.488 )
 
 [connection signal="notify_encounter" from="WaveController" to="HUD" method="_on_WaveController_notify_encounter"]
 

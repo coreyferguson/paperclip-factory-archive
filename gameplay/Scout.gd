@@ -40,10 +40,7 @@ func get_closest_player_node():
 	else: return weakref(closestNode)
 
 func retarget():
-	if target and target.get_ref():
-		target.get_ref().disconnect('kill', self, 'on_target_killed')
 	target = get_closest_player_node()
-	if target: listen_to_target_killed(target)
 
 func _on_Timer_timeout():
 	retarget()
@@ -55,12 +52,6 @@ func _on_MissileTimer_timeout():
 		velocity = velocity.normalized() * $Sprite.texture.get_size()/2
 		missile.position = position + velocity
 		$'/root/Game'.add_child(missile)
-
-func listen_to_target_killed(target):
-	target.get_ref().connect('kill', self, 'on_target_killed')
-
-func on_target_killed():
-	retarget()
 
 func kill():
 	enemies.remove_enemy(self)

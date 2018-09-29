@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gameplay/DefenseGrid.gd" type="Script" id=1]
+[ext_resource path="res://assets/defense-grid.png" type="Texture" id=2]
+[ext_resource path="res://gameplay/ProgressBar.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 25.96
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 600.0
+
+[node name="DefenseGrid" type="StaticBody2D" index="0" groups=[
+"player",
+]]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 385
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+antiship_mine_capacity = 10
+antimissile_mine_capacity = 10
+mine_placement_min_distance = 100
+mine_placement_max_distance = 400
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+visible = false
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="DetectorTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="ShipDetector" type="Area2D" parent="." index="3"]
+
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 128
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipDetector" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="MissileDetector" type="Area2D" parent="." index="4"]
+
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 256
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MissileDetector" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="BuildTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="BuildProgress" parent="." index="6" instance=ExtResource( 3 )]
+
+margin_top = 40.0
+margin_bottom = 40.0
+size = Vector2( 100, 10 )
+capacity = 5
+current = 0
+
+[connection signal="timeout" from="DetectorTimer" to="." method="_on_DetectorTimer_timeout"]
+
+[connection signal="timeout" from="BuildTimer" to="." method="_on_BuildTimer_timeout"]
+
+

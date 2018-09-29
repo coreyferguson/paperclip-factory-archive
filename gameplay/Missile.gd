@@ -33,19 +33,12 @@ func get_closest_player_node():
 					leastDistance = distance
 	if !closestNode: return null
 	else: return weakref(closestNode)
-	
-func listen_to_target_killed(target):
-	target.get_ref().connect('kill', self, 'on_target_killed')
-
-func on_target_killed():
-	retarget()
 
 func kill():
 	queue_free()
 
 func retarget():
 	target = get_closest_player_node()
-	if target: listen_to_target_killed(target)
 
 func _on_Timer_timeout():
 	retarget()
