@@ -8,7 +8,7 @@
 [ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=7]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -103,7 +103,7 @@ __meta__ = {
 
 [node name="Player" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 434.525, 285.488 )
+position = Vector2( 432.88, 274.017 )
 
 [connection signal="notify_encounter" from="WaveController" to="HUD" method="_on_WaveController_notify_encounter"]
 

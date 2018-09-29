@@ -31,7 +31,7 @@ shape = SubResource( 1 )
 [node name="Timer" type="Timer" parent="." index="1"]
 
 process_mode = 1
-wait_time = 0.5
+wait_time = 0.1
 one_shot = false
 autostart = true
 

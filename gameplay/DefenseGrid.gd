@@ -45,8 +45,8 @@ func deploy_antimissile_mine(missile):
 func deploy_mine(mine_resource, target):
 	if antimissile_mine_current == 0: return
 	antiship_mine_current -= 1
-	var distance = position.distance_to(target.position)
-	if distance < mine_placement_max_distance: distance -= 200 # try to place in front of enemy
+	var distance = position.distance_to(target.position) - 200
+#	if distance < mine_placement_max_distance: distance -= 200 # try to place in front of enemy
 	distance = clamp(distance, mine_placement_min_distance, mine_placement_max_distance)
 	var build_position = target.position - position
 	build_position = build_position.normalized() * distance
