@@ -1,7 +1,7 @@
 extends Node
 
 export (float) var max_zoom_in = 1
-export (float) var max_zoom_out = 10
+export (float) var max_zoom_out = 3
 export (float) var zoom_speed = 0.1
 
 var is_left_down = false

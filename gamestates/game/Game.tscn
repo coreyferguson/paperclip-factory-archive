@@ -60,7 +60,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 max_zoom_in = 1.0
-max_zoom_out = 10
+max_zoom_out = 3
 zoom_speed = 0.1
 
 [node name="WorldGenerator" parent="." index="2" instance=ExtResource( 4 )]
