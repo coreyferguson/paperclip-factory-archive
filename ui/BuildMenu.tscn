@@ -2,24 +2,30 @@
 
 [ext_resource path="res://ui/BuildMenu.gd" type="Script" id=1]
 [ext_resource path="res://ui/BuildItem.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/low-yield-mine_icon.png" type="Texture" id=3]
+[ext_resource path="res://assets/player/low-yield-mine_icon.png" type="Texture" id=3]
 [ext_resource path="res://ui/BuildLowYieldMine.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gameplay/LowYieldMine.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/mine_icon.png" type="Texture" id=6]
+[ext_resource path="res://assets/player/mine_icon.png" type="Texture" id=6]
 [ext_resource path="res://ui/BuildMine.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gameplay/Mine.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/paperclipfactory_icon.png" type="Texture" id=9]
+[ext_resource path="res://assets/player/paperclipfactory_icon.png" type="Texture" id=9]
 [ext_resource path="res://ui/BuildPaperClipFactory.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/solar-panel_icon.png" type="Texture" id=12]
+[ext_resource path="res://assets/player/solar-panel_icon.png" type="Texture" id=12]
 [ext_resource path="res://ui/BuildSolarPanel.tscn" type="PackedScene" id=13]
 [ext_resource path="res://gameplay/SolarPanel.tscn" type="PackedScene" id=14]
-[ext_resource path="res://assets/ironfactory_icon.png" type="Texture" id=15]
+[ext_resource path="res://assets/player/ironfactory_icon.png" type="Texture" id=15]
 [ext_resource path="res://ui/BuildIronFactory.tscn" type="PackedScene" id=16]
 [ext_resource path="res://gameplay/IronFactory.tscn" type="PackedScene" id=17]
-[ext_resource path="res://assets/defense-grid_icon.png" type="Texture" id=18]
+[ext_resource path="res://assets/player/defense-grid_icon.png" type="Texture" id=18]
 [ext_resource path="res://ui/BuildDefenseGrid.tscn" type="PackedScene" id=19]
 [ext_resource path="res://gameplay/DefenseGrid.tscn" type="PackedScene" id=20]
+
+
+
+
+
+
 
 [node name="BuildMenu" type="GridContainer"]
 

@@ -1,8 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gameplay/LowYieldMine.gd" type="Script" id=1]
-[ext_resource path="res://assets/low-yield-mine.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/low-yield-mine.png" type="Texture" id=2]
 [ext_resource path="res://gameplay/Detector.tscn" type="PackedScene" id=3]
+
 
 [sub_resource type="CircleShape2D" id=1]
 

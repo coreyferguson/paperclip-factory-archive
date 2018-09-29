@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://gameplay/Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/player.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/player.png" type="Texture" id=2]
 [ext_resource path="res://gameplay/Harvester.gd" type="Script" id=3]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 

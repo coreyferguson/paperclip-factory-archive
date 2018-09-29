@@ -7,7 +7,8 @@
 [ext_resource path="res://ui/BuildItemHover.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/MiniMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/Notification.gd" type="Script" id=7]
-[ext_resource path="res://assets/Roboto_Mono/RobotoMono-Medium.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://assets/fonts/Roboto_Mono/RobotoMono-Medium.ttf" type="DynamicFontData" id=8]
+
 
 [sub_resource type="DynamicFont" id=1]
 

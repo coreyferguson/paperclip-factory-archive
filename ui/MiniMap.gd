@@ -1,10 +1,10 @@
 extends NinePatchRect
 
 var blips = {}
-var minimap_enemy_blip_resource = load('res://assets/minimap_enemy_blip.png')
-var minimap_building_blip_resource = load('res://assets/minimap_building_blip.png')
-var minimap_player_blip_resource = load('res://assets/minimap_player_blip.png')
-var minimap_screen_boundary_resource = load('res://assets/minimap_screen_boundary.png')
+var minimap_enemy_blip_resource = load('res://assets/ui/minimap_enemy_blip.png')
+var minimap_building_blip_resource = load('res://assets/ui/minimap_building_blip.png')
+var minimap_player_blip_resource = load('res://assets/ui/minimap_player_blip.png')
+var minimap_screen_boundary_resource = load('res://assets/ui/minimap_screen_boundary.png')
 var camera
 var player
 var rect

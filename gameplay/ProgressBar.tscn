@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gameplay/ProgressBar.gd" type="Script" id=1]
-[ext_resource path="res://assets/progress-fill.png" type="Texture" id=2]
-[ext_resource path="res://assets/progress-border.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/progress-fill.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/progress-border.png" type="Texture" id=3]
+
 
 [node name="ProgressBar" type="Control"]
 

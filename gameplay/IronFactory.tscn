@@ -1,10 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gameplay/IronFactory.gd" type="Script" id=1]
-[ext_resource path="res://assets/ironfactory.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/ironfactory.png" type="Texture" id=2]
 [ext_resource path="res://gameplay/Harvester.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gameplay/IronToPlayer.gd" type="Script" id=4]
 [ext_resource path="res://gameplay/ProgressBar.tscn" type="PackedScene" id=5]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

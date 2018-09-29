@@ -1,7 +1,7 @@
 extends Area2D
 
-var positionValidResource = load('res://assets/position-valid-indicator_300x300.png')
-var positionInvalidResource = load('res://assets/position-invalid-indicator_300x300.png')
+var positionValidResource = load('res://assets/ui/position-valid-indicator_300x300.png')
+var positionInvalidResource = load('res://assets/ui/position-invalid-indicator_300x300.png')
 
 var valid = true
 

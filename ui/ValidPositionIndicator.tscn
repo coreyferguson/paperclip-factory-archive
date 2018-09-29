@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://ui/ValidPositionIndicator.gd" type="Script" id=1]
-[ext_resource path="res://assets/position-valid-indicator_300x300.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/position-valid-indicator_300x300.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 150.0
 
-[node name="ValidPositionIndicator" type="Area2D"]
+[node name="ValidPositionIndicator" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
