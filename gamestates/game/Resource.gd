@@ -7,7 +7,7 @@ var resource = {
 		'world_texture': load('res://assets/moon.png'),
 		'initial_capacity': 5000,
 		'harvest_rate': 1,
-		'probability_range': [0, 0.7]
+		'probability_range': [0, 0.6]
 	},
 	'energy': {
 		'type': 'energy',
@@ -15,7 +15,15 @@ var resource = {
 		'world_texture': load('res://assets/sun.png'),
 		'initial_capacity': 10000,
 		'harvest_rate': 3,
-		'probability_range': [0.7, 1]
+		'probability_range': [0.6, 0.9]
+	},
+	'organic': {
+		'type': 'organic',
+		'icon': load('res://assets/earth_icon.png'),
+		'world_texture': load('res://assets/earth.png'),
+		'initial_capacity': 1000,
+		'harvest_rate': 2,
+		'probability_range': [0.9, 1]
 	}
 }
 
