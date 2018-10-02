@@ -18,6 +18,7 @@ func _ready():
 	discovery = Science.discoveries[discovery_type]
 	$HBoxContainer/VBoxContainer/Description.text = discovery.description
 	$HBoxContainer/VBoxContainer/HBoxContainer2/CostValue.text = str(discovery.cost)
+	$HBoxContainer/VBoxContainer/HBoxContainer3/MaxLevelValue.text = str(discovery.max_level)
 	current_level_container.text = str(discovery.current_level)
 	check_inventory_requirements()
 
@@ -39,8 +40,10 @@ func _on_Inventory_change():
 func _on_Button_pressed():
 	Inventory.remove('organic', discovery.cost)
 	Science.discover(discovery_type)
+	check_inventory_requirements()
 
 func check_inventory_requirements():
 	var organic = Inventory.get('organic')
-	if !organic or organic.quantity < discovery.cost: button.disabled = true
+	if !organic or organic.quantity < discovery.cost or discovery.current_level >= discovery.max_level: 
+		button.disabled = true
 	else: button.disabled = false

@@ -1,27 +1,8 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://ui/BuildMenu.gd" type="Script" id=1]
-[ext_resource path="res://ui/BuildItem.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/player/low-yield-mine_icon.png" type="Texture" id=3]
-[ext_resource path="res://ui/BuildLowYieldMine.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gameplay/LowYieldMine.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/player/mine_icon.png" type="Texture" id=6]
-[ext_resource path="res://ui/BuildMine.tscn" type="PackedScene" id=7]
-[ext_resource path="res://gameplay/Mine.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/player/paperclipfactory_icon.png" type="Texture" id=9]
-[ext_resource path="res://ui/BuildPaperClipFactory.tscn" type="PackedScene" id=10]
-[ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=11]
-[ext_resource path="res://assets/player/solar-panel_icon.png" type="Texture" id=12]
-[ext_resource path="res://ui/BuildSolarPanel.tscn" type="PackedScene" id=13]
-[ext_resource path="res://gameplay/SolarPanel.tscn" type="PackedScene" id=14]
-[ext_resource path="res://assets/player/ironfactory_icon.png" type="Texture" id=15]
-[ext_resource path="res://ui/BuildIronFactory.tscn" type="PackedScene" id=16]
-[ext_resource path="res://gameplay/IronFactory.tscn" type="PackedScene" id=17]
-[ext_resource path="res://assets/player/defense-grid_icon.png" type="Texture" id=18]
-[ext_resource path="res://ui/BuildDefenseGrid.tscn" type="PackedScene" id=19]
-[ext_resource path="res://gameplay/DefenseGrid.tscn" type="PackedScene" id=20]
 
-[node name="BuildMenu" type="GridContainer"]
+[node name="BuildMenu" type="GridContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.5
@@ -43,89 +24,40 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="LowYieldMine" parent="." index="0" instance=ExtResource( 2 )]
+[connection signal="mouse_entered" from="BuildItem" to="BuildItem" method="_on_BuildItem_mouse_entered"]
 
-margin_right = 52.0
-icon = ExtResource( 3 )
-required_item_types = [ "iron", "energy" ]
-required_item_quantities = [ 1, 1 ]
-placement_resource = ExtResource( 4 )
-build_resource = ExtResource( 5 )
-hotkey = 78
-hotkey_text = "N"
-description = "Anti Missile Mine: Protect yourself from missiles."
-has_position_indicator = false
+[connection signal="mouse_exited" from="BuildItem" to="BuildItem" method="_on_BuildItem_mouse_exited"]
 
-[node name="Mine" parent="." index="1" instance=ExtResource( 2 )]
+[connection signal="pressed" from="BuildItem" to="BuildItem" method="_on_BuildItem_pressed"]
 
-margin_top = 54.0
-margin_right = 52.0
-margin_bottom = 104.0
-icon = ExtResource( 6 )
-required_item_types = [ "iron" ]
-required_item_quantities = [ 5 ]
-placement_resource = ExtResource( 7 )
-build_resource = ExtResource( 8 )
-hotkey = 77
-hotkey_text = "M"
-description = "Anti Ship Mine: Protect yourself from Kamakaze pilots."
-has_position_indicator = false
+[connection signal="mouse_entered" from="BuildItem2" to="BuildItem2" method="_on_BuildItem_mouse_entered"]
 
-[node name="PaperClipFactory" parent="." index="2" instance=ExtResource( 2 )]
+[connection signal="mouse_exited" from="BuildItem2" to="BuildItem2" method="_on_BuildItem_mouse_exited"]
 
-margin_top = 108.0
-margin_right = 52.0
-margin_bottom = 158.0
-icon = ExtResource( 9 )
-required_item_types = [ "iron" ]
-required_item_quantities = [ 15 ]
-placement_resource = ExtResource( 10 )
-build_resource = ExtResource( 11 )
-hotkey = 80
-hotkey_text = "P"
-description = "Paperclip Factory: Get points, but nothing else."
+[connection signal="pressed" from="BuildItem2" to="BuildItem2" method="_on_BuildItem_pressed"]
 
-[node name="SolarPanel" parent="." index="3" instance=ExtResource( 2 )]
+[connection signal="mouse_entered" from="BuildItem3" to="BuildItem3" method="_on_BuildItem_mouse_entered"]
 
-margin_top = 162.0
-margin_right = 52.0
-margin_bottom = 212.0
-icon = ExtResource( 12 )
-required_item_types = [ "iron", "energy" ]
-required_item_quantities = [ 10, 10 ]
-placement_resource = ExtResource( 13 )
-build_resource = ExtResource( 14 )
-hotkey = 83
-hotkey_text = "S"
-description = "Solar Panel: Harvest and store energy while not present at a sun."
+[connection signal="mouse_exited" from="BuildItem3" to="BuildItem3" method="_on_BuildItem_mouse_exited"]
 
-[node name="IronFactory" parent="." index="4" instance=ExtResource( 2 )]
+[connection signal="pressed" from="BuildItem3" to="BuildItem3" method="_on_BuildItem_pressed"]
 
-margin_top = 216.0
-margin_right = 52.0
-margin_bottom = 266.0
-icon = ExtResource( 15 )
-required_item_types = [ "iron", "energy" ]
-required_item_quantities = [ 10, 10 ]
-placement_resource = ExtResource( 16 )
-build_resource = ExtResource( 17 )
-hotkey = 73
-hotkey_text = "I"
-description = "Iron Factory: Harvest and store iron while not present at a moon."
+[connection signal="mouse_entered" from="BuildItem4" to="BuildItem4" method="_on_BuildItem_mouse_entered"]
 
-[node name="DefenseGrid" parent="." index="5" instance=ExtResource( 2 )]
+[connection signal="mouse_exited" from="BuildItem4" to="BuildItem4" method="_on_BuildItem_mouse_exited"]
 
-margin_top = 270.0
-margin_right = 52.0
-margin_bottom = 320.0
-icon = ExtResource( 18 )
-required_item_types = [ "iron", "energy" ]
-required_item_quantities = [ 60, 10 ]
-placement_resource = ExtResource( 19 )
-build_resource = ExtResource( 20 )
-hotkey = 68
-hotkey_text = "D"
-description = "Defense Grid will automatically place mines in a limited range."
-has_position_indicator = false
+[connection signal="pressed" from="BuildItem4" to="BuildItem4" method="_on_BuildItem_pressed"]
+
+[connection signal="mouse_entered" from="BuildItem5" to="BuildItem5" method="_on_BuildItem_mouse_entered"]
+
+[connection signal="mouse_exited" from="BuildItem5" to="BuildItem5" method="_on_BuildItem_mouse_exited"]
+
+[connection signal="pressed" from="BuildItem5" to="BuildItem5" method="_on_BuildItem_pressed"]
+
+[connection signal="mouse_entered" from="BuildItem6" to="BuildItem6" method="_on_BuildItem_mouse_entered"]
+
+[connection signal="mouse_exited" from="BuildItem6" to="BuildItem6" method="_on_BuildItem_mouse_exited"]
+
+[connection signal="pressed" from="BuildItem6" to="BuildItem6" method="_on_BuildItem_pressed"]
 
 

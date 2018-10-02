@@ -23,6 +23,13 @@ var discoveries = {
 		'cost': 10,
 		'max_level': 10,
 		'current_level': 0
+	},
+	'mine_cost': {
+		'type': 'mine_cost',
+		'description': 'Anti-Ship Mine Cost -1',
+		'cost': 10,
+		'max_level': 3,
+		'current_level': 0
 	}
 }
 
