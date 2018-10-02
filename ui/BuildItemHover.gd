@@ -8,11 +8,13 @@ onready var shortcut = $'MarginContainer/VBoxContainer/spacer/HBoxContainer/Shor
 func _process(delta):
 	rect_position = get_global_mouse_position() + Vector2(50, -25)
 
-func _on_BuildMenu_hover_in(build_item):
+func _on_BuildMenu_hover_in(build_item_type):
+	var build_item = Build.Items[build_item_type]
 	$MarginContainer/VBoxContainer/Description.text = build_item.description
-	for index in range(build_item.required_item_types.size()):
-		var type = build_item.required_item_types[index]
-		var quantity = build_item.required_item_quantities[index]
+	var required_resources = get_required_resources(build_item)
+	for index in range(required_resources.size()):
+		var type = required_resources[index].type
+		var quantity = required_resources[index].quantity
 		if build_item.hotkey_text: shortcut.text = build_item.hotkey_text
 		var build_item_hover_requirement_instance = build_item_hover_requirement_resource.instance()
 		build_item_hover_requirement_instance.resource = resource.get(type).icon
@@ -25,3 +27,7 @@ func _on_BuildMenu_hover_out(build_item):
 	for child in container.get_children():
 		container.remove_child(child)
 	rect_size.y = 0
+
+func get_required_resources(build_item):
+	if typeof(build_item.required_resources) == TYPE_ARRAY: return build_item.required_resources
+	elif typeof(build_item.required_resources) == TYPE_OBJECT: return build_item.required_resources.call_func(Science)

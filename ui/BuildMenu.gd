@@ -20,11 +20,11 @@ func _ready():
 			child.connect('hover_out', self, '_on_buildItem_hover_out')
 			child.connect('state_change', self, '_on_buildItem_state_change')
 
-func _on_buildItem_hover_in(build_item):
-	emit_signal('hover_in', build_item)
+func _on_buildItem_hover_in(build_item_type):
+	emit_signal('hover_in', build_item_type)
 
-func _on_buildItem_hover_out(build_item):
-	emit_signal('hover_out', build_item)
+func _on_buildItem_hover_out(build_item_type):
+	emit_signal('hover_out', build_item_type)
 
 func _on_buildItem_state_change(state):
 	for child in get_children():

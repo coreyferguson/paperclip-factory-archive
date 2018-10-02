@@ -2,8 +2,8 @@ tool
 extends Button
 
 signal build
-signal hover_in(build_item)
-signal hover_out(build_item)
+signal hover_in(build_item_type)
+signal hover_out(build_item_type)
 signal state_change(state)
 
 export (String) var build_item_type
@@ -11,6 +11,7 @@ export (String) var build_item_type
 # Singletons
 var Build
 var Inventory
+var Science
 
 # Root Nodes
 var game
@@ -32,6 +33,7 @@ var is_disabled_externally = false
 func _ready():
 	Build = tool_safe_load('/root/Build', 'res://gamestates/game/Build.gd')
 	Inventory = tool_safe_load('/root/Inventory', 'res://gamestates/game/Inventory.gd')
+	Science = tool_safe_load('/root/Science', 'res://gamestates/game/Science.gd')
 	if !build_item_type: build_item_type = 'AntiShipMine'
 	build_item = Build.Items[build_item_type]
 	icon = build_item.icon
@@ -102,20 +104,30 @@ func build():
 	game.add_child(build_delivery_instance)
 
 func has_required_items():
-	for required_item in build_item.required_resources:
+	var required_resources
+	if typeof(build_item.required_resources) == TYPE_ARRAY: 
+		required_resources = build_item.required_resources
+	elif typeof(build_item.required_resources) == TYPE_OBJECT: 
+		required_resources = build_item.required_resources.call_func(Science)
+	for required_item in required_resources:
 		var inventory_item = Inventory.get(required_item.type)
 		if !inventory_item or inventory_item.quantity < required_item.quantity: return false
 	return true
 
 func spend_required_items():
-	for required_item in build_item.required_resources:
+	var required_resources
+	if typeof(build_item.required_resources) == TYPE_ARRAY: 
+		required_resources = build_item.required_resources
+	elif typeof(build_item.required_resources) == TYPE_OBJECT: 
+		required_resources = build_item.required_resources.call_func(Science)
+	for required_item in required_resources:
 		Inventory.remove(required_item.type, required_item.quantity)
 
 func _on_BuildItem_mouse_entered():
-	emit_signal('hover_in', self)
+	emit_signal('hover_in', build_item_type)
 
 func _on_BuildItem_mouse_exited():
-	emit_signal('hover_out', self)
+	emit_signal('hover_out', build_item_type)
 
 func set_state(value):
 	state = value

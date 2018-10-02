@@ -18,9 +18,7 @@ var Items = {
 	'AntiShipMine': {
 		'type': 'AntiShipMine',
 		'icon': load('res://assets/player/mine_icon.png'),
-		'required_resources': [
-			{ 'type': 'iron', 'quantity': 5 }
-		],
+		'required_resources': funcref(self, 'AntiShipMineCost'),
 		'placement_resource': load('res://ui/BuildMine.tscn'),
 		'build_resource': load('res://gameplay/Mine.tscn'),
 		'hotkey': KEY_M,
@@ -84,3 +82,7 @@ var Items = {
 		'has_position_indicator': false
 	}
 }
+
+func AntiShipMineCost(Science):
+	var bonus = Science.discoveries['mine_cost'].current_level
+	return [ { 'type': 'iron', 'quantity': 5 - bonus } ]

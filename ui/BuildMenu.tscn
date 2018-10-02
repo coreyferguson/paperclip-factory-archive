@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ui/BuildMenu.gd" type="Script" id=1]
 
-[node name="BuildMenu" type="GridContainer" index="0"]
+[node name="BuildMenu" type="GridContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.5

@@ -4,7 +4,6 @@
 [ext_resource path="res://assets/fonts/RobotoMono-Medium.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/RobotoMono-Regular.tres" type="DynamicFont" id=3]
 
-
 [node name="BuildItemHover" type="PanelContainer"]
 
 anchor_left = 0.0

@@ -114,6 +114,42 @@ autostart = false
 
 [connection signal="hover_out" from="BuildMenu" to="BuildItemHover" method="_on_BuildMenu_hover_out"]
 
+[connection signal="mouse_entered" from="BuildMenu/BuildItem" to="BuildMenu/BuildItem" method="_on_BuildItem_mouse_entered"]
+
+[connection signal="mouse_exited" from="BuildMenu/BuildItem" to="BuildMenu/BuildItem" method="_on_BuildItem_mouse_exited"]
+
+[connection signal="pressed" from="BuildMenu/BuildItem" to="BuildMenu/BuildItem" method="_on_BuildItem_pressed"]
+
+[connection signal="mouse_entered" from="BuildMenu/BuildItem2" to="BuildMenu/BuildItem2" method="_on_BuildItem_mouse_entered"]
+
+[connection signal="mouse_exited" from="BuildMenu/BuildItem2" to="BuildMenu/BuildItem2" method="_on_BuildItem_mouse_exited"]
+
+[connection signal="pressed" from="BuildMenu/BuildItem2" to="BuildMenu/BuildItem2" method="_on_BuildItem_pressed"]
+
+[connection signal="mouse_entered" from="BuildMenu/BuildItem3" to="BuildMenu/BuildItem3" method="_on_BuildItem_mouse_entered"]
+
+[connection signal="mouse_exited" from="BuildMenu/BuildItem3" to="BuildMenu/BuildItem3" method="_on_BuildItem_mouse_exited"]
+
+[connection signal="pressed" from="BuildMenu/BuildItem3" to="BuildMenu/BuildItem3" method="_on_BuildItem_pressed"]
+
+[connection signal="mouse_entered" from="BuildMenu/BuildItem4" to="BuildMenu/BuildItem4" method="_on_BuildItem_mouse_entered"]
+
+[connection signal="mouse_exited" from="BuildMenu/BuildItem4" to="BuildMenu/BuildItem4" method="_on_BuildItem_mouse_exited"]
+
+[connection signal="pressed" from="BuildMenu/BuildItem4" to="BuildMenu/BuildItem4" method="_on_BuildItem_pressed"]
+
+[connection signal="mouse_entered" from="BuildMenu/BuildItem5" to="BuildMenu/BuildItem5" method="_on_BuildItem_mouse_entered"]
+
+[connection signal="mouse_exited" from="BuildMenu/BuildItem5" to="BuildMenu/BuildItem5" method="_on_BuildItem_mouse_exited"]
+
+[connection signal="pressed" from="BuildMenu/BuildItem5" to="BuildMenu/BuildItem5" method="_on_BuildItem_pressed"]
+
+[connection signal="mouse_entered" from="BuildMenu/BuildItem6" to="BuildMenu/BuildItem6" method="_on_BuildItem_mouse_entered"]
+
+[connection signal="mouse_exited" from="BuildMenu/BuildItem6" to="BuildMenu/BuildItem6" method="_on_BuildItem_mouse_exited"]
+
+[connection signal="pressed" from="BuildMenu/BuildItem6" to="BuildMenu/BuildItem6" method="_on_BuildItem_pressed"]
+
 [connection signal="timeout" from="Notification/Timer" to="Notification" method="notify_timer_fade_out"]
 
 
