@@ -22,4 +22,3 @@ func _on_Science_discover(discovery):
 
 func recalculation_production_bonus():
 	production_bonus = 1 + Science.discoveries['paperclip_production_rate'].current_level
-	print('production_bonus:', production_bonus)

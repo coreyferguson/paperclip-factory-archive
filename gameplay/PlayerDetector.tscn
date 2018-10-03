@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 radius = 150.0
 
-[node name="PlayerDetector" type="Area2D" index="0"]
+[node name="PlayerDetector" type="Area2D"]
 
 visible = false
 input_pickable = true

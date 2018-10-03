@@ -11,7 +11,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 7.43491, 25.0089 )
 
-[node name="SolarPanel" type="StaticBody2D" groups=[
+[node name="SolarPanel" type="StaticBody2D" index="0" groups=[
 "player",
 ]]
 
@@ -55,5 +55,7 @@ capacity = 30
 current = 0
 
 [connection signal="harvest" from="Harvester" to="." method="_on_Harvester_harvest"]
+
+[connection signal="player_overlap" from="PlayerDetector" to="." method="_on_PlayerDetector_player_overlap"]
 
 

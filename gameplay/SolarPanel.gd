@@ -18,7 +18,7 @@ func _on_Harvester_harvest(node):
 		if resource: quantity += resource.quantity * conversion_rate
 	update_progress_bar()
 
-func _on_EnergyToPlayer_player_overlap():
+func _on_PlayerDetector_player_overlap():
 	if quantity >= harvest_rate:
 		quantity -= harvest_rate
 		Inventory.add({
@@ -37,4 +37,3 @@ func update_progress_bar():
 
 func set_sprite_rotation(rotation):
 	$Sprite.rotation = rotation
-	
