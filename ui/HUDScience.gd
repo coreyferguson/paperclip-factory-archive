@@ -4,7 +4,7 @@ extends Control
 var science_discovery_resource = load('res://ui/ScienceDiscovery.tscn')
 
 onready var panel = $Panel
-onready var bio_compute_value = $Panel/MarginContainer/VBoxContainer/BioComputePower/Value
+onready var organic_compute_value = $Panel/MarginContainer/VBoxContainer/OrganicComputePower/Value
 onready var view_toggle_button = $ViewToggle
 onready var discovery_container = $Panel/MarginContainer/VBoxContainer/MarginContainer/DiscoveryContainer
 
@@ -22,8 +22,8 @@ func _ready():
 func _process(delta):
 	if !Engine.editor_hint:
 		var organic = Inventory.get('organic')
-		if organic: bio_compute_value.text = str(organic.quantity)
-		else: bio_compute_value.text = '0'
+		if organic: organic_compute_value.text = str(organic.quantity)
+		else: organic_compute_value.text = '0'
 		view_toggle_button.release_focus()
 
 func tool_safe_load(node_path, resource_path):

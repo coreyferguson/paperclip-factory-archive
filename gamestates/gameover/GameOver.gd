@@ -22,3 +22,4 @@ func _on_Timer_timeout():
 func reset():
 	score.reset()
 	Inventory.reset()
+	Science.reset()

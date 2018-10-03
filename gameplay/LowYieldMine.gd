@@ -23,10 +23,9 @@ func _physics_process(delta):
 func _on_Detector_detection(node):
 	target = weakref(node)
 
-func _on_Science_discover(discovery, value):
+func _on_Science_discover(discovery_type):
 	recalculate_detection_radius()
 
 func recalculate_detection_radius():
-	var bonus = 1+(0.1 * Science.discoveries['mine_detection_radius'].current_level)
+	var bonus = 1 + (0.1 * Science.discoveries['mine_detection_radius'].current_level)
 	$Detector.set_radius(default_detection_radius * bonus)
-	

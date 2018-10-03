@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://gameplay/SolarPanel.gd" type="Script" id=1]
-[ext_resource path="res://assets/player/solar-panel.png" type="Texture" id=2]
+[ext_resource path="res://gameplay/OrganicFarm.gd" type="Script" id=1]
+[ext_resource path="res://assets/player/organic-farm.png" type="Texture" id=2]
 [ext_resource path="res://gameplay/Harvester.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gameplay/PlayerDetector.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gameplay/ProgressBar.tscn" type="PackedScene" id=5]
@@ -9,11 +9,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 7.43491, 25.0089 )
+extents = Vector2( 23.4829, 24.6679 )
 
-[node name="SolarPanel" type="StaticBody2D" groups=[
-"player",
-]]
+[node name="OrganicFarm" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -23,37 +21,36 @@ constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Pickable" ]
-capacity = 30
+_sections_unfolded = [ "Collision", "Transform" ]
+capacity = 50
 harvest_rate = 10
 conversion_rate = 0.25
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 visible = false
-position = Vector2( -0.358475, 0 )
 shape = SubResource( 1 )
 
 [node name="Harvester" parent="." index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 0, 0.540359 )
 type = "energy"
 
 [node name="PlayerDetector" parent="." index="3" instance=ExtResource( 4 )]
 
 [node name="ProgressBar" parent="." index="4" instance=ExtResource( 5 )]
 
-margin_top = 30.0
-margin_bottom = 30.0
+margin_top = 40.0
+margin_bottom = 40.0
 size = Vector2( 100, 10 )
-capacity = 30
+capacity = 50
 current = 0
 
 [connection signal="harvest" from="Harvester" to="." method="_on_Harvester_harvest"]
+
+[connection signal="player_overlap" from="PlayerDetector" to="." method="_on_PlayerDetector_player_overlap"]
 
 

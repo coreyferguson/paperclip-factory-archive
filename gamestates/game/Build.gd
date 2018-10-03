@@ -9,11 +9,12 @@ var Items = {
 			{ 'type': 'energy', 'quantity': 1 }
 		],
 		'placement_resource': load('res://ui/BuildLowYieldMine.tscn'),
-		'build_resource': load('res://ui/BuildLowYieldMine.tscn'),
+		'build_resource': load('res://gameplay/LowYieldMine.tscn'),
 		'hotkey': KEY_N,
 		'hotkey_text': 'N',
 		'description': 'Anti Missile Mine: Protect yourself from missiles.',
-		'has_position_indicator': false
+		'has_position_indicator': false,
+		'enabled': true
 	},
 	'AntiShipMine': {
 		'type': 'AntiShipMine',
@@ -24,7 +25,8 @@ var Items = {
 		'hotkey': KEY_M,
 		'hotkey_text': 'M',
 		'description': 'Anti Ship Mine: Protect yourself from Kamakaze pilots.',
-		'has_position_indicator': false
+		'has_position_indicator': false,
+		'enabled': true
 	},
 	'PaperclipFactory': {
 		'type': 'PaperclipFactory',
@@ -37,7 +39,8 @@ var Items = {
 		'hotkey': KEY_P,
 		'hotkey_text': 'P',
 		'description': 'Paperclip Factory: Get points, but nothing else.',
-		'has_position_indicator': true
+		'has_position_indicator': true,
+		'enabled': true
 	},
 	'SolarPanel': {
 		'type': 'SolarPanel',
@@ -51,7 +54,8 @@ var Items = {
 		'hotkey': KEY_S,
 		'hotkey_text': 'S',
 		'description': 'Solar Panel: Harvest and store energy while not present at a sun.',
-		'has_position_indicator': true
+		'has_position_indicator': true,
+		'enabled': true
 	},
 	'IronFactory': {
 		'type': 'IronFactory',
@@ -65,7 +69,8 @@ var Items = {
 		'hotkey': KEY_I,
 		'hotkey_text': 'I',
 		'description': 'Iron Factory: Harvest and store iron while not present at a moon.',
-		'has_position_indicator': true
+		'has_position_indicator': true,
+		'enabled': true
 	},
 	'DefenseGrid': {
 		'type': 'DefenseGrid',
@@ -79,10 +84,30 @@ var Items = {
 		'hotkey': KEY_D,
 		'hotkey_text': 'D',
 		'description': 'Defense Grid will automatically place mines in a limited range.',
-		'has_position_indicator': false
+		'has_position_indicator': false,
+		'enabled': true
+	},
+	'OrganicFarm': {
+		'type': 'OrganicFarm',
+		'icon': load('res://assets/player/organic-farm_icon.png'),
+		'required_resources': [
+			{ 'type': 'iron', 'quantity': 20 },
+			{ 'type': 'energy', 'quantity': 20 },
+			{ 'type': 'organic', 'quantity': 50 }
+		],
+		'placement_resource': load('res://ui/BuildOrganicFarm.tscn'),
+		'build_resource': load('res://gameplay/OrganicFarm.tscn'),
+		'hotkey': KEY_B,
+		'hotkey_text': 'B',
+		'description': 'Organic Farms produce organic material to invest in Science. FOR SCIENCE!',
+		'has_position_indicator': true,
+		'enabled': funcref(self, 'OrganicFarmEnabled')
 	}
 }
 
 func AntiShipMineCost(Science):
 	var bonus = Science.discoveries['mine_cost'].current_level
 	return [ { 'type': 'iron', 'quantity': 5 - bonus } ]
+
+func OrganicFarmEnabled(Science):
+	return Science.discoveries['organic_farm'].current_level == 1

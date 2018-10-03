@@ -30,7 +30,14 @@ var discoveries = {
 		'cost': 10,
 		'max_level': 3,
 		'current_level': 0
-	}
+	},
+	'organic_farm': {
+		'type': 'organic_farm',
+		'description': 'Grow your own free-range humans',
+		'cost': 100,
+		'max_level': 1,
+		'current_level': 0
+	}	
 }
 
 func discover(discovery_type):
@@ -39,3 +46,7 @@ func discover(discovery_type):
 
 func get(discovery_type):
 	return discoveries[discovery_type]
+
+func reset():
+	for discovery_type in discoveries:
+		discoveries[discovery_type].current_level = 0

@@ -150,6 +150,12 @@ autostart = false
 
 [connection signal="pressed" from="BuildMenu/BuildItem6" to="BuildMenu/BuildItem6" method="_on_BuildItem_pressed"]
 
+[connection signal="mouse_entered" from="BuildMenu/BuildItem7" to="BuildMenu/BuildItem7" method="_on_BuildItem_mouse_entered"]
+
+[connection signal="mouse_exited" from="BuildMenu/BuildItem7" to="BuildMenu/BuildItem7" method="_on_BuildItem_mouse_exited"]
+
+[connection signal="pressed" from="BuildMenu/BuildItem7" to="BuildMenu/BuildItem7" method="_on_BuildItem_pressed"]
+
 [connection signal="timeout" from="Notification/Timer" to="Notification" method="notify_timer_fade_out"]
 
 

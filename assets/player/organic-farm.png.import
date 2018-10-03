@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/organic-processor_icon.png-e84db718c51d4bc0bea90f1d3e3af3d9.stex"
+path="res://.import/organic-farm.png-26f22991aa6b43777674aa311b5ae748.stex"
 
 [deps]
 
-source_file="res://assets/player/organic-processor_icon.png"
-dest_files=[ "res://.import/organic-processor_icon.png-e84db718c51d4bc0bea90f1d3e3af3d9.stex" ]
+source_file="res://assets/player/organic-farm.png"
+dest_files=[ "res://.import/organic-farm.png-26f22991aa6b43777674aa311b5ae748.stex" ]
 
 [params]
 

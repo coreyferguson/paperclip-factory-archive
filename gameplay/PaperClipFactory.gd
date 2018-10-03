@@ -17,7 +17,7 @@ func kill():
 	emit_signal('kill')
 	buildings.remove_building(self)
 
-func _on_Science_discover(discovery, value):
+func _on_Science_discover(discovery):
 	recalculation_production_bonus()
 
 func recalculation_production_bonus():

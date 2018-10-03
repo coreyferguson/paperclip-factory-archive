@@ -29,6 +29,7 @@ var position_valid_instance
 var build_delivery_resource = load('res://gameplay/BuildDelivery.tscn')
 var has_required_items = false
 var is_disabled_externally = false
+var discovered = true
 
 func _ready():
 	Build = tool_safe_load('/root/Build', 'res://gamestates/game/Build.gd')
@@ -37,14 +38,16 @@ func _ready():
 	if !build_item_type: build_item_type = 'AntiShipMine'
 	build_item = Build.Items[build_item_type]
 	icon = build_item.icon
+	check_visibility()
 	if !Engine.editor_hint:
 		game = $'/root/Game'
 		camera = $'/root/Game/Camera'
 		player = $'/root/Game/Player'
 		_on_Timer_timeout()
+		Science.connect('discover', self, '_on_Science_discover')
 
 func _process(delta):
-	if has_required_items and !is_disabled_externally: disabled = false
+	if has_required_items and !is_disabled_externally and discovered: disabled = false
 	else: disabled = true
 	release_focus()
 
@@ -139,3 +142,10 @@ func set_state(value):
 func tool_safe_load(node_path, resource_path):
 	if has_node(node_path): return get_node(node_path)
 	else: return load(resource_path).new()
+
+func check_visibility():
+	if typeof(build_item.enabled) == TYPE_BOOL: discovered = build_item.enabled
+	elif typeof(build_item.enabled) == TYPE_OBJECT: discovered = build_item.enabled.call_func(Science)
+
+func _on_Science_discover(discovery_type):
+	check_visibility()

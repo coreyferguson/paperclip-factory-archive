@@ -37,7 +37,7 @@ func _on_EnergyTimer_timeout():
 	if !Inventory.remove('energy', 1):
 		kill()
 
-func _on_Science_discover(discovery, value):
+func _on_Science_discover(discovery):
 	recalculate_speed()
 
 func recalculate_speed():
