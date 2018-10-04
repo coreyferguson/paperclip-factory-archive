@@ -55,8 +55,3 @@ func reset():
 		'quantity': 30,
 		'texture': resource.get('energy').world_texture
 	}
-#	items[1] = {
-#		'type': 'organic',
-#		'quantity': 100,
-#		'texture': resource.get('organic').world_texture
-#	}

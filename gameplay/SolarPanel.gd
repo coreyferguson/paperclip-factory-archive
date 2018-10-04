@@ -5,12 +5,13 @@ signal kill
 export (int) var capacity = 30
 export (int) var harvest_rate = 10
 export (int) var conversion_rate = 0.25
-var quantity = 0
+export (int) var quantity = 0
 
 var texture = load('res://assets/resources/sun.png')
 
 func _ready():
 	buildings.add_building(self)
+	update_progress_bar()
 
 func _on_Harvester_harvest(node):
 	if quantity < capacity:
