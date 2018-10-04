@@ -99,7 +99,7 @@ var Items = {
 		'build_resource': load('res://gameplay/OrganicFarm.tscn'),
 		'hotkey': KEY_B,
 		'hotkey_text': 'B',
-		'description': 'Organic Farms produce organic material to invest in Science. FOR SCIENCE!',
+		'description': 'Organic Farms produce organic material to invest in Science. FOR SCIENCE!\nRequires science unlock.',
 		'has_position_indicator': true,
 		'enabled': funcref(self, 'OrganicFarmEnabled')
 	}

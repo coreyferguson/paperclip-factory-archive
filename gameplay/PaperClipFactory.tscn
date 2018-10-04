@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 25.1397, 25.1456 )
 
-[node name="PaperClipFactory" type="StaticBody2D" index="0" groups=[
+[node name="PaperClipFactory" type="StaticBody2D" groups=[
 "player",
 ]]
 

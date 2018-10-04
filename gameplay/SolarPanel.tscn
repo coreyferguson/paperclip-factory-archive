@@ -11,7 +11,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 7.43491, 25.0089 )
 
-[node name="SolarPanel" type="StaticBody2D" index="0" groups=[
+[node name="SolarPanel" type="StaticBody2D" groups=[
 "player",
 ]]
 
