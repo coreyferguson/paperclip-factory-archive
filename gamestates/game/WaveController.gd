@@ -51,10 +51,13 @@ func spawnWave():
 		y = randi() % world_width - world_width/2
 	var scoutResource = load('res://gameplay/Scout.tscn')
 	var flyResource = load('res://gameplay/Fly.tscn')
+	var boomerangResource = load('res://gameplay/Boomerang.tscn')
 	for i in range(enemiesToSpawn):
 		var enemyResource
-		if randi()%2 == 0: enemyResource = scoutResource
-		else: enemyResource = flyResource
+		var rand = randi() % 3
+		if rand == 0: enemyResource = scoutResource
+		elif rand == 1: enemyResource = flyResource
+		elif rand == 2: enemyResource = boomerangResource
 		x += rand_range(-100, 100)
 		y += rand_range(-100, 100)
 		var pos = Vector2(x, y)
