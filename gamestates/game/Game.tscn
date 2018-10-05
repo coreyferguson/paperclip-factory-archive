@@ -9,7 +9,7 @@
 [ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=8]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -126,7 +126,55 @@ resource_type = "organic"
 position = Vector2( 1155.39, 144.486 )
 resource_type = "energy"
 
-[node name="PaperClipFactory" parent="." index="7" instance=ExtResource( 8 )]
+[node name="System2" type="Node" parent="." index="7"]
+
+[node name="Moon1" parent="System2" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( -2256.98, -1107.5 )
+
+[node name="Moon2" parent="System2" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( -2075.12, -1747.99 )
+
+[node name="Moon3" parent="System2" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( -1321.91, -1811.3 )
+
+[node name="Earth" parent="System2" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( -1292.28, -936.846 )
+resource_type = "organic"
+
+[node name="Sun" parent="System2" index="4" instance=ExtResource( 7 )]
+
+position = Vector2( -1737.52, -1236 )
+resource_type = "energy"
+
+[node name="System3" type="Node" parent="." index="8"]
+
+[node name="Moon1" parent="System3" index="0" instance=ExtResource( 7 )]
+
+position = Vector2( 2575.24, -1698.88 )
+
+[node name="Moon2" parent="System3" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 1716.71, -2581.46 )
+
+[node name="Moon3" parent="System3" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 2584.32, -2348.21 )
+
+[node name="Earth" parent="System3" index="3" instance=ExtResource( 7 )]
+
+position = Vector2( 1580.1, -1762.73 )
+resource_type = "organic"
+
+[node name="Sun" parent="System3" index="4" instance=ExtResource( 7 )]
+
+position = Vector2( 2059.77, -2084.17 )
+resource_type = "energy"
+
+[node name="PaperClipFactory" parent="." index="9" instance=ExtResource( 8 )]
 
 position = Vector2( 396.11, 198.055 )
 
