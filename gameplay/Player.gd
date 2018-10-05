@@ -5,7 +5,7 @@ signal kill
 var texture_default = load('res://assets/player/player.png')
 var texture_moving = load('res://assets/player/player_moving.png')
 
-export (int) var default_speed = 2
+export (int) var default_speed = 100
 var speed_bonus = 1
 
 var target = null
@@ -21,13 +21,13 @@ func _ready():
 func _process(delta):
 	var speed = default_speed * speed_bonus
 	if target != null:
-		if position.distance_to(target) < speed:
+		if position.distance_to(target) < speed * delta:
 			position = target
 			target = null
 			sprite.texture = texture_default
 		else:
 			var velocity = target - position
-			velocity = velocity.normalized() * speed
+			velocity = velocity.normalized() * speed * delta
 			position += velocity
 
 func select():

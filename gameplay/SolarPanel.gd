@@ -7,7 +7,7 @@ export (int) var harvest_rate = 10
 export (int) var conversion_rate = 0.25
 export (int) var quantity = 0
 
-var texture = load('res://assets/resources/sun.png')
+var harvestable_resource_type = 'energy'
 
 func _ready():
 	buildings.add_building(self)
@@ -24,7 +24,7 @@ func _on_PlayerDetector_player_overlap():
 		quantity -= harvest_rate
 		Inventory.add({
 			'type': 'energy',
-			'texture': texture,
+			'texture': NaturalResource.types[harvestable_resource_type].world_texture,
 			'quantity': harvest_rate
 		})
 		update_progress_bar()

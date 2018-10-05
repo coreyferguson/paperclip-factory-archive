@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (int) var speed = 4
+export (int) var speed = 200
 export (int) var fire_wait_time = 0.5
 export (int) var mode_switch_time = 1
 
@@ -19,7 +19,7 @@ func _physics_process(delta):
 	if mode == Mode.DODGE: velocity = target
 	elif mode == Mode.ATTACK and target and target.get_ref(): velocity = target.get_ref().position - position
 	if velocity:
-		velocity = velocity.normalized() * speed
+		velocity = velocity.normalized() * speed * delta
 		rotation = velocity.angle()
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.is_in_group('player'):

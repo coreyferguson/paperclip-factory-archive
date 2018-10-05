@@ -4,15 +4,15 @@ signal change
 
 var capacity = 8
 var items = []
-var resource
+var NaturalResource
 
 func _init():
 	for i in range(capacity):
 		items.push_back(null)
 
 func _ready():
-	if has_node('/root/resource'): resource = get_node('/root/resource')
-	else: resource = load('res://gamestates/game/Resource.gd').new()
+	if has_node('/root/NaturalResource'): NaturalResource = get_node('/root/NaturalResource')
+	else: NaturalResource = load('res://gamestates/game/NaturalResource.gd').new()
 	reset()
 
 func add(item):
@@ -53,5 +53,5 @@ func reset():
 	items[0] = {
 		'type': 'energy',
 		'quantity': 30,
-		'texture': resource.get('energy').world_texture
+		'texture': NaturalResource.types['energy'].world_texture
 	}

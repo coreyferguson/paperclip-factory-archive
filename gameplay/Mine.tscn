@@ -17,7 +17,7 @@ collision_mask = 128
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
-speed = 10
+speed = 500
 default_detection_radius = 150
 
 [node name="Sprite" type="Sprite" parent="." index="0"]

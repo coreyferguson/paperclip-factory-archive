@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (int) var speed = 10
+export (int) var speed = 250
 export (float) var angle_of_approach = 45
 export (int) var rotation_speed = 10
 
@@ -14,7 +14,7 @@ func _ready():
 func _physics_process(delta):
 	if target and target.get_ref():
 		var velocity = target.get_ref().position - position
-		velocity = velocity.normalized() * speed
+		velocity = velocity.normalized() * speed * delta
 		velocity = velocity.rotated(radians_of_approach)
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.is_in_group('player'):
@@ -24,7 +24,6 @@ func _physics_process(delta):
 
 func _on_RetargetTimer_timeout():
 	target = get_closest_player_node()
-	print('target: ', target)
 
 func get_closest_player_node():
 	var playerNodes = get_tree().get_nodes_in_group('player')

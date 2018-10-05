@@ -3,12 +3,12 @@ extends Node2D
 export (PackedScene) var build_resource
 export (Vector2) var build_position
 export (float) var build_rotation
-export (int) var speed = 10
+export (int) var speed = 500
 
 func _physics_process(delta):
-	if position.distance_to(build_position) > speed:
+	if position.distance_to(build_position) > speed * delta:
 		var velocity = build_position - position
-		velocity = velocity.normalized() * speed
+		velocity = velocity.normalized() * speed * delta
 		position += velocity
 	else:
 		position = build_position

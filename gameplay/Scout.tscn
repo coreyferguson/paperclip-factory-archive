@@ -3,7 +3,6 @@
 [ext_resource path="res://gameplay/Scout.gd" type="Script" id=1]
 [ext_resource path="res://assets/distractions/scout_100x100.png" type="Texture" id=2]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -21,7 +20,7 @@ collision_mask = 131
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
-speed = 1
+speed = 50
 shouldFireMissiles = true
 missileTimerWaitTime = 20
 

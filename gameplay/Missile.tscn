@@ -3,7 +3,6 @@
 [ext_resource path="res://gameplay/Missile.gd" type="Script" id=1]
 [ext_resource path="res://assets/distractions/missile.png" type="Texture" id=2]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
@@ -19,7 +18,7 @@ collision_mask = 5
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-speed = 5
+speed = 250
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

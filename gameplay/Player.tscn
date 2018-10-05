@@ -15,7 +15,7 @@ height = 10.9867
 custom_solver_bias = 0.0
 radius = 151.016
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="KinematicBody2D" index="0" groups=[
 "player",
 ]]
 
@@ -28,7 +28,7 @@ collision_mask = 385
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
-default_speed = 2
+default_speed = 100
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -37,6 +37,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 position = Vector2( 1.93967, 0.257004 )
 rotation = 1.5708
 shape = SubResource( 1 )

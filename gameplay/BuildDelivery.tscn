@@ -9,7 +9,7 @@ script = ExtResource( 1 )
 build_resource = null
 build_position = null
 build_rotation = null
-speed = 10
+speed = 500
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

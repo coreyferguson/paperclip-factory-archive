@@ -1,6 +1,6 @@
 extends Node
 
-var resource = {
+var types = {
 	'iron': {
 		'type': 'iron',
 		'icon': load('res://assets/resources/moon_icon.png'),
@@ -27,12 +27,9 @@ var resource = {
 	}
 }
 
-func get(type):
-	return resource[type]
-
 func generate():
 	randomize()
 	var p = rand_range(0, 1)
-	for r in resource.values():
+	for r in types.values():
 		if p >= r.probability_range[0] and p < r.probability_range[1]:
 			return r

@@ -17,7 +17,7 @@ func _on_BuildMenu_hover_in(build_item_type):
 		var quantity = required_resources[index].quantity
 		if build_item.hotkey_text: shortcut.text = build_item.hotkey_text
 		var build_item_hover_requirement_instance = build_item_hover_requirement_resource.instance()
-		build_item_hover_requirement_instance.resource = resource.get(type).icon
+		build_item_hover_requirement_instance.resource = NaturalResource.types[type].icon
 		build_item_hover_requirement_instance.quantity = str(quantity)
 		container.add_child(build_item_hover_requirement_instance)
 	visible = true

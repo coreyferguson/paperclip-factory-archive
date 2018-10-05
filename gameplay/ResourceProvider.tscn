@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gameplay/ResourceProvider.gd" type="Script" id=1]
-[ext_resource path="res://gameplay/ProgressBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/resources/moon.png" type="Texture" id=2]
+[ext_resource path="res://gameplay/ProgressBar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 75.0
 
-[node name="ResourceProvider" type="StaticBody2D"]
+[node name="ResourceProvider" type="StaticBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 16
@@ -19,10 +20,7 @@ friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
-type = null
-texture = null
-capacity = 500
-quantity_per_harvest = 1
+resource_type = "iron"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -31,14 +29,15 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
-[node name="ProgressBar" parent="." index="2" instance=ExtResource( 2 )]
+[node name="ProgressBar" parent="." index="2" instance=ExtResource( 3 )]
 
-margin_top = 70.0
-margin_bottom = 70.0
+margin_top = 94.5
+margin_bottom = 94.5
 size = Vector2( 100, 10 )
-capacity = 100
-current = 0
+capacity = 5000
+current = 5000
 
 

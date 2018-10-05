@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 radius = 8.97382
 
-[node name="LowYieldMine" type="KinematicBody2D" index="0"]
+[node name="LowYieldMine" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 4
@@ -17,7 +17,7 @@ collision_mask = 256
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-speed = 10
+speed = 500
 default_detection_radius = 150
 
 [node name="Sprite" type="Sprite" parent="." index="0"]

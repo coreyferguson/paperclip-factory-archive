@@ -18,7 +18,7 @@ collision_mask = 131
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable" ]
-speed = 4
+speed = 200
 fire_wait_time = 0.5
 mode_switch_time = 1
 
