@@ -2,7 +2,6 @@
 
 [ext_resource path="res://assets/player/defense-grid.png" type="Texture" id=1]
 
-
 [node name="BuildDefenseGrid" type="Sprite"]
 
 texture = ExtResource( 1 )

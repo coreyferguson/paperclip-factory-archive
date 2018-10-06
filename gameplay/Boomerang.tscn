@@ -9,13 +9,13 @@ custom_solver_bias = 0.0
 radius = 11.1516
 height = 7.4856
 
-[node name="Boomerang" type="KinematicBody2D" groups=[
+[node name="Boomerang" type="KinematicBody2D" index="0" groups=[
 "enemy",
 ]]
 
 input_pickable = false
 collision_layer = 128
-collision_mask = 131
+collision_mask = 139
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]

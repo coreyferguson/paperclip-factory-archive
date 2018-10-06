@@ -35,6 +35,7 @@ window/size/width=900
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Player Anti-Ship"
 2d_physics/layer_3="Player Anti-Missile"
+2d_physics/layer_4="Player Building"
 2d_physics/layer_5="World Havest"
 2d_physics/layer_8="Enemy"
 2d_physics/layer_9="Enemy Anti-Ship"

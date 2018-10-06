@@ -17,7 +17,7 @@ radius = 300.0
 [node name="Recycler" type="KinematicBody2D"]
 
 input_pickable = false
-collision_layer = 1
+collision_layer = 8
 collision_mask = 0
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
