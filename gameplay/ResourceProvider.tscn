@@ -34,8 +34,8 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="ProgressBar" parent="." index="2" instance=ExtResource( 3 )]
 
-margin_top = 106.5
-margin_bottom = 106.5
+margin_top = 118.5
+margin_bottom = 118.5
 size = Vector2( 100, 10 )
 capacity = 1000
 current = 1000

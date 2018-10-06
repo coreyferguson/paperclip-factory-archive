@@ -67,3 +67,20 @@ func _on_BuildTimer_timeout():
 
 func kill():
 	buildings.remove_building(self)
+
+func recycle():
+	var antiship_requirements = Build.Items['AntiShipMine'].required_resources
+	if typeof(antiship_requirements) == TYPE_OBJECT: 
+		antiship_requirements = antiship_requirements.call_func(Science)
+	var antimissile_requirements = Build.Items['AntiMissileMine'].required_resources
+	if typeof(antimissile_requirements) == TYPE_OBJECT: 
+		antimissile_requirements = antimissile_requirements.call_func(Science)
+	var recycled_materials = []
+	for i in range(antiship_mine_current):
+		for resource in antiship_requirements:
+			recycled_materials.push_back(resource)
+	for i in range(antimissile_mine_current):
+		for resource in antimissile_requirements:
+			recycled_materials.push_back(resource)
+	kill()
+	return recycled_materials

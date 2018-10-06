@@ -38,3 +38,10 @@ func update_progress_bar():
 
 func set_sprite_rotation(rotation):
 	$Sprite.rotation = rotation
+
+func recycle():
+	var recycled_materials = []
+	for resource in Build.Items['SolarPanel'].required_resources:
+		recycled_materials.push_back(resource)
+	kill()
+	return recycled_materials

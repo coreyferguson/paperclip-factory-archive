@@ -9,12 +9,13 @@
 [ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=8]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
 
+editor/display_folded = true
 layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0

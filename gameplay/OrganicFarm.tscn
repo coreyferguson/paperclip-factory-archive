@@ -11,11 +11,13 @@
 custom_solver_bias = 0.0
 extents = Vector2( 23.4829, 24.6679 )
 
-[node name="OrganicFarm" type="StaticBody2D"]
+[node name="OrganicFarm" type="StaticBody2D" groups=[
+"player",
+]]
 
 input_pickable = false
 collision_layer = 8
-collision_mask = 0
+collision_mask = 392
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0

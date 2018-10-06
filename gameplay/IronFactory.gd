@@ -34,3 +34,10 @@ func _on_IronToPlayer_player_overlap():
 
 func update_progress_bar():
 	$ProgressBar.set_current(quantity)
+
+func recycle():
+	var recycled_materials = []
+	for resource in Build.Items['IronFactory'].required_resources:
+		recycled_materials.push_back(resource)
+	kill()
+	return recycled_materials

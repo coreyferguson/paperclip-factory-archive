@@ -32,3 +32,10 @@ func update_progress_bar():
 func kill():
 	emit_signal('kill')
 	buildings.remove_building(self)
+
+func recycle():
+	var recycled_materials = []
+	for resource in Build.Items['OrganicFarm'].required_resources:
+		recycled_materials.push_back(resource)
+	kill()
+	return recycled_materials
