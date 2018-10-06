@@ -5,12 +5,15 @@ signal kill
 export (int) var capacity = 100
 export (int) var harvest_rate = 10
 export (int) var conversion_rate = 0.25
+
 var quantity = 0
+var conversion_rate_bonus = 1
 
 var harvestable_resource_type = 'iron'
 
 func _ready():
 	buildings.add_building(self)
+	Science.connect('discover', self, '_on_Science_discover')
 
 func kill():
 	emit_signal('kill')
@@ -19,7 +22,7 @@ func kill():
 func _on_Harvester_harvest(node):
 	if quantity < capacity:
 		var resource = node.harvest()
-		if resource: quantity += resource.quantity * conversion_rate
+		if resource: quantity += resource.quantity * conversion_rate * conversion_rate_bonus
 	update_progress_bar()
 
 func _on_IronToPlayer_player_overlap():
@@ -41,3 +44,6 @@ func recycle():
 		recycled_materials.push_back(resource)
 	kill()
 	return recycled_materials
+
+func _on_Science_discover(discovery_type):
+	conversion_rate_bonus = 1 + Science.discoveries[discovery_type].current_level
