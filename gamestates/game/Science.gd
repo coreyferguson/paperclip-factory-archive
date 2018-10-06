@@ -45,7 +45,7 @@ var discoveries = {
 	},
 	'iron_factory_conversion_rate': {
 		'type': 'iron_factory_conversion_rate',
-		'description': '2x more iron from Iron Factories',
+		'description': 'Iron Factories conversion rate +50%',
 		'icon': load('res://assets/player/ironfactory_icon.png'),
 		'cost': 30,
 		'max_level': 1,

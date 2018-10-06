@@ -46,4 +46,4 @@ func recycle():
 	return recycled_materials
 
 func _on_Science_discover(discovery_type):
-	conversion_rate_bonus = 1 + Science.discoveries[discovery_type].current_level
+	conversion_rate_bonus = 1 + 0.5 * Science.discoveries[discovery_type].current_level
