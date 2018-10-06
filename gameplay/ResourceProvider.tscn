@@ -7,9 +7,9 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 75.0
+radius = 50.0
 
-[node name="ResourceProvider" type="StaticBody2D"]
+[node name="ResourceProvider" type="StaticBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 16
@@ -34,8 +34,8 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="ProgressBar" parent="." index="2" instance=ExtResource( 3 )]
 
-margin_top = 118.5
-margin_bottom = 118.5
+margin_top = 80.0
+margin_bottom = 80.0
 size = Vector2( 100, 10 )
 capacity = 1000
 current = 1000

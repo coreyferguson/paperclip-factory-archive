@@ -41,4 +41,3 @@ func refresh():
 	quantity = natural_resource.initial_capacity
 	$ProgressBar.capacity = natural_resource.initial_capacity
 	$ProgressBar.set_current(quantity)
-	$ProgressBar.rect_position.y += $Sprite.texture.get_size().y/8

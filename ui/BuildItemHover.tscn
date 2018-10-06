@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/fonts/RobotoMono-Medium.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/fonts/RobotoMono-Regular.tres" type="DynamicFont" id=4]
 
-[node name="BuildItemHover" type="MarginContainer" index="0"]
+[node name="BuildItemHover" type="MarginContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
