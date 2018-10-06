@@ -4,9 +4,15 @@ extends Control
 var science_discovery_resource = load('res://ui/ScienceDiscovery.tscn')
 
 onready var panel = $Panel
-onready var organic_compute_value = $Panel/MarginContainer/VBoxContainer/OrganicComputePower/Value
 onready var view_toggle_button = $ViewToggle
 onready var discovery_container = $Panel/MarginContainer/VBoxContainer/MarginContainer/DiscoveryContainer
+
+# hover components
+onready var hover = $Hover
+onready var hover_description = $Hover/MarginContainer/VBoxContainer/Description
+onready var hover_cost = $Hover/MarginContainer/VBoxContainer/HBoxContainer2/Cost
+onready var hover_current_level = $Hover/MarginContainer/VBoxContainer/HBoxContainer/CurrentLevel
+onready var hover_max_level = $Hover/MarginContainer/VBoxContainer/HBoxContainer/MaxLevel
 
 var Science
 var Inventory
@@ -17,13 +23,12 @@ func _ready():
 	for discovery in Science.discoveries.values():
 		var science_discovery_instance = science_discovery_resource.instance()
 		science_discovery_instance.discovery_type = discovery.type
+		science_discovery_instance.connect('hover_in', self, '_on_ScienceDiscovery_hover_in')
+		science_discovery_instance.connect('hover_out', self, '_on_ScienceDiscovery_hover_out')
 		discovery_container.add_child(science_discovery_instance)
 
 func _process(delta):
 	if !Engine.editor_hint:
-		var organic = Inventory.get('organic')
-		if organic: organic_compute_value.text = str(organic.quantity)
-		else: organic_compute_value.text = '0'
 		view_toggle_button.release_focus()
 
 func tool_safe_load(node_path, resource_path):
@@ -32,3 +37,14 @@ func tool_safe_load(node_path, resource_path):
 
 func _on_ViewToggle_pressed():
 	panel.visible = !panel.visible
+
+func _on_ScienceDiscovery_hover_in(discovery_type):
+	var discovery = Science.discoveries[discovery_type]
+	hover_description.text = discovery.description
+	hover_cost.text = str(discovery.cost)
+	hover_current_level.text = str(discovery.current_level)
+	hover_max_level.text = str(discovery.max_level)
+	hover.visible = true
+
+func _on_ScienceDiscovery_hover_out(discovery_type):
+	hover.visible = false

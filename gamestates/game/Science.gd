@@ -6,6 +6,7 @@ var discoveries = {
 	'mine_detection_radius': {
 		'type': 'mine_detection_radius',
 		'description': 'Mine Detection Radius: +10%',
+		'icon': load('res://assets/player/mine_icon.png'),
 		'cost': 10,
 		'max_level': 10,
 		'current_level': 0
@@ -13,6 +14,7 @@ var discoveries = {
 	'paperclip_production_rate': {
 		'type': 'paperclip_production_rate',
 		'description': 'Paperclip Production Rate +100%',
+		'icon': load('res://assets/player/paperclipfactory_icon.png'),
 		'cost': 50,
 		'max_level': 3,
 		'current_level': 0
@@ -20,6 +22,7 @@ var discoveries = {
 	'player_ship_speed': {
 		'type': 'player_ship_speed',
 		'description': 'Player Ship Speed +10%',
+		'icon': load('res://assets/player/player_icon.png'),
 		'cost': 10,
 		'max_level': 10,
 		'current_level': 0
@@ -27,6 +30,7 @@ var discoveries = {
 	'mine_cost': {
 		'type': 'mine_cost',
 		'description': 'Anti-Ship Mine Cost -1',
+		'icon': load('res://assets/player/mine_icon.png'),
 		'cost': 10,
 		'max_level': 3,
 		'current_level': 0
@@ -34,6 +38,7 @@ var discoveries = {
 	'organic_farm': {
 		'type': 'organic_farm',
 		'description': 'Grow your own free-range humans',
+		'icon': load('res://assets/player/organic-farm_icon.png'),
 		'cost': 100,
 		'max_level': 1,
 		'current_level': 0
