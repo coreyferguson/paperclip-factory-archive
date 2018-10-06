@@ -10,6 +10,8 @@ var quantity
 
 func _ready():
 	NaturalResource = tool_safe_load('/root/NaturalResource', 'res://gamestates/game/NaturalResource.gd')
+	natural_resource = NaturalResource.types[resource_type]
+	refresh()
 
 func _process(delta):
 	if !natural_resource or natural_resource.type != resource_type:

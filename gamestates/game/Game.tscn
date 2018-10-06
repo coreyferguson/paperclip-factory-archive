@@ -100,13 +100,15 @@ __meta__ = {
 
 [node name="Player" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( 558.056, 370.699 )
+position = Vector2( 546.952, 370.699 )
 
 [node name="System1" type="Node" parent="." index="6"]
 
+editor/display_folded = true
+
 [node name="Moon1" parent="System1" index="0" instance=ExtResource( 7 )]
 
-position = Vector2( 464.745, 368.66 )
+position = Vector2( 442.538, 322.395 )
 
 [node name="Moon2" parent="System1" index="1" instance=ExtResource( 7 )]
 
@@ -127,6 +129,8 @@ position = Vector2( 1155.39, 144.486 )
 resource_type = "energy"
 
 [node name="System2" type="Node" parent="." index="7"]
+
+editor/display_folded = true
 
 [node name="Moon1" parent="System2" index="0" instance=ExtResource( 7 )]
 
@@ -152,6 +156,8 @@ resource_type = "energy"
 
 [node name="System3" type="Node" parent="." index="8"]
 
+editor/display_folded = true
+
 [node name="Moon1" parent="System3" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 2575.24, -1698.88 )
@@ -176,7 +182,7 @@ resource_type = "energy"
 
 [node name="PaperClipFactory" parent="." index="9" instance=ExtResource( 8 )]
 
-position = Vector2( 396.11, 198.055 )
+position = Vector2( 322.007, 207.269 )
 
 [connection signal="notify_encounter" from="WaveController" to="HUD" method="_on_WaveController_notify_encounter"]
 

@@ -5,7 +5,7 @@ var types = {
 		'type': 'iron',
 		'icon': load('res://assets/resources/moon_icon.png'),
 		'world_texture': load('res://assets/resources/moon.png'),
-		'initial_capacity': 5000,
+		'initial_capacity': 1000,
 		'harvest_rate': 1,
 		'probability_range': [0, 0.6]
 	},
@@ -13,7 +13,7 @@ var types = {
 		'type': 'energy',
 		'icon': load('res://assets/resources/sun_icon.png'),
 		'world_texture': load('res://assets/resources/sun.png'),
-		'initial_capacity': 10000,
+		'initial_capacity': 5000,
 		'harvest_rate': 2,
 		'probability_range': [0.6, 0.9]
 	},

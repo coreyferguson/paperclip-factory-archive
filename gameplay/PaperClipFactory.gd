@@ -11,7 +11,8 @@ func _ready():
 
 func _on_Harvester_harvest(node):
 	var resource = node.harvest()
-	if resource and resource.type == 'iron': score.increment((resource.quantity * production_bonus))
+	if resource and resource.type == 'iron': 
+		score.increment((resource.quantity * production_bonus))
 
 func kill():
 	emit_signal('kill')
