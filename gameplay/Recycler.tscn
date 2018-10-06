@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gameplay/Recycler.gd" type="Script" id=1]
+[ext_resource path="res://assets/player/recycler.png" type="Texture" id=2]
+[ext_resource path="res://gameplay/ProgressBar.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 26.3705
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 300.0
+
+[node name="Recycler" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 0
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+visible = false
+shape = SubResource( 1 )
+
+[node name="RecycleTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = true
+
+[node name="ProgressBarTimer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="RecycleArea" type="Area2D" parent="." index="4"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RecycleArea" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="ProgressBar" parent="." index="5" instance=ExtResource( 3 )]
+
+margin_top = 40.0
+margin_bottom = 40.0
+size = Vector2( 100, 10 )
+capacity = 5
+current = 0
+
+[connection signal="timeout" from="RecycleTimer" to="." method="_on_RecycleTimer_timeout"]
+
+[connection signal="timeout" from="ProgressBarTimer" to="." method="_on_ProgressBarTimer_timeout"]
+
+

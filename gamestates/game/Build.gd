@@ -102,6 +102,21 @@ var Items = {
 		'description': 'Organic Farms produce organic material to invest in Science. FOR SCIENCE!\nRequires science unlock.',
 		'has_position_indicator': true,
 		'enabled': funcref(self, 'OrganicFarmEnabled')
+	},
+	'Recycler': {
+		'type': 'Recycler',
+		'icon': load('res://assets/player/recycler_icon.png'),
+		'required_resources': [
+			{ 'type': 'iron', 'quantity': 5 },
+			{ 'type': 'energy', 'quantity': 50 }
+		],
+		'placement_resource': load('res://ui/BuildRecycler.tscn'),
+		'build_resource': load('res://gameplay/Recycler.tscn'),
+		'hotkey': KEY_R,
+		'hotkey_text': 'R',
+		'description': 'Recycle structures within a given area.',
+		'has_position_indicator': false,
+		'enabled': true
 	}
 }
 
