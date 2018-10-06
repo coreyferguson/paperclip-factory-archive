@@ -2,7 +2,7 @@ extends StaticBody2D
 
 signal kill
 
-export (int) var capacity = 30
+export (int) var capacity = 100
 export (int) var harvest_rate = 10
 export (int) var conversion_rate = 0.25
 var quantity = 0

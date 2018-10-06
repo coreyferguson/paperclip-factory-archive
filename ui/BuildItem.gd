@@ -70,6 +70,8 @@ func choose_location():
 		game.add_child(to_be_built)
 		if build_item.has_position_indicator:
 			position_valid_instance = position_valid_resource.instance()
+			if build_item.has('position_indicator_radius'):
+				position_valid_instance.radius = build_item.position_indicator_radius
 			game.add_child(position_valid_instance)
 
 func _unhandled_input(event):
