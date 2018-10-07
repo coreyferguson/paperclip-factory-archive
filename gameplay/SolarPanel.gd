@@ -41,7 +41,14 @@ func set_sprite_rotation(rotation):
 
 func recycle():
 	var recycled_materials = []
+	# recycle cost of building
 	for resource in Build.Items['SolarPanel'].required_resources:
 		recycled_materials.push_back(resource)
+	# recycle stored materials
+	recycled_materials.push_back({
+		'type': 'energy',
+		'quantity': floor(quantity),
+		'texture': NaturalResource.types[harvestable_resource_type].world_texture
+	})
 	kill()
 	return recycled_materials

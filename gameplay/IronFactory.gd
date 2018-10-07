@@ -40,8 +40,15 @@ func update_progress_bar():
 
 func recycle():
 	var recycled_materials = []
+	# recycle cost of building
 	for resource in Build.Items['IronFactory'].required_resources:
 		recycled_materials.push_back(resource)
+	# recycle stored materials
+	recycled_materials.push_back({
+		'type': 'iron',
+		'quantity': floor(quantity),
+		'texture': NaturalResource.types[harvestable_resource_type].world_texture
+	})
 	kill()
 	return recycled_materials
 
