@@ -28,6 +28,18 @@ var Items = {
 		'has_position_indicator': false,
 		'enabled': true
 	},
+	'AntiShipMine3Pack': {
+		'type': 'AntiShipMine3Pack',
+		'icon': load('res://assets/player/mine-3pack_icon.png'),
+		'required_resources': funcref(self, 'AntiShip3PackMineCost'),
+		'placement_resource': load('res://ui/BuildMine3Pack.tscn'),
+		'build_resource': load('res://gameplay/Mine3Pack.tscn'),
+		'hotkey': KEY_3,
+		'hotkey_text': '3',
+		'description': 'Builds a pack of 3 mines at once.\nRequires science unlock.',
+		'has_position_indicator': false,
+		'enabled': funcref(self, 'Mine3PackEnabled')
+	},
 	'PaperclipFactory': {
 		'type': 'PaperclipFactory',
 		'icon': load('res://assets/player/paperclipfactory_icon.png'),
@@ -123,6 +135,13 @@ var Items = {
 func AntiShipMineCost(Science):
 	var bonus = Science.discoveries['mine_cost'].current_level
 	return [ { 'type': 'iron', 'quantity': 5 - bonus } ]
+	
+func AntiShip3PackMineCost(Science):
+	var bonus = Science.discoveries['mine_cost'].current_level
+	return [ { 'type': 'iron', 'quantity': 5*3 - 3*bonus } ]
 
 func OrganicFarmEnabled(Science):
 	return Science.discoveries['organic_farm'].current_level == 1
+
+func Mine3PackEnabled(Science):
+	return Science.discoveries['antiship_mine_3_pack'].current_level == 1

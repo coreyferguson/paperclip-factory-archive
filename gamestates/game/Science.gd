@@ -50,6 +50,14 @@ var discoveries = {
 		'cost': 30,
 		'max_level': 1,
 		'current_level': 0
+	},
+	'antiship_mine_3_pack': {
+		'type': 'antiship_mine_3_pack',
+		'description': 'Place a 3-pack of mines in a single click.',
+		'icon': load('res://assets/player/mine-3pack_icon.png'),
+		'cost': 20,
+		'max_level': 1,
+		'current_level': 0
 	}
 }
 

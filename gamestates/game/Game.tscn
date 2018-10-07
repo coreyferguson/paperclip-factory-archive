@@ -167,12 +167,7 @@ position = Vector2( 2526.85, -3027.17 )
 
 position = Vector2( 3394.46, -2793.92 )
 
-[node name="Earth" parent="System3" index="3" instance=ExtResource( 7 )]
-
-position = Vector2( 2390.24, -2208.44 )
-resource_type = "organic"
-
-[node name="Sun" parent="System3" index="4" instance=ExtResource( 7 )]
+[node name="Sun" parent="System3" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( 2869.91, -2529.88 )
 resource_type = "energy"
@@ -189,22 +184,14 @@ position = Vector2( -2952.94, 2247.84 )
 
 position = Vector2( -2123.01, 2640.79 )
 
-[node name="Earth" parent="System4" index="2" instance=ExtResource( 7 )]
-
-position = Vector2( -2820.66, 2879.98 )
-resource_type = "organic"
-
-[node name="Earth2" parent="System4" index="3" instance=ExtResource( 7 )]
-
-position = Vector2( -2286.64, 1968.01 )
-resource_type = "organic"
-
-[node name="Sun" parent="System4" index="4" instance=ExtResource( 7 )]
+[node name="Sun" parent="System4" index="2" instance=ExtResource( 7 )]
 
 position = Vector2( -2532.49, 2417.82 )
 resource_type = "energy"
 
 [node name="System5" type="Node" parent="." index="10"]
+
+editor/display_folded = true
 
 [node name="Moon1" parent="System5" index="0" instance=ExtResource( 7 )]
 
@@ -221,13 +208,7 @@ scale = Vector2( 0.999998, 1 )
 position = Vector2( 3289.1, 2729.79 )
 scale = Vector2( 0.999998, 1 )
 
-[node name="Earth" parent="System5" index="3" instance=ExtResource( 7 )]
-
-position = Vector2( 2606.24, 2756.54 )
-scale = Vector2( 0.999998, 1 )
-resource_type = "organic"
-
-[node name="Sun" parent="System5" index="4" instance=ExtResource( 7 )]
+[node name="Sun" parent="System5" index="3" instance=ExtResource( 7 )]
 
 position = Vector2( 2873.49, 3305.08 )
 scale = Vector2( 0.999998, 1 )

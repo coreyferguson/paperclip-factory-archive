@@ -33,8 +33,7 @@ script = ExtResource( 1 )
 
 [node name="BuildMenu" parent="." index="2" instance=ExtResource( 4 )]
 
-margin_top = -214.0
-margin_bottom = 214.0
+_sections_unfolded = [ "Grow Direction", "Margin", "Mouse", "Rect", "Scroll" ]
 
 [node name="BuildItemHover" parent="." index="3" instance=ExtResource( 5 )]
 
@@ -116,54 +115,6 @@ autostart = false
 [connection signal="hover_in" from="BuildMenu" to="BuildItemHover" method="_on_BuildMenu_hover_in"]
 
 [connection signal="hover_out" from="BuildMenu" to="BuildItemHover" method="_on_BuildMenu_hover_out"]
-
-[connection signal="mouse_entered" from="BuildMenu/BuildItem" to="BuildMenu/BuildItem" method="_on_BuildItem_mouse_entered"]
-
-[connection signal="mouse_exited" from="BuildMenu/BuildItem" to="BuildMenu/BuildItem" method="_on_BuildItem_mouse_exited"]
-
-[connection signal="pressed" from="BuildMenu/BuildItem" to="BuildMenu/BuildItem" method="_on_BuildItem_pressed"]
-
-[connection signal="mouse_entered" from="BuildMenu/BuildItem2" to="BuildMenu/BuildItem2" method="_on_BuildItem_mouse_entered"]
-
-[connection signal="mouse_exited" from="BuildMenu/BuildItem2" to="BuildMenu/BuildItem2" method="_on_BuildItem_mouse_exited"]
-
-[connection signal="pressed" from="BuildMenu/BuildItem2" to="BuildMenu/BuildItem2" method="_on_BuildItem_pressed"]
-
-[connection signal="mouse_entered" from="BuildMenu/BuildItem3" to="BuildMenu/BuildItem3" method="_on_BuildItem_mouse_entered"]
-
-[connection signal="mouse_exited" from="BuildMenu/BuildItem3" to="BuildMenu/BuildItem3" method="_on_BuildItem_mouse_exited"]
-
-[connection signal="pressed" from="BuildMenu/BuildItem3" to="BuildMenu/BuildItem3" method="_on_BuildItem_pressed"]
-
-[connection signal="mouse_entered" from="BuildMenu/BuildItem4" to="BuildMenu/BuildItem4" method="_on_BuildItem_mouse_entered"]
-
-[connection signal="mouse_exited" from="BuildMenu/BuildItem4" to="BuildMenu/BuildItem4" method="_on_BuildItem_mouse_exited"]
-
-[connection signal="pressed" from="BuildMenu/BuildItem4" to="BuildMenu/BuildItem4" method="_on_BuildItem_pressed"]
-
-[connection signal="mouse_entered" from="BuildMenu/BuildItem5" to="BuildMenu/BuildItem5" method="_on_BuildItem_mouse_entered"]
-
-[connection signal="mouse_exited" from="BuildMenu/BuildItem5" to="BuildMenu/BuildItem5" method="_on_BuildItem_mouse_exited"]
-
-[connection signal="pressed" from="BuildMenu/BuildItem5" to="BuildMenu/BuildItem5" method="_on_BuildItem_pressed"]
-
-[connection signal="mouse_entered" from="BuildMenu/BuildItem6" to="BuildMenu/BuildItem6" method="_on_BuildItem_mouse_entered"]
-
-[connection signal="mouse_exited" from="BuildMenu/BuildItem6" to="BuildMenu/BuildItem6" method="_on_BuildItem_mouse_exited"]
-
-[connection signal="pressed" from="BuildMenu/BuildItem6" to="BuildMenu/BuildItem6" method="_on_BuildItem_pressed"]
-
-[connection signal="mouse_entered" from="BuildMenu/BuildItem7" to="BuildMenu/BuildItem7" method="_on_BuildItem_mouse_entered"]
-
-[connection signal="mouse_exited" from="BuildMenu/BuildItem7" to="BuildMenu/BuildItem7" method="_on_BuildItem_mouse_exited"]
-
-[connection signal="pressed" from="BuildMenu/BuildItem7" to="BuildMenu/BuildItem7" method="_on_BuildItem_pressed"]
-
-[connection signal="mouse_entered" from="BuildMenu/BuildItem8" to="BuildMenu/BuildItem8" method="_on_BuildItem_mouse_entered"]
-
-[connection signal="mouse_exited" from="BuildMenu/BuildItem8" to="BuildMenu/BuildItem8" method="_on_BuildItem_mouse_exited"]
-
-[connection signal="pressed" from="BuildMenu/BuildItem8" to="BuildMenu/BuildItem8" method="_on_BuildItem_pressed"]
 
 [connection signal="timeout" from="Notification/Timer" to="Notification" method="notify_timer_fade_out"]
 
