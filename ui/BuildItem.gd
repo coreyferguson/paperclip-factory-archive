@@ -56,6 +56,9 @@ func _unhandled_key_input(event):
 		get_tree().set_input_as_handled()
 		choose_location()
 
+func can_build():
+	return has_required_items and !is_disabled_externally and discovered
+
 func _on_Timer_timeout():
 	if has_required_items(): has_required_items = true
 	else: has_required_items = false
@@ -64,7 +67,7 @@ func _on_BuildItem_pressed():
 	choose_location()
 
 func choose_location():
-	if state != STATE_CHOOSE_LOCATION and has_required_items():
+	if state != STATE_CHOOSE_LOCATION and can_build():
 		set_state(STATE_CHOOSE_LOCATION)
 		to_be_built = build_item.placement_resource.instance()
 		game.add_child(to_be_built)

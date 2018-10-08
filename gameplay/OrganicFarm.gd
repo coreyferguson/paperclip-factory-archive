@@ -35,7 +35,14 @@ func kill():
 
 func recycle():
 	var recycled_materials = []
+	# recycle build cost
 	for resource in Build.Items['OrganicFarm'].required_resources:
 		recycled_materials.push_back(resource)
+	# recycle gathered organics
+	Inventory.add({
+		'type': 'organic',
+		'texture': NaturalResource.types[harvestable_resource_type].world_texture,
+		'quantity': quantity
+	})
 	kill()
 	return recycled_materials
