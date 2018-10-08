@@ -4,8 +4,7 @@
 [ext_resource path="res://ui/MiniMap.gd" type="Script" id=2]
 [ext_resource path="res://ui/MiniMapReferenceRect.gd" type="Script" id=3]
 
-
-[node name="MiniMap" type="NinePatchRect" index="0"]
+[node name="MiniMap" type="NinePatchRect"]
 
 anchor_left = 0.0
 anchor_top = 1.0

@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 11.1516
 height = 7.4856
 
-[node name="Boomerang" type="KinematicBody2D" index="0" groups=[
+[node name="Boomerang" type="KinematicBody2D" groups=[
 "enemy",
 ]]
 

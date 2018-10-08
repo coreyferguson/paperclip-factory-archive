@@ -52,6 +52,8 @@ func _process(delta):
 	release_focus()
 
 func _unhandled_key_input(event):
+	if event is InputEventKey and event.pressed and event.scancode == KEY_ESCAPE:
+		cancel_build()
 	if event is InputEventKey and event.pressed and event.scancode == build_item.hotkey:
 		get_tree().set_input_as_handled()
 		choose_location()
@@ -89,12 +91,16 @@ func _unhandled_input(event):
 				if build_item.has_position_indicator and position_valid_instance.is_valid(): build()
 				if !build_item.has_position_indicator: build()
 				get_tree().set_input_as_handled()
-			to_be_built.queue_free()
-			to_be_built = null
-			if build_item.has_position_indicator:
-				position_valid_instance.queue_free()
-				position_valid_instance = null
-			set_state(STATE_DEFAULT)
+			cancel_build()
+
+func cancel_build():
+	if state == STATE_CHOOSE_LOCATION:
+		to_be_built.queue_free()
+		to_be_built = null
+		if build_item.has_position_indicator:
+			position_valid_instance.queue_free()
+			position_valid_instance = null
+		set_state(STATE_DEFAULT)
 
 func checkValidPosition():
 	var to_be_built_valid = true

@@ -4,12 +4,15 @@ export (float) var max_zoom_in = 1
 export (float) var max_zoom_out = 3
 export (float) var zoom_speed = 0.1
 
+var bullet_resource = load('res://gameplay/Bullet.tscn')
+
 var is_left_down = false
 var is_right_down = false
 var left_down_origin
 var is_dragging = false
 var is_following_player = false
 
+onready var game = $'/root/Game'
 onready var camera = $'/root/Game/Camera'
 onready var player = $'/root/Game/Player'
 onready var hud = $'/root/Game/HUD'
@@ -61,7 +64,7 @@ func handleMouseEvents(event):
 	elif is_left_click:
 		player.move_to(get_global_mouse_position())
 	elif is_right_click:
-		pass
+		shoot_bullet(event)
 
 #func leftClick(event):
 #	get_tree().set_input_as_handled()
@@ -110,3 +113,11 @@ func clamp_camera_position():
 	var window_size = OS.get_real_window_size()
 	camera.position.x = clamp(camera.position.x, camera.limit_left, camera.limit_right-window_size.x*camera.zoom.x)
 	camera.position.y = clamp(camera.position.y, camera.limit_top, camera.limit_bottom-window_size.y*camera.zoom.y)
+
+func shoot_bullet(event):
+	if Inventory.has('iron') and Inventory.get('iron').quantity >= 1:
+		Inventory.remove('iron', 1)
+		var bullet_instance = bullet_resource.instance()
+		bullet_instance.position = player.position
+		bullet_instance.velocity = get_global_mouse_position() - player.position
+		game.add_child(bullet_instance)
