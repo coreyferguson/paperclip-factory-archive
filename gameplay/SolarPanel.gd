@@ -2,6 +2,8 @@ extends StaticBody2D
 
 signal kill
 
+var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
+
 export (int) var capacity = 30
 export (int) var harvest_rate = 10
 export (int) var conversion_rate = 0.25
@@ -43,7 +45,9 @@ func recycle():
 	var recycled_materials = []
 	# recycle cost of building
 	for resource in Build.Items['SolarPanel'].required_resources:
-		recycled_materials.push_back(resource)
+		var copy = NaturalResourceStack.new().copy_from(resource)
+		copy.quantity = ceil(copy.quantity * 0.8)
+		recycled_materials.push_back(copy)
 	# recycle stored materials
 	recycled_materials.push_back({
 		'type': 'energy',

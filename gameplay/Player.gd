@@ -55,4 +55,4 @@ func _on_Science_discover(discovery):
 	recalculate_speed()
 
 func recalculate_speed():
-	speed_bonus = 1 + (0.1 * Science.discoveries['player_ship_speed'].current_level)
+	speed_bonus = 1 + (0.2 * Science.discoveries['player_ship_speed'].current_level)

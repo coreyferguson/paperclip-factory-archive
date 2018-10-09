@@ -1,12 +1,14 @@
 extends Node
 
+var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
+
 var Items = {
 	'AntiMissileMine': {
 		'type': 'AntiMissileMine',
 		'icon': load('res://assets/player/low-yield-mine_icon.png'),
 		'required_resources': [
-			{ 'type': 'iron', 'quantity': 1 },
-			{ 'type': 'energy', 'quantity': 1 }
+			NaturalResourceStack.new('iron', 1),
+			NaturalResourceStack.new('energy', 1)
 		],
 		'placement_resource': load('res://ui/BuildLowYieldMine.tscn'),
 		'build_resource': load('res://gameplay/LowYieldMine.tscn'),
@@ -44,7 +46,7 @@ var Items = {
 		'type': 'PaperclipFactory',
 		'icon': load('res://assets/player/paperclipfactory_icon.png'),
 		'required_resources': [
-			{ 'type': 'iron', 'quantity': 15 }
+			NaturalResourceStack.new('iron', 15)
 		],
 		'placement_resource': load('res://ui/BuildPaperClipFactory.tscn'),
 		'build_resource': load('res://gameplay/PaperClipFactory.tscn'),
@@ -58,8 +60,8 @@ var Items = {
 		'type': 'SolarPanel',
 		'icon': load('res://assets/player/solar-panel_icon.png'),
 		'required_resources': [
-			{ 'type': 'iron', 'quantity': 10 },
-			{ 'type': 'energy', 'quantity': 10 }
+			NaturalResourceStack.new('iron', 10),
+			NaturalResourceStack.new('energy', 10)
 		],
 		'placement_resource': load('res://ui/BuildSolarPanel.tscn'),
 		'build_resource': load('res://gameplay/SolarPanel.tscn'),
@@ -73,8 +75,8 @@ var Items = {
 		'type': 'IronFactory',
 		'icon': load('res://assets/player/ironfactory_icon.png'),
 		'required_resources': [
-			{ 'type': 'iron', 'quantity': 10 },
-			{ 'type': 'energy', 'quantity': 10 }
+			NaturalResourceStack.new('iron', 10),
+			NaturalResourceStack.new('energy', 10)
 		],
 		'placement_resource': load('res://ui/BuildIronFactory.tscn'),
 		'build_resource': load('res://gameplay/IronFactory.tscn'),
@@ -88,8 +90,8 @@ var Items = {
 		'type': 'DefenseGrid',
 		'icon': load('res://assets/player/defense-grid_icon.png'),
 		'required_resources': [
-			{ 'type': 'iron', 'quantity': 60 },
-			{ 'type': 'energy', 'quantity': 10 }
+			NaturalResourceStack.new('iron', 60),
+			NaturalResourceStack.new('energy', 10)
 		],
 		'placement_resource': load('res://ui/BuildDefenseGrid.tscn'),
 		'build_resource': load('res://gameplay/DefenseGrid.tscn'),
@@ -103,9 +105,9 @@ var Items = {
 		'type': 'OrganicFarm',
 		'icon': load('res://assets/player/organic-farm_icon.png'),
 		'required_resources': [
-			{ 'type': 'iron', 'quantity': 20 },
-			{ 'type': 'energy', 'quantity': 20 },
-			{ 'type': 'organic', 'quantity': 50 }
+			NaturalResourceStack.new('iron', 20),
+			NaturalResourceStack.new('energy', 20),
+			NaturalResourceStack.new('organic', 50)
 		],
 		'placement_resource': load('res://ui/BuildOrganicFarm.tscn'),
 		'build_resource': load('res://gameplay/OrganicFarm.tscn'),
@@ -119,8 +121,8 @@ var Items = {
 		'type': 'Recycler',
 		'icon': load('res://assets/player/recycler_icon.png'),
 		'required_resources': [
-			{ 'type': 'iron', 'quantity': 5 },
-			{ 'type': 'energy', 'quantity': 50 }
+			NaturalResourceStack.new('iron', 5),
+			NaturalResourceStack.new('energy', 5)
 		],
 		'placement_resource': load('res://ui/BuildRecycler.tscn'),
 		'build_resource': load('res://gameplay/Recycler.tscn'),
@@ -134,11 +136,11 @@ var Items = {
 
 func AntiShipMineCost(Science):
 	var bonus = Science.discoveries['mine_cost'].current_level
-	return [ { 'type': 'iron', 'quantity': 5 - bonus } ]
+	return [ NaturalResourceStack.new('iron', 5 - bonus) ]
 	
 func AntiShip3PackMineCost(Science):
 	var bonus = Science.discoveries['mine_cost'].current_level
-	return [ { 'type': 'iron', 'quantity': 5*3 - 3*bonus } ]
+	return [ NaturalResourceStack.new('iron', 5*3 - 3*bonus) ]
 
 func OrganicFarmEnabled(Science):
 	return Science.discoveries['organic_farm'].current_level == 1

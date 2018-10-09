@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
+
 export (int) var capacity = 50
 export (int) var harvest_rate = 10
 export (int) var conversion_rate = 0.25
@@ -37,12 +39,10 @@ func recycle():
 	var recycled_materials = []
 	# recycle build cost
 	for resource in Build.Items['OrganicFarm'].required_resources:
-		recycled_materials.push_back(resource)
+		var copy = NaturalResourceStack.new().copy_from(resource)
+		copy.quantity = ceil(copy.quantity * 0.8)
+		recycled_materials.push_back(copy)
 	# recycle gathered organics
-	Inventory.add({
-		'type': 'organic',
-		'texture': NaturalResource.types[harvestable_resource_type].world_texture,
-		'quantity': quantity
-	})
+	recycled_materials.push_back(NaturalResourceStack.new('organic', floor(quantity)))
 	kill()
 	return recycled_materials

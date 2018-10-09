@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
+
 export (int) var speed = 500
 export (int) var default_detection_radius = 150
 
@@ -29,3 +31,17 @@ func _on_Science_discover(discovery_type):
 func recalculate_detection_radius():
 	var bonus = 1 + (0.1 * Science.discoveries['mine_detection_radius'].current_level)
 	$Detector.set_radius(default_detection_radius * bonus)
+
+func recycle():
+	var recycled_resources = []
+	for resource in get_required_resources():
+		var copy = NaturalResourceStack.new().copy_from(resource)
+		copy.quantity = ceil(copy.quantity * 0.8)
+		recycled_resources.push_back(copy)
+	queue_free()
+	return recycled_resources
+
+func get_required_resources():
+	var required_resources = Build.Items['AntiShipMine'].required_resources
+	if typeof(required_resources) == TYPE_OBJECT: required_resources = required_resources.call_func(Science)
+	return required_resources

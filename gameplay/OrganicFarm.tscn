@@ -11,7 +11,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 23.4829, 24.6679 )
 
-[node name="OrganicFarm" type="StaticBody2D" index="0" groups=[
+[node name="OrganicFarm" type="StaticBody2D" groups=[
 "player",
 ]]
 

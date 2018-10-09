@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 radius = 6.20401
 
-[node name="Bullet" type="KinematicBody2D" index="0"]
+[node name="Bullet" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 6
@@ -32,7 +32,7 @@ shape = SubResource( 1 )
 
 visible = true
 collision_mask = 384
-radius = 50
+radius = 30
 
 [connection signal="detection" from="Detector" to="." method="_on_Detector_detection"]
 

@@ -2,6 +2,8 @@ extends StaticBody2D
 
 signal kill
 
+var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
+
 var production_bonus
 
 func _ready():
@@ -26,7 +28,14 @@ func recalculation_production_bonus():
 
 func recycle():
 	var recycled_materials = []
-	for resource in Build.Items['PaperclipFactory'].required_resources:
-		recycled_materials.push_back(resource)
+	for resource in get_required_resources():
+		var copy = NaturalResourceStack.new().copy_from(resource)
+		copy.quantity = ceil(copy.quantity * 0.8)
+		recycled_materials.push_back(copy)
 	kill()
 	return recycled_materials
+
+func get_required_resources():
+	var required_resources = Build.Items['PaperclipFactory'].required_resources
+	if typeof(required_resources) == TYPE_OBJECT: required_resources = required_resources.call_func(Science)
+	return required_resources

@@ -29,3 +29,13 @@ func _on_Science_discover(discovery_type):
 func recalculate_detection_radius():
 	var bonus = 1 + (0.1 * Science.discoveries['mine_detection_radius'].current_level)
 	$Detector.set_radius(default_detection_radius * bonus)
+
+func recycle():
+	var recycled_resources = []
+	for resource in get_required_resources(): recycled_resources.push_back(resource)
+	return recycled_resources
+
+func get_required_resources():
+	var required_resources = Build.Items['AntiMissileMine'].required_resources
+	if typeof(required_resources) == TYPE_OBJECT: required_resources = required_resources.call_func(Science)
+	return required_resources

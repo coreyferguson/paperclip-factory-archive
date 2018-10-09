@@ -17,7 +17,7 @@ func _on_RecycleTimer_timeout():
 	progress_bar.set_current(0)
 	var target
 	for node in recycle_area.get_overlapping_bodies():
-		if node.is_in_group('player') and node.has_method('recycle'):
+		if node.has_method('recycle'):
 			target = node
 			break
 #
@@ -30,7 +30,19 @@ func _on_RecycleTimer_timeout():
 				'texture': NaturalResource.types[resource.type].world_texture
 			})
 	else:
+		var required_resources = get_required_resources()
+		for resource in required_resources:
+			Inventory.add({
+				'type': resource.type,
+				'quantity': resource.quantity,
+				'texture': NaturalResource.types[resource.type].world_texture
+			})
 		buildings.remove_building(self)
+
+func get_required_resources():
+	var required_resources = Build.Items['Recycler'].required_resources
+	if typeof(required_resources) == TYPE_OBJECT: required_resources = required_resources.call_func(Science)
+	return required_resources
 
 func kill():
 	buildings.remove_building(self)

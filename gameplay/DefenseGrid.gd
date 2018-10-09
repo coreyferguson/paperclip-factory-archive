@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
+
 export (int) var antiship_mine_capacity = 10
 export (int) var antimissile_mine_capacity = 10
 export (int) var mine_placement_min_distance = 100
@@ -78,9 +80,13 @@ func recycle():
 	var recycled_materials = []
 	for i in range(antiship_mine_current):
 		for resource in antiship_requirements:
+			var copy = NaturalResourceStack.new().copy_from(resource)
+			copy.quantity = ceil(copy.quantity * 0.8)
 			recycled_materials.push_back(resource)
 	for i in range(antimissile_mine_current):
 		for resource in antimissile_requirements:
+			var copy = NaturalResourceStack.new().copy_from(resource)
+			copy.quantity = ceil(copy.quantity * 0.8)
 			recycled_materials.push_back(resource)
 	kill()
 	return recycled_materials
