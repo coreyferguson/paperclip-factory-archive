@@ -27,6 +27,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 capacity = 50
 harvest_rate = 10
 conversion_rate = 0.25
+quantity = 0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gamestates/game/Game.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gameplay/OrganicFarm.tscn" type="PackedScene" id=9]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -217,6 +218,11 @@ resource_type = "energy"
 [node name="PaperClipFactory" parent="." index="11" instance=ExtResource( 8 )]
 
 position = Vector2( 322.007, 207.269 )
+
+[node name="OrganicFarm" parent="." index="12" instance=ExtResource( 9 )]
+
+position = Vector2( 964.172, 186.912 )
+quantity = 20
 
 [connection signal="notify_encounter" from="WaveController" to="HUD" method="_on_WaveController_notify_encounter"]
 

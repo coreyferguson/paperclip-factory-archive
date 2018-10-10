@@ -5,9 +5,7 @@ var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
 export (int) var capacity = 50
 export (int) var harvest_rate = 10
 export (int) var conversion_rate = 0.25
-var quantity = 0
-
-var harvestable_resource_type = 'energy'
+export (int) var quantity = 0
 
 func _ready():
 	buildings.add_building(self)
@@ -23,7 +21,7 @@ func _on_PlayerDetector_player_overlap():
 		quantity -= harvest_rate
 		Inventory.add({
 			'type': 'organic',
-			'texture': NaturalResource.types[harvestable_resource_type].world_texture,
+			'texture': NaturalResource.types['organic'].world_texture,
 			'quantity': harvest_rate
 		})
 		update_progress_bar()

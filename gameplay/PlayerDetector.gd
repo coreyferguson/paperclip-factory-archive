@@ -2,10 +2,13 @@ extends Area2D
 
 signal player_overlap
 
+export (int) var detection_wait_time = 1
+
 var player
 
 func _ready():
 	player = $'/root/Game/Player'
+	$Timer.wait_time = detection_wait_time / Globals.game_rate
 
 func _on_Timer_timeout():
 	var overlapping = get_overlapping_bodies()
