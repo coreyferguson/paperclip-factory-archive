@@ -7,9 +7,9 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 50.0
+radius = 75.0
 
-[node name="ResourceProvider" type="StaticBody2D" index="0"]
+[node name="ResourceProvider" type="StaticBody2D"]
 
 input_pickable = false
 collision_layer = 16
@@ -36,7 +36,6 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 margin_top = 80.0
 margin_bottom = 80.0
-size = Vector2( 100, 10 )
 capacity = 1000
 current = 1000
 

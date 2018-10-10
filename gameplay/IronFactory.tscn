@@ -77,8 +77,6 @@ autostart = true
 
 margin_top = 30.0
 margin_bottom = 30.0
-size = Vector2( 100, 10 )
-capacity = 100
 current = 0
 
 [connection signal="harvest" from="Harvester" to="." method="_on_Harvester_harvest"]
