@@ -31,6 +31,7 @@ antiship_mine_capacity = 10
 antimissile_mine_capacity = 10
 mine_placement_min_distance = 100
 mine_placement_max_distance = 400
+build_timer_wait_time = 1
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

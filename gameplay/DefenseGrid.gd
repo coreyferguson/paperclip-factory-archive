@@ -6,6 +6,7 @@ export (int) var antiship_mine_capacity = 10
 export (int) var antimissile_mine_capacity = 10
 export (int) var mine_placement_min_distance = 100
 export (int) var mine_placement_max_distance = 400
+export (int) var build_timer_wait_time = 1
 
 var antiship_mine_resource = load('res://gameplay/Mine.tscn')
 var antimissile_mine_resource = load('res://gameplay/LowYieldMine.tscn')
@@ -26,6 +27,7 @@ onready var build_timer = $BuildTimer
 
 func _ready():
 	buildings.add_building(self)
+	build_timer.wait_time = build_timer_wait_time / Globals.game_rate
 
 func _on_DetectorTimer_timeout():
 	if state == State.ACTIVE:
@@ -48,7 +50,6 @@ func deploy_mine(mine_resource, target):
 	if antimissile_mine_current == 0: return
 	antiship_mine_current -= 1
 	var distance = position.distance_to(target.position) - 200
-#	if distance < mine_placement_max_distance: distance -= 200 # try to place in front of enemy
 	distance = clamp(distance, mine_placement_min_distance, mine_placement_max_distance)
 	var build_position = target.position - position
 	build_position = build_position.normalized() * distance
