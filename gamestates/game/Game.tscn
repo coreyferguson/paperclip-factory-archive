@@ -102,6 +102,7 @@ __meta__ = {
 [node name="Player" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 546.952, 370.699 )
+energy_consumption_rate = 1
 
 [node name="System1" type="Node" parent="." index="6"]
 

@@ -25,6 +25,7 @@ GlobalShortcuts="*res://gamestates/game/GlobalShortcuts.gd"
 Science="*res://gamestates/game/Science.gd"
 Build="*res://gamestates/game/Build.gd"
 NaturalResource="*res://gamestates/game/NaturalResource.gd"
+Globals="*res://gamestates/game/Globals.gd"
 
 [display]
 

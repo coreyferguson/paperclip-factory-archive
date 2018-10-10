@@ -6,6 +6,7 @@ var texture_default = load('res://assets/player/player.png')
 var texture_moving = load('res://assets/player/player_moving.png')
 
 export (int) var default_speed = 100
+export (int) var energy_consumption_rate = 1
 var speed_bonus = 1
 
 var target = null
@@ -14,12 +15,13 @@ onready var sprite = $Sprite
 onready var rotation_tween = $RotationTween
 
 func _ready():
+	$EnergyTimer.wait_time = energy_consumption_rate / Globals.game_rate
 	sprite.texture = texture_default
 	recalculate_speed()
 	Science.connect('discover', self, '_on_Science_discover')
 
 func _process(delta):
-	var speed = default_speed * speed_bonus
+	var speed = default_speed * speed_bonus * Globals.game_rate
 	if target != null:
 		if position.distance_to(target) < speed * delta:
 			position = target

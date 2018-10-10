@@ -29,6 +29,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform", "Z Index", "collision" ]
 default_speed = 100
+energy_consumption_rate = 1
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -59,6 +60,7 @@ audio_bus_name = "Master"
 script = ExtResource( 3 )
 _sections_unfolded = [ "Collision" ]
 radius = 150
+harvest_time_seconds = 1
 
 [node name="Timer" type="Timer" parent="Harvester" index="0"]
 
