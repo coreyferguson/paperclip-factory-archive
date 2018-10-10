@@ -2,12 +2,19 @@ extends KinematicBody2D
 
 var recycle_quantity_rate = 10
 
+var recycle_timer_wait_time = 5
+var progress_bar_timer_wait_time = 1
+
 onready var progress_bar = $ProgressBar
 onready var progress_bar_timer = $ProgressBarTimer
 onready var recycle_timer = $RecycleTimer
 onready var recycle_area = $RecycleArea
 
 func _ready():
+	recycle_timer.wait_time = recycle_timer_wait_time / Globals.game_rate
+	progress_bar_timer.wait_time = progress_bar_timer_wait_time / Globals.game_rate
+	recycle_timer.start()
+	progress_bar_timer.start()
 	buildings.add_building(self)
 
 func _on_ProgressBarTimer_timeout():
