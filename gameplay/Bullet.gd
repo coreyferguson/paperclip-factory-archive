@@ -12,7 +12,7 @@ func _ready():
 func _physics_process(delta):
 	var v
 	if !target or !target.get_ref():
-		v = velocity * speed * delta
+		v = velocity * speed * delta * Globals.game_rate
 	else:
 		v = target.get_ref().position - position
 		v = v.normalized() * speed * delta

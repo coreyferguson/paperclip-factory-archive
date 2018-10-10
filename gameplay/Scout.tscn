@@ -21,8 +21,8 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 speed = 50
-shouldFireMissiles = true
-missileTimerWaitTime = 20
+should_fire_missiles = true
+missile_timer_wait_time = 20
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

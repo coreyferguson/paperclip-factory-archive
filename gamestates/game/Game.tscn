@@ -9,7 +9,7 @@
 [ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=7]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=8]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -102,7 +102,6 @@ __meta__ = {
 [node name="Player" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 546.952, 370.699 )
-energy_consumption_rate = 1
 
 [node name="System1" type="Node" parent="." index="6"]
 

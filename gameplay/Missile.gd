@@ -10,7 +10,7 @@ func _ready():
 func _physics_process(delta):
 	if target and target.get_ref():
 		var velocity = target.get_ref().position - position
-		velocity = velocity.normalized() * speed * delta
+		velocity = velocity.normalized() * speed * delta * Globals.game_rate
 		rotation = velocity.angle()
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.has_method('kill'):

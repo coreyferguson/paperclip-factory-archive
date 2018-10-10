@@ -11,7 +11,7 @@ var target = null
 
 func _ready():
 	Enemies.add_enemy(self)
-	$Timer.wait_time = mode_switch_time
+	$Timer.wait_time = mode_switch_time / Globals.game_rate
 	retarget()
 	
 func _physics_process(delta):
@@ -19,7 +19,7 @@ func _physics_process(delta):
 	if mode == Mode.DODGE: velocity = target
 	elif mode == Mode.ATTACK and target and target.get_ref(): velocity = target.get_ref().position - position
 	if velocity:
-		velocity = velocity.normalized() * speed * delta
+		velocity = velocity.normalized() * speed * delta * Globals.game_rate
 		rotation = velocity.angle()
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.is_in_group('player'):

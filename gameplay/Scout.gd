@@ -1,21 +1,21 @@
 extends KinematicBody2D
 
 export (int) var speed = 50
-export (bool) var shouldFireMissiles = true
-export (int) var missileTimerWaitTime = 20
+export (bool) var should_fire_missiles = true
+export (int) var missile_timer_wait_time = 20
 
 var target = null
 
 func _ready():
 	Enemies.add_enemy(self)
-	$MissileTimer.wait_time = missileTimerWaitTime
-	if shouldFireMissiles: $MissileTimer.start()
+	$MissileTimer.wait_time = missile_timer_wait_time / Globals.game_rate
+	if should_fire_missiles: $MissileTimer.start()
 	retarget()
 	
 func _physics_process(delta):
 	if target && target.get_ref():
 		var velocity = target.get_ref().position - position
-		velocity = velocity.normalized() * speed * delta
+		velocity = velocity.normalized() * speed * delta * Globals.game_rate
 		rotation = velocity.angle()
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.is_in_group('player'):
