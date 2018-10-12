@@ -35,7 +35,7 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 [node name="ProgressBar" parent="." index="2" instance=ExtResource( 3 )]
 
 margin_top = 80.0
-margin_bottom = 80.0
+margin_bottom = 90.0
 capacity = 1000
 current = 1000
 

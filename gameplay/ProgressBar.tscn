@@ -10,14 +10,22 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-rect_pivot_offset = Vector2( 0, 0 )
+margin_left = -50.0
+margin_top = -5.0
+margin_right = 50.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 100, 10 )
+rect_pivot_offset = Vector2( 50, 5 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 script = ExtResource( 1 )
-_sections_unfolded = [ "Anchor", "Rect", "Transform", "Z Index" ]
+_sections_unfolded = [ "Rect", "Transform", "Z Index" ]
+__meta__ = {
+"_edit_group_": true
+}
 size = Vector2( 100, 10 )
 capacity = 100
 current = 100
@@ -28,9 +36,6 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -50.0
-margin_right = 50.0
-margin_bottom = 10.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -42,7 +47,7 @@ patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
-_sections_unfolded = [ "Margin", "Patch Margin", "Rect" ]
+_sections_unfolded = [ "Anchor", "Margin", "Patch Margin", "Rect" ]
 
 [node name="Border" type="NinePatchRect" parent="." index="1"]
 
@@ -50,9 +55,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -50.0
-margin_right = 50.0
-margin_bottom = 10.0
+rect_min_size = Vector2( 100, 10 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -64,6 +67,6 @@ patch_margin_left = 4
 patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
-_sections_unfolded = [ "Patch Margin", "Rect" ]
+_sections_unfolded = [ "Anchor", "Margin", "Patch Margin", "Rect" ]
 
 

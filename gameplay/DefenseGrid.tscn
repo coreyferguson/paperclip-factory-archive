@@ -14,7 +14,7 @@ radius = 25.96
 custom_solver_bias = 0.0
 radius = 600.0
 
-[node name="DefenseGrid" type="StaticBody2D" index="0" groups=[
+[node name="DefenseGrid" type="StaticBody2D" groups=[
 "player",
 ]]
 
@@ -27,7 +27,6 @@ friction = 1.0
 bounce = 0.0
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-antiship_mine_capacity = 10
 antimissile_mine_capacity = 10
 mine_placement_min_distance = 100
 mine_placement_max_distance = 400

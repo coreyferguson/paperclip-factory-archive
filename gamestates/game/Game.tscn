@@ -10,7 +10,7 @@
 [ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=9]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -75,20 +75,22 @@ editor/display_folded = true
 
 [node name="Moon2" parent="System2" index="0" instance=ExtResource( 8 )]
 
-position = Vector2( -1880.61, -1712.42 )
+position = Vector2( -8114.51, -5848.14 )
 
 [node name="Moon3" parent="System2" index="1" instance=ExtResource( 8 )]
 
-position = Vector2( -1127.4, -1775.73 )
+position = Vector2( -7361.3, -5911.45 )
 
 [node name="Earth" parent="System2" index="2" instance=ExtResource( 8 )]
 
-position = Vector2( -1097.77, -901.273 )
+position = Vector2( -7331.67, -5036.99 )
+scale = Vector2( 1, 1 )
 resource_type = "organic"
 
 [node name="Sun" parent="System2" index="3" instance=ExtResource( 8 )]
 
-position = Vector2( -1543.01, -1200.43 )
+position = Vector2( -7776.91, -5336.15 )
+scale = Vector2( 1, 1 )
 resource_type = "energy"
 
 [node name="System3" type="Node" parent="." index="8"]
@@ -97,19 +99,19 @@ editor/display_folded = true
 
 [node name="Moon1" parent="System3" index="0" instance=ExtResource( 8 )]
 
-position = Vector2( 3385.38, -2144.59 )
+position = Vector2( 6263.23, -5507.28 )
 
 [node name="Moon2" parent="System3" index="1" instance=ExtResource( 8 )]
 
-position = Vector2( 2526.85, -3027.17 )
+position = Vector2( 5404.7, -6389.86 )
 
 [node name="Moon3" parent="System3" index="2" instance=ExtResource( 8 )]
 
-position = Vector2( 3394.46, -2793.92 )
+position = Vector2( 6272.31, -6156.61 )
 
 [node name="Sun" parent="System3" index="3" instance=ExtResource( 8 )]
 
-position = Vector2( 2869.91, -2529.88 )
+position = Vector2( 5747.76, -5892.57 )
 resource_type = "energy"
 
 [node name="System4" type="Node" parent="." index="9"]
@@ -118,15 +120,15 @@ editor/display_folded = true
 
 [node name="Moon2" parent="System4" index="0" instance=ExtResource( 8 )]
 
-position = Vector2( -2952.94, 2247.84 )
+position = Vector2( -2468, 2293.23 )
 
 [node name="Moon3" parent="System4" index="1" instance=ExtResource( 8 )]
 
-position = Vector2( -2123.01, 2640.79 )
+position = Vector2( -1638.07, 2686.18 )
 
 [node name="Sun" parent="System4" index="2" instance=ExtResource( 8 )]
 
-position = Vector2( -2532.49, 2417.82 )
+position = Vector2( -2047.55, 2463.21 )
 resource_type = "energy"
 
 [node name="System5" type="Node" parent="." index="10"]
@@ -135,22 +137,22 @@ editor/display_folded = true
 
 [node name="Moon1" parent="System5" index="0" instance=ExtResource( 8 )]
 
-position = Vector2( 2160.64, 3482.99 )
+position = Vector2( 6210.87, 4229.22 )
 scale = Vector2( 0.999998, 1 )
 
 [node name="Moon2" parent="System5" index="1" instance=ExtResource( 8 )]
 
-position = Vector2( 3360.53, 3748.19 )
+position = Vector2( 7410.76, 4494.42 )
 scale = Vector2( 0.999998, 1 )
 
 [node name="Moon3" parent="System5" index="2" instance=ExtResource( 8 )]
 
-position = Vector2( 3289.1, 2729.79 )
+position = Vector2( 7339.33, 3476.02 )
 scale = Vector2( 0.999998, 1 )
 
 [node name="Sun" parent="System5" index="3" instance=ExtResource( 8 )]
 
-position = Vector2( 2873.49, 3305.08 )
+position = Vector2( 6923.72, 4051.31 )
 scale = Vector2( 0.999998, 1 )
 resource_type = "energy"
 

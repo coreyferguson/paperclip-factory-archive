@@ -75,8 +75,8 @@ autostart = true
 
 [node name="ProgressBar" parent="." index="4" instance=ExtResource( 5 )]
 
-margin_top = 30.0
-margin_bottom = 30.0
+margin_top = 40.0
+margin_bottom = 50.0
 current = 0
 
 [connection signal="harvest" from="Harvester" to="." method="_on_Harvester_harvest"]

@@ -89,10 +89,7 @@ var Items = {
 	'DefenseGrid': {
 		'type': 'DefenseGrid',
 		'icon': load('res://assets/player/defense-grid_icon.png'),
-		'required_resources': [
-			NaturalResourceStack.new('iron', 60),
-			NaturalResourceStack.new('energy', 10)
-		],
+		'required_resources': funcref(self, 'DefenseGridCost'),
 		'placement_resource': load('res://ui/BuildDefenseGrid.tscn'),
 		'build_resource': load('res://gameplay/DefenseGrid.tscn'),
 		'hotkey': KEY_D,
@@ -137,7 +134,17 @@ var Items = {
 func AntiShipMineCost(Science):
 	var bonus = Science.discoveries['mine_cost'].current_level
 	return [ NaturalResourceStack.new('iron', 5 - bonus) ]
-	
+
+func DefenseGridCost(Science):
+	var bonus = Science.discoveries['mine_cost'].current_level
+	var non_negotiable_cost = 5
+	var cost_per_antimissile_mine = 1
+	var antimissile_mines = 10
+	return [
+		NaturalResourceStack.new('iron', non_negotiable_cost + antimissile_mines*cost_per_antimissile_mine),
+		NaturalResourceStack.new('energy', antimissile_mines*cost_per_antimissile_mine)
+	]
+
 func AntiShip3PackMineCost(Science):
 	var bonus = Science.discoveries['mine_cost'].current_level
 	return [ NaturalResourceStack.new('iron', 5*3 - 3*bonus) ]
