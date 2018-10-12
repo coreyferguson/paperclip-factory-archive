@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 13.927, 14.3135 )
 
-[node name="Mine" type="KinematicBody2D"]
+[node name="Mine" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2

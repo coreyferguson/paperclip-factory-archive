@@ -33,6 +33,7 @@ func recalculate_detection_radius():
 func recycle():
 	var recycled_resources = []
 	for resource in get_required_resources(): recycled_resources.push_back(resource)
+	queue_free()
 	return recycled_resources
 
 func get_required_resources():
