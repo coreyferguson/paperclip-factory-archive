@@ -11,7 +11,7 @@ func _process(delta):
 		if !mouse_pressed and is_in_bounds(position):
 			mouse_pressed = true
 			mouse_pressed_in_bounds = true
-		if mouse_pressed_in_bounds:emit_signal('mouse_button_pressed', position)
+		if mouse_pressed_in_bounds: emit_signal('mouse_button_pressed', position)
 		mouse_pressed = true
 	else:
 		mouse_pressed = false

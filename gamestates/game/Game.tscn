@@ -1,57 +1,20 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://gamestates/game/Game.gd" type="Script" id=1]
-[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://gameplay/Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gamestates/game/InputControl.gd" type="Script" id=3]
 [ext_resource path="res://gamestates/game/WaveController.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/HUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=7]
-[ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gameplay/Camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=8]
+[ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=9]
 
 [node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
-
-editor/display_folded = true
-layer = -1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-scroll_offset = Vector2( 0, 0 )
-scroll_base_offset = Vector2( 0, 0 )
-scroll_base_scale = Vector2( 1, 1 )
-scroll_limit_begin = Vector2( 0, 0 )
-scroll_limit_end = Vector2( 0, 0 )
-scroll_ignore_camera_zoom = true
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
-
-motion_scale = Vector2( 0.1, 0.1 )
-motion_offset = Vector2( 0, 0 )
-motion_mirroring = Vector2( 0, 0 )
-_sections_unfolded = [ "Motion" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
-
-position = Vector2( 0, -1.67017 )
-z_index = -1
-z_as_relative = false
-texture = ExtResource( 2 )
-centered = false
-offset = Vector2( -5000, -5000 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 10000, 10000 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="ParallaxBackground" parent="." index="0" instance=ExtResource( 2 )]
 
 [node name="InputControl" type="Node2D" parent="." index="1"]
 
@@ -62,44 +25,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 max_zoom_in = 1.0
-max_zoom_out = 3
+max_zoom_out = 10
 zoom_speed = 0.1
 
 [node name="WaveController" parent="." index="2" instance=ExtResource( 4 )]
 
 [node name="HUD" parent="." index="3" instance=ExtResource( 5 )]
 
-[node name="Camera" type="Camera2D" parent="." index="4"]
+[node name="Camera" parent="." index="4" instance=ExtResource( 6 )]
 
-position = Vector2( 0, 1.22775 )
-anchor_mode = 0
-rotating = false
-current = true
-zoom = Vector2( 1, 1 )
-limit_left = -5000
-limit_top = -5000
-limit_right = 5000
-limit_bottom = 5000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.0
-drag_margin_top = 0.0
-drag_margin_right = 0.0
-drag_margin_bottom = 0.0
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Offset", "Pause", "Smoothing", "Transform", "Visibility", "Z Index" ]
-__meta__ = {
-"_edit_lock_": true
-}
+limit_left = -25000
+limit_top = -25000
+limit_right = 25000
+limit_bottom = 25000
 
-[node name="Player" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Player" parent="." index="5" instance=ExtResource( 7 )]
 
 position = Vector2( 546.952, 370.699 )
 
@@ -107,24 +47,24 @@ position = Vector2( 546.952, 370.699 )
 
 editor/display_folded = true
 
-[node name="Moon1" parent="System1" index="0" instance=ExtResource( 7 )]
+[node name="Moon1" parent="System1" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 442.538, 322.395 )
 
-[node name="Moon2" parent="System1" index="1" instance=ExtResource( 7 )]
+[node name="Moon2" parent="System1" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( 1642.43, 587.593 )
 
-[node name="Moon3" parent="System1" index="2" instance=ExtResource( 7 )]
+[node name="Moon3" parent="System1" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 1571, -430.806 )
 
-[node name="Earth" parent="System1" index="3" instance=ExtResource( 7 )]
+[node name="Earth" parent="System1" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 584.978, -455.539 )
 resource_type = "organic"
 
-[node name="Sun" parent="System1" index="4" instance=ExtResource( 7 )]
+[node name="Sun" parent="System1" index="4" instance=ExtResource( 8 )]
 
 position = Vector2( 1155.39, 144.486 )
 resource_type = "energy"
@@ -133,20 +73,20 @@ resource_type = "energy"
 
 editor/display_folded = true
 
-[node name="Moon2" parent="System2" index="0" instance=ExtResource( 7 )]
+[node name="Moon2" parent="System2" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -1880.61, -1712.42 )
 
-[node name="Moon3" parent="System2" index="1" instance=ExtResource( 7 )]
+[node name="Moon3" parent="System2" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -1127.4, -1775.73 )
 
-[node name="Earth" parent="System2" index="2" instance=ExtResource( 7 )]
+[node name="Earth" parent="System2" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -1097.77, -901.273 )
 resource_type = "organic"
 
-[node name="Sun" parent="System2" index="3" instance=ExtResource( 7 )]
+[node name="Sun" parent="System2" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -1543.01, -1200.43 )
 resource_type = "energy"
@@ -155,19 +95,19 @@ resource_type = "energy"
 
 editor/display_folded = true
 
-[node name="Moon1" parent="System3" index="0" instance=ExtResource( 7 )]
+[node name="Moon1" parent="System3" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 3385.38, -2144.59 )
 
-[node name="Moon2" parent="System3" index="1" instance=ExtResource( 7 )]
+[node name="Moon2" parent="System3" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( 2526.85, -3027.17 )
 
-[node name="Moon3" parent="System3" index="2" instance=ExtResource( 7 )]
+[node name="Moon3" parent="System3" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 3394.46, -2793.92 )
 
-[node name="Sun" parent="System3" index="3" instance=ExtResource( 7 )]
+[node name="Sun" parent="System3" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 2869.91, -2529.88 )
 resource_type = "energy"
@@ -176,15 +116,15 @@ resource_type = "energy"
 
 editor/display_folded = true
 
-[node name="Moon2" parent="System4" index="0" instance=ExtResource( 7 )]
+[node name="Moon2" parent="System4" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -2952.94, 2247.84 )
 
-[node name="Moon3" parent="System4" index="1" instance=ExtResource( 7 )]
+[node name="Moon3" parent="System4" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -2123.01, 2640.79 )
 
-[node name="Sun" parent="System4" index="2" instance=ExtResource( 7 )]
+[node name="Sun" parent="System4" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( -2532.49, 2417.82 )
 resource_type = "energy"
@@ -193,28 +133,28 @@ resource_type = "energy"
 
 editor/display_folded = true
 
-[node name="Moon1" parent="System5" index="0" instance=ExtResource( 7 )]
+[node name="Moon1" parent="System5" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( 2160.64, 3482.99 )
 scale = Vector2( 0.999998, 1 )
 
-[node name="Moon2" parent="System5" index="1" instance=ExtResource( 7 )]
+[node name="Moon2" parent="System5" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( 3360.53, 3748.19 )
 scale = Vector2( 0.999998, 1 )
 
-[node name="Moon3" parent="System5" index="2" instance=ExtResource( 7 )]
+[node name="Moon3" parent="System5" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 3289.1, 2729.79 )
 scale = Vector2( 0.999998, 1 )
 
-[node name="Sun" parent="System5" index="3" instance=ExtResource( 7 )]
+[node name="Sun" parent="System5" index="3" instance=ExtResource( 8 )]
 
 position = Vector2( 2873.49, 3305.08 )
 scale = Vector2( 0.999998, 1 )
 resource_type = "energy"
 
-[node name="PaperClipFactory" parent="." index="11" instance=ExtResource( 8 )]
+[node name="PaperClipFactory" parent="." index="11" instance=ExtResource( 9 )]
 
 position = Vector2( 322.007, 207.269 )
 

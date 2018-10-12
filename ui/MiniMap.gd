@@ -35,7 +35,7 @@ func _process(delta):
 	# screen boundary
 	var minimap_size = Vector2(200, 200)
 	screen_blip.rect_position = relative_position_of(camera)
-	screen_blip.rect_size = OS.window_size * minimap_size / world.get_map_size() * camera.zoom
+	screen_blip.rect_size = OS.window_size * minimap_size / Globals.world_size_vector * camera.zoom
 
 func mouse_button_pressed(local_position):
 	var global_position = global_position_of(local_position)
@@ -64,7 +64,7 @@ func track_screen():
 	screen_blip.patch_margin_top = 2
 	screen_blip.patch_margin_bottom = 2
 	screen_blip.patch_margin_right = 2
-	screen_blip.rect_size = OS.window_size * rect_size / world.get_map_size()
+	screen_blip.rect_size = OS.window_size * rect_size / Globals.world_size_vector
 	rect.add_child(screen_blip)
 
 func add_enemy(enemy):
@@ -102,9 +102,9 @@ func relative_position_of(node):
 	var pos_x = node.position.x - camera.limit_left
 	var pos_y = node.position.y + camera.limit_bottom
 	# node position relative to minimap size
-	pos_x = pos_x * rect.rect_size.x / world.get_map_size().x
-	pos_y = pos_y * rect.rect_size.y / world.get_map_size().y
+	pos_x = pos_x * rect.rect_size.x / Globals.world_size
+	pos_y = pos_y * rect.rect_size.y / Globals.world_size
 	return Vector2(pos_x, pos_y)
 
 func global_position_of(local_position):
-	return local_position * world.get_map_size() / rect.rect_size - world.get_map_size()/2
+	return local_position * Globals.world_size_vector / rect.rect_size - Globals.world_size_vector/2
