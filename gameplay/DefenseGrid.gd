@@ -26,7 +26,7 @@ onready var build_progress = $BuildProgress
 onready var build_timer = $BuildTimer
 
 func _ready():
-	buildings.add_building(self)
+	Player.add_building(self)
 	build_timer.wait_time = build_timer_wait_time / Globals.game_rate
 
 func _on_DetectorTimer_timeout():
@@ -38,7 +38,7 @@ func _on_DetectorTimer_timeout():
 			var missiles = missile_detector.get_overlapping_bodies()
 			for missile in missiles: deploy_antimissile_mine(missile)
 		if antiship_mine_current == 0 and antimissile_mine_current == 0:
-			buildings.remove_building(self)
+			Player.remove_building(self)
 
 func deploy_antiship_mine(ship):
 	deploy_mine(antiship_mine_resource, ship)
@@ -69,7 +69,7 @@ func _on_BuildTimer_timeout():
 		build_timer.stop()
 
 func kill():
-	buildings.remove_building(self)
+	Player.remove_building(self)
 
 func recycle():
 	var antiship_requirements = Build.Items['AntiShipMine'].required_resources

@@ -7,7 +7,7 @@ var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
 var production_bonus
 
 func _ready():
-	buildings.add_building(self)
+	Player.add_building(self)
 	recalculation_production_bonus()
 	Science.connect('discover', self, '_on_Science_discover')
 
@@ -18,7 +18,7 @@ func _on_Harvester_harvest(node):
 
 func kill():
 	emit_signal('kill')
-	buildings.remove_building(self)
+	Player.remove_building(self)
 
 func _on_Science_discover(discovery):
 	recalculation_production_bonus()

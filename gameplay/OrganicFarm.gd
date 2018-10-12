@@ -8,7 +8,7 @@ export (int) var conversion_rate = 0.25
 export (int) var quantity = 0
 
 func _ready():
-	buildings.add_building(self)
+	Player.add_building(self)
 
 func _on_Harvester_harvest(node):
 	if quantity < capacity:
@@ -31,7 +31,7 @@ func update_progress_bar():
 
 func kill():
 	emit_signal('kill')
-	buildings.remove_building(self)
+	Player.remove_building(self)
 
 func recycle():
 	var recycled_materials = []

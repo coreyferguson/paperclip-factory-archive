@@ -14,7 +14,7 @@ radius = 25.96
 custom_solver_bias = 0.0
 radius = 600.0
 
-[node name="DefenseGrid" type="StaticBody2D" groups=[
+[node name="DefenseGrid" type="StaticBody2D" index="0" groups=[
 "player",
 ]]
 
@@ -97,7 +97,6 @@ autostart = true
 
 margin_top = 40.0
 margin_bottom = 40.0
-size = Vector2( 100, 10 )
 capacity = 5
 current = 0
 

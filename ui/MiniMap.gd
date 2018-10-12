@@ -2,8 +2,10 @@ extends NinePatchRect
 
 var blips = {}
 var minimap_enemy_blip_resource = load('res://assets/ui/minimap_enemy_blip.png')
+var minimap_missile_blip_resource = load('res://assets/ui/minimap_missile_blip.png')
 var minimap_building_blip_resource = load('res://assets/ui/minimap_building_blip.png')
 var minimap_player_blip_resource = load('res://assets/ui/minimap_player_blip.png')
+var minimap_player_bullet_blip_resource = load('res://assets/ui/minimap_player_bullet_blip.png')
 var minimap_screen_boundary_resource = load('res://assets/ui/minimap_screen_boundary.png')
 var camera
 var player
@@ -19,8 +21,12 @@ func _ready():
 	# dynamic entities
 	Enemies.connect('add_enemy', self, 'add_enemy')
 	Enemies.connect('remove_enemy', self, 'remove_enemy')
-	buildings.connect('add_building', self, 'add_building')
-	buildings.connect('remove_building', self, 'remove_building')
+	Enemies.connect('add_missile', self, 'add_missile')
+	Enemies.connect('remove_missile', self, 'remove_missile')
+	Player.connect('add_building', self, 'add_building')
+	Player.connect('remove_building', self, 'remove_building')
+	Player.connect('add_bullet', self, 'add_bullet')
+	Player.connect('remove_bullet', self, 'remove_bullet')
 	# static entities
 	track_player()
 	track_screen()
@@ -75,11 +81,22 @@ func add_enemy(enemy):
 	rect.add_child(blip)
 
 func remove_enemy(enemy):
-	if !blips.has(enemy):
-		print('Blip does not exist for given entity: ', enemy.get_instance_id())
-		return
+	if !blips.has(enemy): return
 	var blip = blips[enemy]
 	blips.erase(enemy)
+	blip.queue_free()
+
+func add_missile(missile):
+	var blip = TextureRect.new()
+	blip.texture = minimap_missile_blip_resource
+	blip.rect_size = relative_position_of(missile)
+	blips[missile] = blip
+	rect.add_child(blip)
+
+func remove_missile(missile):
+	if !blips.has(missile): return
+	var blip = blips[missile]
+	blips.erase(missile)
 	blip.queue_free()
 	
 func add_building(building):
@@ -90,12 +107,23 @@ func add_building(building):
 	rect.add_child(blip)
 
 func remove_building(building):
-	if blips.has(building):
-		var blip = blips[building]
-		blips.erase(building)
-		blip.queue_free()
-	else:
-		print('WARNING: Building removed not currently tracked by MiniMap')
+	if !blips.has(building): return
+	var blip = blips[building]
+	blips.erase(building)
+	blip.queue_free()
+	
+func add_bullet(bullet):
+	var blip = TextureRect.new()
+	blip.texture = minimap_player_bullet_blip_resource
+	blip.rect_size = relative_position_of(bullet)
+	blips[bullet] = blip
+	rect.add_child(blip)
+
+func remove_bullet(bullet):
+	if !blips.has(bullet): return
+	var blip = blips[bullet]
+	blips.erase(bullet)
+	blip.queue_free()
 
 func relative_position_of(node):
 	# node position relative to world map limits

@@ -14,12 +14,12 @@ var conversion_rate_bonus = 1
 var harvestable_resource_type = 'iron'
 
 func _ready():
-	buildings.add_building(self)
+	Player.add_building(self)
 	Science.connect('discover', self, '_on_Science_discover')
 
 func kill():
 	emit_signal('kill')
-	buildings.remove_building(self)
+	Player.remove_building(self)
 
 func _on_Harvester_harvest(node):
 	if quantity < capacity:

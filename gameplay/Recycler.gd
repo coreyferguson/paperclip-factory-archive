@@ -15,7 +15,7 @@ func _ready():
 	progress_bar_timer.wait_time = progress_bar_timer_wait_time / Globals.game_rate
 	recycle_timer.start()
 	progress_bar_timer.start()
-	buildings.add_building(self)
+	Player.add_building(self)
 
 func _on_ProgressBarTimer_timeout():
 	progress_bar.set_current(progress_bar.current + 1)
@@ -44,7 +44,7 @@ func _on_RecycleTimer_timeout():
 				'quantity': resource.quantity,
 				'texture': NaturalResource.types[resource.type].world_texture
 			})
-		buildings.remove_building(self)
+		Player.remove_building(self)
 
 func get_required_resources():
 	var required_resources = Build.Items['Recycler'].required_resources
@@ -52,4 +52,4 @@ func get_required_resources():
 	return required_resources
 
 func kill():
-	buildings.remove_building(self)
+	Player.remove_building(self)

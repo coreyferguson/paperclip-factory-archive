@@ -12,7 +12,7 @@ export (int) var quantity = 0
 var harvestable_resource_type = 'energy'
 
 func _ready():
-	buildings.add_building(self)
+	Player.add_building(self)
 	update_progress_bar()
 
 func _on_Harvester_harvest(node):
@@ -33,7 +33,7 @@ func _on_PlayerDetector_player_overlap():
 
 func kill():
 	emit_signal('kill')
-	buildings.remove_building(self)
+	Player.remove_building(self)
 
 func update_progress_bar():
 	$ProgressBar.set_current(quantity)

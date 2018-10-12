@@ -6,6 +6,7 @@ var target
 
 func _ready():
 	retarget()
+	Enemies.add_missile(self)
 
 func _physics_process(delta):
 	if target and target.get_ref():
@@ -15,7 +16,7 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.has_method('kill'):
 			collision.collider.kill()
-			queue_free()
+			Enemies.remove_missile(self)
 
 func get_closest_player_node():
 	var playerNodes = get_tree().get_nodes_in_group('player')
@@ -35,7 +36,7 @@ func get_closest_player_node():
 	else: return weakref(closestNode)
 
 func kill():
-	queue_free()
+	Enemies.remove_missile(self)
 
 func retarget():
 	target = get_closest_player_node()

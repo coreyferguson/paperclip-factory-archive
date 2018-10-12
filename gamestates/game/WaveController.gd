@@ -28,7 +28,7 @@ func spawnWave():
 	var enemiesToSpawn = 2 * wave
 	enemiesToSpawn = clamp(enemiesToSpawn, 1, 500)
 	var randomSide = randi() % 4
-	var world_width = 10000
+	var world_width = Globals.world_size
 	var world_width_half = world_width / 2
 	var offset = 200
 	var x

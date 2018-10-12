@@ -8,6 +8,7 @@ onready var camera = $'/root/Game/Camera'
 
 func _ready():
 	velocity = velocity.normalized()
+	Player.add_bullet(self)
 
 func _physics_process(delta):
 	var v
@@ -19,9 +20,9 @@ func _physics_process(delta):
 	var c = move_and_collide(v)
 	if c and c.collider.has_method('kill'):
 		c.collider.kill()
-		queue_free()
+		Player.remove_bullet(self)
 	if position.x < camera.limit_left or position.x > camera.limit_right or position.y < camera.limit_top or position.y > camera.limit_bottom: 
-		queue_free()
+		Player.remove_bullet(self)
 
 func _on_Detector_detection(node):
 	target = weakref(node)

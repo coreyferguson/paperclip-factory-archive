@@ -48,7 +48,6 @@ type = "energy"
 
 margin_top = 40.0
 margin_bottom = 40.0
-size = Vector2( 100, 10 )
 capacity = 50
 current = 0
 
