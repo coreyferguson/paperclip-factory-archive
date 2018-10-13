@@ -1,41 +1,66 @@
 extends Node
 
-var current_wave = -1
+var types = {
+	'scout': {
+		'level': 0,
+		'resources': [
+			load('res://gameplay/Scout_0.tscn'),
+			load('res://gameplay/Scout_1.tscn')
+		]
+	},
+	'fly': {
+		'level': 0,
+		'resources': [
+			load('res://gameplay/Fly.tscn')
+		]
+	},
+	'boomerang': {
+		'level': 0,
+		'resources': [
+			load('res://gameplay/Boomerang.tscn')
+		]
+	}
+}
 
-var scout = load('res://gameplay/Scout.tscn')
-var fly = load('res://gameplay/Fly.tscn')
-var boomerang = load('res://gameplay/Boomerang.tscn')
+var current_wave = -1
 
 var waves = [
 	{
 		'distractions': [
-			{ 'resource': scout, 'quantity': 1 }
+			{ 'type': 'scout', 'quantity': 1 }
 		]
 	},
 	{
 		'distractions': [
-			{ 'resource': scout, 'quantity': 1 },
-			{ 'resource': fly, 'quantity': 1 }
+			{ 'type': 'scout', 'quantity': 1 },
+			{ 'type': 'fly', 'quantity': 1 }
 		]
 	},
 	{
 		'distractions': [
-			{ 'resource': scout, 'quantity': 4 }
+			{ 'type': 'scout', 'quantity': 4 }
 		]
 	},
 	{
 		'distractions': [
-			{ 'resource': fly, 'quantity': 6 }
+			{ 'type': 'fly', 'quantity': 6 }
 		]
 	},
 	{
 		'distractions': [
-			{ 'resource': scout, 'quantity': 8 }
+			{ 'type': 'scout', 'quantity': 8 }
 		]
 	},
 	{
 		'distractions': [
-			{ 'resource': boomerang, 'quantity': 10 }
+			{ 'type': 'boomerang', 'quantity': 10 }
+		]
+	},
+	{
+		'upgrades': [ 'scout' ],
+		'distractions': [
+			{ 'type': 'scout', 'quantity': 6 },
+			{ 'type': 'fly', 'quantity': 6 }
 		]
 	}
 ]

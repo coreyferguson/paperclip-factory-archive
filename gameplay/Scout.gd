@@ -4,7 +4,12 @@ export (int) var speed = 50
 export (bool) var should_fire_missiles = true
 export (int) var missile_timer_wait_time = 20
 
+var missile_resource = load('res://gameplay/Missile.tscn')
+
 var target = null
+
+onready var game = $'/root/Game'
+onready var missile_launchers = $MissileLaunchers
 
 func _ready():
 	Enemies.add_enemy(self)
@@ -47,11 +52,13 @@ func _on_Timer_timeout():
 
 func _on_MissileTimer_timeout():
 	if target && target.get_ref():
-		var missile = load('res://gameplay/Missile.tscn').instance()
-		var velocity = target.get_ref().position - position
-		velocity = velocity.normalized() * $Sprite.texture.get_size()/2
-		missile.position = position + velocity
-		$'/root/Game'.add_child(missile)
+		for missile_launcher in missile_launchers.get_children():
+			var missile = missile_resource.instance()
+			var origin = missile_launcher.position.rotated(rotation)
+			origin = origin.normalized() * 50
+			origin += position
+			missile.position = origin
+			game.add_child(missile)
 
 func kill():
 	Enemies.remove_enemy(self)

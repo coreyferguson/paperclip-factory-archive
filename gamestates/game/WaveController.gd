@@ -26,32 +26,22 @@ func _on_Timer_timeout():
 
 func spawnWave():
 	Distractions.current_wave += 1
-#	var wave = (elapsedTime-firstWaveTriggerTime)/waveTriggerIncrements
-#	var enemiesToSpawn = 2 * wave
-#	enemiesToSpawn = clamp(enemiesToSpawn, 1, 500)
 	var spawn_location = random_spawn_location()
 	if Distractions.waves.size() > Distractions.current_wave:
 		var wave = Distractions.waves[Distractions.current_wave]
-		for distraction in wave.distractions:
-			for i in range(distraction.quantity):
-				var d = distraction.resource.instance()
+		if wave.has('upgrades'):
+			for upgrade in wave.upgrades:
+				print('upgrade')
+				Distractions.types[upgrade].level += 1
+		for wave_distraction in wave.distractions:
+			for i in range(wave_distraction.quantity):
+				var distraction = Distractions.types[wave_distraction.type]
+				var resource = distraction.resources[distraction.level]
+				var instance = resource.instance()
 				spawn_location += Vector2(rand_range(-100, 100), rand_range(-100, 100))
-				d.position = spawn_location
+				instance.position = spawn_location
 				print(spawn_location)
-				game.add_child(d)
-		
-#	for i in range(enemiesToSpawn):
-#		var enemyResource
-#		var rand = randi() % 3
-#		if rand == 0: enemyResource = scoutResource
-#		elif rand == 1: enemyResource = flyResource
-#		elif rand == 2: enemyResource = boomerangResource
-#		x += rand_range(-100, 100)
-#		y += rand_range(-100, 100)
-#		var pos = Vector2(x, y)
-#		var enemy = enemyResource.instance()
-#		enemy.position = pos
-#		$'/root/Game'.add_child(enemy)
+				game.add_child(instance)
 
 func random_spawn_location():
 	randomize()

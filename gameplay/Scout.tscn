@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://gameplay/Scout.gd" type="Script" id=1]
-[ext_resource path="res://assets/distractions/scout_100x100.png" type="Texture" id=2]
+[ext_resource path="res://assets/distractions/scout_0.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -33,6 +33,7 @@ _sections_unfolded = [ "Offset" ]
 "enemy",
 ]]
 
+visible = false
 position = Vector2( 3.98708, -0.28479 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -50,6 +51,8 @@ process_mode = 1
 wait_time = 20.0
 one_shot = false
 autostart = false
+
+[node name="MissileLaunchers" type="Node" parent="." index="4"]
 
 [connection signal="timeout" from="TargetTimer" to="." method="_on_Timer_timeout"]
 
