@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gameplay/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://assets/player/build-delivery.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/low-yield-mine.png" type="Texture" id=2]
 [ext_resource path="res://gameplay/Detector.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -17,7 +17,7 @@ collision_mask = 384
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-speed = 500
+speed = 1000
 velocity = null
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
@@ -26,11 +26,11 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 shape = SubResource( 1 )
 
 [node name="Detector" parent="." index="2" instance=ExtResource( 3 )]
 
-visible = true
 collision_mask = 384
 radius = 30
 

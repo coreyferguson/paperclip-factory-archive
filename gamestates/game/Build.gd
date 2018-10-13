@@ -3,21 +3,21 @@ extends Node
 var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
 
 var Items = {
-	'AntiMissileMine': {
-		'type': 'AntiMissileMine',
-		'icon': load('res://assets/player/low-yield-mine_icon.png'),
-		'required_resources': [
-			NaturalResourceStack.new('iron', 1),
-			NaturalResourceStack.new('energy', 1)
-		],
-		'placement_resource': load('res://ui/BuildLowYieldMine.tscn'),
-		'build_resource': load('res://gameplay/LowYieldMine.tscn'),
-		'hotkey': KEY_N,
-		'hotkey_text': 'N',
-		'description': 'Anti Missile Mine: Protect yourself from missiles.',
-		'has_position_indicator': false,
-		'enabled': true
-	},
+#	'AntiMissileMine': {
+#		'type': 'AntiMissileMine',
+#		'icon': load('res://assets/player/low-yield-mine_icon.png'),
+#		'required_resources': [
+#			NaturalResourceStack.new('iron', 1),
+#			NaturalResourceStack.new('energy', 1)
+#		],
+#		'placement_resource': load('res://ui/BuildLowYieldMine.tscn'),
+#		'build_resource': load('res://gameplay/LowYieldMine.tscn'),
+#		'hotkey': KEY_N,
+#		'hotkey_text': 'N',
+#		'description': 'Anti Missile Mine: Protect yourself from missiles.',
+#		'has_position_indicator': false,
+#		'enabled': true
+#	},
 	'AntiShipMine': {
 		'type': 'AntiShipMine',
 		'icon': load('res://assets/player/mine_icon.png'),

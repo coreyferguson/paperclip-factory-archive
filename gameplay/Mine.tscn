@@ -13,7 +13,7 @@ extents = Vector2( 13.927, 14.3135 )
 
 input_pickable = false
 collision_layer = 2
-collision_mask = 128
+collision_mask = 384
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
@@ -37,8 +37,8 @@ _sections_unfolded = [ "Transform" ]
 [node name="Detector" parent="." index="2" instance=ExtResource( 3 )]
 
 collision_layer = 2
-collision_mask = 256
-groupDetected = "enemy"
+collision_mask = 384
+radius = 500
 
 [connection signal="detection" from="Detector" to="." method="_on_Detector_detection"]
 

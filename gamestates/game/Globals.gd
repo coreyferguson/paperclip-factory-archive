@@ -6,5 +6,5 @@ extends Node
 var game_rate = 1
 
 # World map limits, width and height
-var world_size = 50000
+var world_size = 20000
 var world_size_vector = Vector2(world_size, world_size)

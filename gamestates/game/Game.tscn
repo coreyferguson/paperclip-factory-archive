@@ -25,7 +25,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 max_zoom_in = 1.0
-max_zoom_out = 10
+max_zoom_out = 5
 zoom_speed = 0.1
 
 [node name="WaveController" parent="." index="2" instance=ExtResource( 4 )]
@@ -33,11 +33,6 @@ zoom_speed = 0.1
 [node name="HUD" parent="." index="3" instance=ExtResource( 5 )]
 
 [node name="Camera" parent="." index="4" instance=ExtResource( 6 )]
-
-limit_left = -25000
-limit_top = -25000
-limit_right = 25000
-limit_bottom = 25000
 
 [node name="Player" parent="." index="5" instance=ExtResource( 7 )]
 

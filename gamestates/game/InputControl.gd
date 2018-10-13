@@ -1,7 +1,7 @@
 extends Node
 
 export (float) var max_zoom_in = 1
-export (float) var max_zoom_out = 10
+export (float) var max_zoom_out = 5
 export (float) var zoom_speed = 0.1
 
 var bullet_resource = load('res://gameplay/Bullet.tscn')
@@ -115,8 +115,8 @@ func clamp_camera_position():
 	camera.position.y = clamp(camera.position.y, camera.limit_top, camera.limit_bottom-window_size.y*camera.zoom.y)
 
 func shoot_bullet(event):
-	if Inventory.has('iron') and Inventory.get('iron').quantity >= 1:
-		Inventory.remove('iron', 1)
+	if Inventory.has('energy') and Inventory.get('energy').quantity >= 1:
+		Inventory.remove('energy', 1)
 		var bullet_instance = bullet_resource.instance()
 		bullet_instance.position = player.position
 		bullet_instance.velocity = get_global_mouse_position() - player.position
