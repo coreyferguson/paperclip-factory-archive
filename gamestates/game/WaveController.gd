@@ -9,6 +9,8 @@ export (int) var waveTriggerIncrements = 90
 var elapsedTime = 0
 var waveTrigger = firstWaveTriggerTime
 
+onready var game = $'/root/Game'
+
 func _ready():
 	waveTrigger = firstWaveTriggerTime
 
@@ -23,10 +25,36 @@ func _on_Timer_timeout():
 		if enabled: spawnWave()
 
 func spawnWave():
+	Distractions.current_wave += 1
+#	var wave = (elapsedTime-firstWaveTriggerTime)/waveTriggerIncrements
+#	var enemiesToSpawn = 2 * wave
+#	enemiesToSpawn = clamp(enemiesToSpawn, 1, 500)
+	var spawn_location = random_spawn_location()
+	if Distractions.waves.size() > Distractions.current_wave:
+		var wave = Distractions.waves[Distractions.current_wave]
+		for distraction in wave.distractions:
+			for i in range(distraction.quantity):
+				var d = distraction.resource.instance()
+				spawn_location += Vector2(rand_range(-100, 100), rand_range(-100, 100))
+				d.position = spawn_location
+				print(spawn_location)
+				game.add_child(d)
+		
+#	for i in range(enemiesToSpawn):
+#		var enemyResource
+#		var rand = randi() % 3
+#		if rand == 0: enemyResource = scoutResource
+#		elif rand == 1: enemyResource = flyResource
+#		elif rand == 2: enemyResource = boomerangResource
+#		x += rand_range(-100, 100)
+#		y += rand_range(-100, 100)
+#		var pos = Vector2(x, y)
+#		var enemy = enemyResource.instance()
+#		enemy.position = pos
+#		$'/root/Game'.add_child(enemy)
+
+func random_spawn_location():
 	randomize()
-	var wave = (elapsedTime-firstWaveTriggerTime)/waveTriggerIncrements
-	var enemiesToSpawn = 2 * wave
-	enemiesToSpawn = clamp(enemiesToSpawn, 1, 500)
 	var randomSide = randi() % 4
 	var world_width = Globals.world_size
 	var world_width_half = world_width / 2
@@ -49,18 +77,4 @@ func spawnWave():
 	elif randomSide == 3:
 		x = -world_width_half + offset*-1
 		y = randi() % world_width - world_width/2
-	var scoutResource = load('res://gameplay/Scout.tscn')
-	var flyResource = load('res://gameplay/Fly.tscn')
-	var boomerangResource = load('res://gameplay/Boomerang.tscn')
-	for i in range(enemiesToSpawn):
-		var enemyResource
-		var rand = randi() % 3
-		if rand == 0: enemyResource = scoutResource
-		elif rand == 1: enemyResource = flyResource
-		elif rand == 2: enemyResource = boomerangResource
-		x += rand_range(-100, 100)
-		y += rand_range(-100, 100)
-		var pos = Vector2(x, y)
-		var enemy = enemyResource.instance()
-		enemy.position = pos
-		$'/root/Game'.add_child(enemy)
+	return Vector2(x, y)
