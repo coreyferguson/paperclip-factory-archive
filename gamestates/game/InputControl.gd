@@ -5,6 +5,7 @@ export (float) var max_zoom_out = 5
 export (float) var zoom_speed = 0.1
 
 var bullet_resource = load('res://gameplay/Bullet.tscn')
+var bullet_cost = 2
 
 var is_left_down = false
 var is_right_down = false
@@ -115,8 +116,8 @@ func clamp_camera_position():
 	camera.position.y = clamp(camera.position.y, camera.limit_top, camera.limit_bottom-window_size.y*camera.zoom.y)
 
 func shoot_bullet(event):
-	if Inventory.has('energy') and Inventory.get('energy').quantity >= 1:
-		Inventory.remove('energy', 1)
+	if Inventory.has('energy') and Inventory.get('energy').quantity >= bullet_cost:
+		Inventory.remove('energy', bullet_cost)
 		var bullet_instance = bullet_resource.instance()
 		bullet_instance.position = player.position
 		bullet_instance.velocity = get_global_mouse_position() - player.position

@@ -31,7 +31,6 @@ func spawnWave():
 		var wave = Distractions.waves[Distractions.current_wave]
 		if wave.has('upgrades'):
 			for upgrade in wave.upgrades:
-				print('upgrade')
 				Distractions.types[upgrade].level += 1
 		for wave_distraction in wave.distractions:
 			for i in range(wave_distraction.quantity):
@@ -40,7 +39,6 @@ func spawnWave():
 				var instance = resource.instance()
 				spawn_location += Vector2(rand_range(-100, 100), rand_range(-100, 100))
 				instance.position = spawn_location
-				print(spawn_location)
 				game.add_child(instance)
 
 func random_spawn_location():

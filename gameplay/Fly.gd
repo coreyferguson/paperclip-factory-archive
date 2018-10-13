@@ -6,6 +6,7 @@ export (int) var mode_switch_time = 1
 
 enum Mode { ATTACK, DODGE }
 var mode = Mode.ATTACK
+var distance_to_start_dodge_mode = 2000
 
 var target = null
 
@@ -27,9 +28,13 @@ func _physics_process(delta):
 			Enemies.remove_enemy(self)
 
 func switch_mode():
-	if mode == Mode.ATTACK: mode = Mode.DODGE
+	if mode == Mode.ATTACK and in_range_to_dodge(): mode = Mode.DODGE
 	else: mode = Mode.ATTACK
 	retarget()
+
+func in_range_to_dodge():
+	if !target or !target.get_ref(): return false
+	return position.distance_to(target.get_ref().position) <= distance_to_start_dodge_mode
 
 func retarget():
 	if mode == Mode.ATTACK:
