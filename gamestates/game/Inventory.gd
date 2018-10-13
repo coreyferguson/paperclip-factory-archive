@@ -32,7 +32,7 @@ func remove(type, quantity):
 	for index in range(capacity):
 		if items[index] != null and items[index].type == type:
 			items[index].quantity -= quantity
-			if items[index].quantity == 0: items[index] = null
+			if items[index].quantity <= 0: items[index] = null
 			emit_signal('change')
 			return true
 	return false

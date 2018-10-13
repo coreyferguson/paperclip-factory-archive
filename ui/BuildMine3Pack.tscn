@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/player/mine.png" type="Texture" id=1]
 
-[node name="BuildMine3Pack" type="Node2D" index="0"]
+[node name="BuildMine3Pack" type="Node2D"]
 
 [node name="Mine1" type="Sprite" parent="." index="0"]
 
