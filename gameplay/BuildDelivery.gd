@@ -5,6 +5,9 @@ export (Vector2) var build_position
 export (float) var build_rotation
 export (int) var speed = 500
 
+func _ready():
+	Player.add_build_delivery(self)
+
 func _physics_process(delta):
 	if position.distance_to(build_position) > 1.0 * speed * delta * Globals.game_rate:
 		var velocity = build_position - position
@@ -15,7 +18,7 @@ func _physics_process(delta):
 		build()
 
 func build():
-	queue_free()
+	Player.remove_build_delivery(self)
 	var build_instance = build_resource.instance()
 	build_instance.position = position
 	if build_rotation: build_instance.set_sprite_rotation(build_rotation)

@@ -25,6 +25,8 @@ func _ready():
 	Enemies.connect('remove_missile', self, 'remove_missile')
 	Player.connect('add_building', self, 'add_building')
 	Player.connect('remove_building', self, 'remove_building')
+	Player.connect('add_build_delivery', self, 'add_bullet')
+	Player.connect('remove_build_delivery', self, 'remove_bullet')
 	Player.connect('add_bullet', self, 'add_bullet')
 	Player.connect('remove_bullet', self, 'remove_bullet')
 	# static entities

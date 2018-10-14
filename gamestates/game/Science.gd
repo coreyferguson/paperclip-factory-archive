@@ -39,7 +39,7 @@ var discoveries = {
 		'type': 'organic_farm',
 		'description': 'Grow your own free-range humans',
 		'icon': load('res://assets/player/organic-farm_icon.png'),
-		'cost': 50,
+		'cost': 25,
 		'max_level': 1,
 		'current_level': 0
 	},

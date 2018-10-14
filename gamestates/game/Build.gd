@@ -86,7 +86,7 @@ var Items = {
 		'required_resources': [
 			NaturalResourceStack.new('iron', 20),
 			NaturalResourceStack.new('energy', 20),
-			NaturalResourceStack.new('organic', 50)
+			NaturalResourceStack.new('organic', 25)
 		],
 		'placement_resource': load('res://ui/BuildOrganicFarm.tscn'),
 		'build_resource': load('res://gameplay/OrganicFarm.tscn'),

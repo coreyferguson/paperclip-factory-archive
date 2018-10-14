@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/ui/progress-fill.png" type="Texture" id=2]
 [ext_resource path="res://assets/ui/progress-border.png" type="Texture" id=3]
 
-[node name="ProgressBar" type="Control" index="0"]
+[node name="ProgressBar" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
