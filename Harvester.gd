@@ -8,7 +8,8 @@ export (int) var harvest_wait_time = 1
 
 func _ready():
 	$CollisionShape2D.shape.radius = radius
-	$Timer.wait_time = harvest_wait_time / Globals.game_rate
+	$Timer.wait_time = 1.0 * harvest_wait_time / Globals.game_rate
+	$Timer.start()
 
 func _on_Timer_timeout():
 	var overlapping = get_overlapping_bodies()

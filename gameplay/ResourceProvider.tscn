@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 75.0
+radius = 50.0
 
 [node name="ResourceProvider" type="StaticBody2D"]
 
@@ -36,7 +36,7 @@ _sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 margin_top = 80.0
 margin_bottom = 90.0
-capacity = 1000
-current = 1000
+capacity = 10000
+current = 10000
 
 

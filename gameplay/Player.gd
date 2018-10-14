@@ -15,7 +15,8 @@ onready var sprite = $Sprite
 onready var rotation_tween = $RotationTween
 
 func _ready():
-	$EnergyTimer.wait_time = energy_consumption_rate / Globals.game_rate
+	$EnergyTimer.wait_time = 1.0 * energy_consumption_rate / Globals.game_rate
+	$EnergyTimer.start()
 	sprite.texture = texture_default
 	recalculate_speed()
 	Science.connect('discover', self, '_on_Science_discover')
