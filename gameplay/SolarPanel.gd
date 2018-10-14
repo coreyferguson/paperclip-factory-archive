@@ -6,7 +6,7 @@ var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
 
 export (int) var capacity = 30
 export (int) var harvest_rate = 10
-export (int) var conversion_rate = 0.25
+export (int) var conversion_rate = 0.1
 export (int) var quantity = 0
 
 var harvestable_resource_type = 'energy'
