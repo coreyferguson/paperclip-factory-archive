@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (int) var speed = 50
 export (bool) var should_fire_missiles = true
 export (int) var missile_timer_wait_time = 20
+export (int) var missile_count = 2
 
 var missile_resource = load('res://gameplay/Missile.tscn')
 
@@ -53,14 +54,16 @@ func _on_Timer_timeout():
 	retarget()
 
 func _on_MissileTimer_timeout():
-	if target && target.get_ref():
+	if missile_count > 0 and target and target.get_ref():
 		for missile_launcher in missile_launchers.get_children():
-			var missile = missile_resource.instance()
-			var origin = missile_launcher.position.rotated(rotation)
-			origin = origin.normalized() * 50
-			origin += position
-			missile.position = origin
-			game.add_child(missile)
+			if missile_count > 0:
+				var missile = missile_resource.instance()
+				var origin = missile_launcher.position.rotated(rotation)
+				origin = origin.normalized() * 50
+				origin += position
+				missile.position = origin
+				game.add_child(missile)
+				missile_count -= 1
 
 func kill():
 	Enemies.remove_enemy(self)

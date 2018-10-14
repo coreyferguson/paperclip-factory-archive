@@ -2,7 +2,7 @@ extends Node
 
 signal change
 
-var capacity = 8
+var capacity = 3
 var items = []
 var NaturalResource
 

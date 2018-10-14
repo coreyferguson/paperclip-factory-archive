@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 32.4415
 height = 29.2391
 
-[node name="Scout" type="KinematicBody2D" index="0" groups=[
+[node name="Scout" type="KinematicBody2D" groups=[
 "enemy",
 ]]
 
@@ -23,6 +23,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 speed = 50
 should_fire_missiles = true
 missile_timer_wait_time = 20
+missile_count = 2
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

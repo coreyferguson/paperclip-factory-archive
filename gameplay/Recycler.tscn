@@ -14,7 +14,7 @@ radius = 26.3705
 custom_solver_bias = 0.0
 radius = 300.0
 
-[node name="Recycler" type="KinematicBody2D" index="0"]
+[node name="Recycler" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 8

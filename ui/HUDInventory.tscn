@@ -3,15 +3,15 @@
 [ext_resource path="res://ui/HUDInventory.gd" type="Script" id=1]
 [ext_resource path="res://ui/HUDInventorySlot.tscn" type="PackedScene" id=2]
 
-[node name="Inventory" type="GridContainer"]
+[node name="Inventory" type="GridContainer" index="0"]
 
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -214.0
+margin_left = -79.0
 margin_top = -50.0
-margin_right = 214.0
+margin_right = 79.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -40,31 +40,6 @@ margin_right = 104.0
 
 margin_left = 108.0
 margin_right = 158.0
-
-[node name="InventorySlot3" parent="." index="4" instance=ExtResource( 2 )]
-
-margin_left = 162.0
-margin_right = 212.0
-
-[node name="InventorySlot4" parent="." index="5" instance=ExtResource( 2 )]
-
-margin_left = 216.0
-margin_right = 266.0
-
-[node name="InventorySlot5" parent="." index="6" instance=ExtResource( 2 )]
-
-margin_left = 270.0
-margin_right = 320.0
-
-[node name="InventorySlot6" parent="." index="7" instance=ExtResource( 2 )]
-
-margin_left = 324.0
-margin_right = 374.0
-
-[node name="InventorySlot7" parent="." index="8" instance=ExtResource( 2 )]
-
-margin_left = 378.0
-margin_right = 428.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
