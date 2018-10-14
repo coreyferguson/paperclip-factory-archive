@@ -56,8 +56,8 @@ func _unhandled_key_input(event):
 		cancel_build()
 	if event is InputEventKey and event.pressed and event.scancode == build_item.hotkey:
 		get_tree().set_input_as_handled()
-		if build_item.has('placement_resource'): choose_location()
-		else: build()
+		if build_item.skip_choose_location: build()
+		else: choose_location()
 
 func can_choose_location():
 	return has_required_items and !is_disabled_externally and discovered

@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/player/mine_icon.png" type="Texture" id=1]
 [ext_resource path="res://ui/BuildItem.gd" type="Script" id=2]
 
-[node name="BuildItem" type="Button"]
+[node name="BuildItem" type="Button" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
