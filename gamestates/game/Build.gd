@@ -3,26 +3,10 @@ extends Node
 var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
 
 var Items = {
-#	'AntiMissileMine': {
-#		'type': 'AntiMissileMine',
-#		'icon': load('res://assets/player/low-yield-mine_icon.png'),
-#		'required_resources': [
-#			NaturalResourceStack.new('iron', 1),
-#			NaturalResourceStack.new('energy', 1)
-#		],
-#		'placement_resource': load('res://ui/BuildLowYieldMine.tscn'),
-#		'build_resource': load('res://gameplay/LowYieldMine.tscn'),
-#		'hotkey': KEY_N,
-#		'hotkey_text': 'N',
-#		'description': 'Anti Missile Mine: Protect yourself from missiles.',
-#		'has_position_indicator': false,
-#		'enabled': true
-#	},
 	'AntiShipMine': {
 		'type': 'AntiShipMine',
 		'icon': load('res://assets/player/mine_icon.png'),
 		'required_resources': funcref(self, 'AntiShipMineCost'),
-		'placement_resource': load('res://ui/BuildMine.tscn'),
 		'build_resource': load('res://gameplay/Mine.tscn'),
 		'hotkey': KEY_M,
 		'hotkey_text': 'M',
@@ -34,7 +18,6 @@ var Items = {
 		'type': 'AntiShipMine3Pack',
 		'icon': load('res://assets/player/mine-3pack_icon.png'),
 		'required_resources': funcref(self, 'AntiShip3PackMineCost'),
-		'placement_resource': load('res://ui/BuildMine3Pack.tscn'),
 		'build_resource': load('res://gameplay/Mine3Pack.tscn'),
 		'hotkey': KEY_3,
 		'hotkey_text': '3',
@@ -90,7 +73,6 @@ var Items = {
 		'type': 'DefenseGrid',
 		'icon': load('res://assets/player/defense-grid_icon.png'),
 		'required_resources': funcref(self, 'DefenseGridCost'),
-		'placement_resource': load('res://ui/BuildDefenseGrid.tscn'),
 		'build_resource': load('res://gameplay/DefenseGrid.tscn'),
 		'hotkey': KEY_D,
 		'hotkey_text': 'D',
@@ -108,8 +90,8 @@ var Items = {
 		],
 		'placement_resource': load('res://ui/BuildOrganicFarm.tscn'),
 		'build_resource': load('res://gameplay/OrganicFarm.tscn'),
-		'hotkey': KEY_B,
-		'hotkey_text': 'B',
+		'hotkey': KEY_O,
+		'hotkey_text': 'O',
 		'description': 'Organic Farms produce organic material to invest in Science. FOR SCIENCE!\nRequires science unlock.',
 		'has_position_indicator': true,
 		'enabled': funcref(self, 'OrganicFarmEnabled')

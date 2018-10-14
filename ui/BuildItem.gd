@@ -56,9 +56,10 @@ func _unhandled_key_input(event):
 		cancel_build()
 	if event is InputEventKey and event.pressed and event.scancode == build_item.hotkey:
 		get_tree().set_input_as_handled()
-		choose_location()
+		if build_item.has('placement_resource'): choose_location()
+		else: build()
 
-func can_build():
+func can_choose_location():
 	return has_required_items and !is_disabled_externally and discovered
 
 func _on_Timer_timeout():
@@ -69,7 +70,7 @@ func _on_BuildItem_pressed():
 	choose_location()
 
 func choose_location():
-	if state != STATE_CHOOSE_LOCATION and can_build():
+	if state != STATE_CHOOSE_LOCATION and can_choose_location():
 		set_state(STATE_CHOOSE_LOCATION)
 		to_be_built = build_item.placement_resource.instance()
 		game.add_child(to_be_built)
@@ -109,13 +110,14 @@ func checkValidPosition():
 	position_valid_instance.set_valid(nodes.size() == 0 && to_be_built_valid)
 
 func build():
-	var build_delivery_instance = build_delivery_resource.instance()
-	build_delivery_instance.position = player.position
-	build_delivery_instance.build_resource = build_item.build_resource
-	build_delivery_instance.build_position = get_global_mouse_position()*camera.zoom + camera.position
-	build_delivery_instance.build_rotation = to_be_built.rotation
-	spend_required_items()
-	game.add_child(build_delivery_instance)
+	if has_required_items:
+		var build_delivery_instance = build_delivery_resource.instance()
+		build_delivery_instance.position = player.position
+		build_delivery_instance.build_resource = build_item.build_resource
+		build_delivery_instance.build_position = get_global_mouse_position()*camera.zoom + camera.position
+		if to_be_built: build_delivery_instance.build_rotation = to_be_built.rotation
+		spend_required_items()
+		game.add_child(build_delivery_instance)
 
 func has_required_items():
 	var required_resources

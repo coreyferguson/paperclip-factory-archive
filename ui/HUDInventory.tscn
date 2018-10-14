@@ -3,7 +3,7 @@
 [ext_resource path="res://ui/HUDInventory.gd" type="Script" id=1]
 [ext_resource path="res://ui/HUDInventorySlot.tscn" type="PackedScene" id=2]
 
-[node name="Inventory" type="GridContainer" index="0"]
+[node name="Inventory" type="GridContainer"]
 
 anchor_left = 0.5
 anchor_top = 1.0
