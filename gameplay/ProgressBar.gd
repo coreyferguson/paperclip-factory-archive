@@ -6,8 +6,10 @@ export (int) var capacity = 100
 export (int) var current = 100
 
 func _ready():
+	rect_size = size
 	$Fill.rect_size = size
 	$Border.rect_size = size
+	rect_pivot_offset = size/2
 	set_current(current)
 
 func set_current(value):

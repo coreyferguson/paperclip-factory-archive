@@ -1,5 +1,7 @@
 extends Node
 
+signal wave_trigger_change
+
 var types = {
 	'scout': {
 		'level': 0,
@@ -23,6 +25,8 @@ var types = {
 }
 
 var current_wave = -1
+var wave_trigger = 10 # target Globals.elapsed_time at which to spawn a wave of distractions
+var wave_trigger_increment = 90 # seconds between each wave of distractions
 
 var waves = [
 	{
@@ -64,6 +68,11 @@ var waves = [
 		]
 	}
 ]
+
+func increment_wave_trigger():
+	wave_trigger += wave_trigger_increment
+	current_wave += 1
+	emit_signal('wave_trigger_change')
 
 func reset():
 	current_wave = -1

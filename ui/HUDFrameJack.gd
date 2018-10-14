@@ -10,6 +10,6 @@ func _unhandled_key_input(event):
 		var game_rate = Globals.game_rate
 		if event.scancode == KEY_KP_ADD: game_rate += 1
 		if event.scancode == KEY_KP_SUBTRACT: game_rate -= 1
-		game_rate = clamp(game_rate, 1, 10)
+		game_rate = clamp(game_rate, 1, 3)
 		Globals.set_game_rate(game_rate)
 		frame_jack.text = str(game_rate)

@@ -3,29 +3,26 @@ extends Node
 signal notify_encounter(seconds)
 
 export (bool) var enabled = true
-export (int) var firstWaveTriggerTime = 10
-export (int) var waveTriggerIncrements = 90
-
-var elapsedTime = 0
-var waveTrigger = firstWaveTriggerTime
 
 onready var game = $'/root/Game'
+onready var timer = $Timer
 
 func _ready():
-	waveTrigger = firstWaveTriggerTime
+	reset_timer_wait_time()
+	timer.start()
+	Globals.connect('game_rate_change', self, 'reset_timer_wait_time')
 
 func _on_Timer_timeout():
-	elapsedTime += 1
-	if elapsedTime == waveTrigger-30:
+	Globals.increment_elapsed_time()
+	if Globals.elapsed_time == Distractions.wave_trigger-30:
 		emit_signal('notify_encounter', 30)
-	if elapsedTime == waveTrigger-10:
+	if Globals.elapsed_time == Distractions.wave_trigger-10:
 		emit_signal('notify_encounter', 10)
-	if elapsedTime >= waveTrigger: 
-		waveTrigger += waveTriggerIncrements
+	if Globals.elapsed_time >= Distractions.wave_trigger: 
+		Distractions.increment_wave_trigger()
 		if enabled: spawnWave()
 
 func spawnWave():
-	Distractions.current_wave += 1
 	var spawn_location = random_spawn_location()
 	if Distractions.waves.size() > Distractions.current_wave:
 		var wave = Distractions.waves[Distractions.current_wave]
@@ -66,3 +63,6 @@ func random_spawn_location():
 		x = -world_width_half + offset*-1
 		y = randi() % world_width - world_width/2
 	return Vector2(x, y)
+
+func reset_timer_wait_time():
+	timer.wait_time = 1.0 / Globals.game_rate
