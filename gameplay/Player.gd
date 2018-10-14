@@ -13,10 +13,12 @@ var target = null
 
 onready var sprite = $Sprite
 onready var rotation_tween = $RotationTween
+onready var energy_timer = $EnergyTimer
 
 func _ready():
-	$EnergyTimer.wait_time = 1.0 * energy_consumption_rate / Globals.game_rate
-	$EnergyTimer.start()
+	reset_timer_wait_time()
+	energy_timer.start()
+	Globals.connect('game_rate_change', self, 'reset_timer_wait_time')
 	sprite.texture = texture_default
 	recalculate_speed()
 	Science.connect('discover', self, '_on_Science_discover')
@@ -59,3 +61,6 @@ func _on_Science_discover(discovery):
 
 func recalculate_speed():
 	speed_bonus = 1 + (0.2 * Science.discoveries['player_ship_speed'].current_level)
+
+func reset_timer_wait_time():
+	energy_timer.wait_time = 1.0 * energy_consumption_rate / Globals.game_rate

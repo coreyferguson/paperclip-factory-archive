@@ -23,3 +23,5 @@ func reset():
 	score.reset()
 	Inventory.reset()
 	Science.reset()
+	Distractions.reset()
+	Globals.reset()

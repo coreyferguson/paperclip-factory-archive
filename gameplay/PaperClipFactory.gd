@@ -12,7 +12,6 @@ func _ready():
 	Science.connect('discover', self, '_on_Science_discover')
 
 func _on_Harvester_harvest(node):
-	print('paperclip harvest')
 	var resource = node.harvest()
 	if resource and resource.type == 'iron': 
 		score.increment((resource.quantity * production_bonus))

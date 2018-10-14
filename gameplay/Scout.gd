@@ -10,11 +10,13 @@ var target = null
 
 onready var game = $'/root/Game'
 onready var missile_launchers = $MissileLaunchers
+onready var missile_timer = $MissileTimer
 
 func _ready():
 	Enemies.add_enemy(self)
-	$MissileTimer.wait_time = missile_timer_wait_time / Globals.game_rate
-	if should_fire_missiles: $MissileTimer.start()
+	reset_timer_wait_time()
+	if should_fire_missiles: missile_timer.start()
+	Globals.connect('game_rate_change', self, 'reset_timer_wait_time')
 	retarget()
 	
 func _physics_process(delta):
@@ -62,3 +64,6 @@ func _on_MissileTimer_timeout():
 
 func kill():
 	Enemies.remove_enemy(self)
+
+func reset_timer_wait_time():
+	missile_timer.wait_time = missile_timer_wait_time / Globals.game_rate

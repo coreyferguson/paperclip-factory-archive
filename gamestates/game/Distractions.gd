@@ -64,3 +64,8 @@ var waves = [
 		]
 	}
 ]
+
+func reset():
+	current_wave = -1
+	for type in types:
+		type.level = 0

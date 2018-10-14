@@ -7,20 +7,20 @@ var progress_bar_timer_wait_time = 1
 
 onready var progress_bar = $ProgressBar
 onready var progress_bar_timer = $ProgressBarTimer
-onready var recycle_timer = $RecycleTimer
 onready var recycle_area = $RecycleArea
 
 func _ready():
-	recycle_timer.wait_time = recycle_timer_wait_time / Globals.game_rate
-	progress_bar_timer.wait_time = progress_bar_timer_wait_time / Globals.game_rate
-	recycle_timer.start()
+	reset_timer_wait_time()
 	progress_bar_timer.start()
+	Globals.connect('game_rate_change', self, 'reset_timer_wait_time')
 	Player.add_building(self)
 
 func _on_ProgressBarTimer_timeout():
 	progress_bar.set_current(progress_bar.current + 1)
+	if progress_bar.current == recycle_timer_wait_time:
+		recycle_other()
 
-func _on_RecycleTimer_timeout():
+func recycle_other():
 	progress_bar.set_current(0)
 	var target
 	for node in recycle_area.get_overlapping_bodies():
@@ -53,3 +53,6 @@ func get_required_resources():
 
 func kill():
 	Player.remove_building(self)
+
+func reset_timer_wait_time():
+	progress_bar_timer.wait_time = 1.0 * progress_bar_timer_wait_time / Globals.game_rate

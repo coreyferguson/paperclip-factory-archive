@@ -23,7 +23,8 @@ onready var build_timer = $BuildTimer
 
 func _ready():
 	Player.add_building(self)
-	build_timer.wait_time = build_timer_wait_time / Globals.game_rate
+	reset_timer_wait_time()
+	Globals.connect('game_rate_change', self, 'reset_timer_wait_time')
 
 func _on_DetectorTimer_timeout():
 	if state == State.ACTIVE and antiship_mine_current > 0:
@@ -67,3 +68,6 @@ func recycle():
 			recycled_materials.push_back(resource)
 	kill()
 	return recycled_materials
+
+func reset_timer_wait_time():
+	build_timer.wait_time = 1.0 * build_timer_wait_time / Globals.game_rate

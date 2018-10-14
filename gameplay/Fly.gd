@@ -10,10 +10,13 @@ var distance_to_start_dodge_mode = 2000
 
 var target = null
 
+onready var timer = $Timer
+
 func _ready():
 	Enemies.add_enemy(self)
-	$Timer.wait_time = mode_switch_time / Globals.game_rate
+	reset_timer_wait_time()
 	retarget()
+	Globals.connect('game_rate_change', self, 'reset_timer_wait_time')
 	
 func _physics_process(delta):
 	var velocity
@@ -61,3 +64,6 @@ func get_closest_player_node():
 
 func kill():
 	Enemies.remove_enemy(self)
+
+func reset_timer_wait_time():
+	timer.wait_time = 1.0 * mode_switch_time / Globals.game_rate

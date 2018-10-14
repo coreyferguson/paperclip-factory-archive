@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://ui/HUDScore.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/RobotoMono-Medium.tres" type="DynamicFont" id=2]
+[ext_resource path="res://ui/HUDFrameJack.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/RobotoMono-Regular.tres" type="DynamicFont" id=2]
 
-[node name="HUDScore" type="MarginContainer"]
+[node name="HUDFrameJack" type="MarginContainer" index="0"]
 
 anchor_left = 1.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 0.0
-margin_left = -180.0
+margin_left = -240.0
 margin_bottom = 29.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -18,10 +18,12 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_constants/margin_right = 5
-custom_constants/margin_top = 5
 custom_constants/margin_left = 5
 script = ExtResource( 1 )
-_sections_unfolded = [ "Grow Direction", "Rect", "custom_constants" ]
+_sections_unfolded = [ "custom_constants" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." index="0"]
 
@@ -30,8 +32,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 5.0
-margin_top = 5.0
-margin_right = 175.0
+margin_right = 235.0
 margin_bottom = 29.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -40,7 +41,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 2
-_sections_unfolded = [ "Grow Direction", "custom_constants" ]
+_sections_unfolded = [ "custom_constants" ]
 
 [node name="Label" type="Label" parent="HBoxContainer" index="0"]
 
@@ -48,10 +49,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 110.0
-margin_top = 2.0
-margin_right = 158.0
-margin_bottom = 21.0
+margin_left = 122.0
+margin_top = 5.0
+margin_right = 218.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -59,23 +60,21 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 2 )
-text = "Score:"
+text = "Frame Jack: "
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Grow Direction", "custom_fonts" ]
 
-[node name="Value" type="Label" parent="HBoxContainer" index="1"]
+[node name="FrameJack" type="Label" parent="HBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 162.0
-margin_top = 2.0
-margin_right = 170.0
-margin_bottom = 21.0
-grow_horizontal = 0
+margin_left = 222.0
+margin_top = 5.0
+margin_right = 230.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -83,10 +82,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 2 )
-text = "0"
+text = "x"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Grow Direction", "custom_fonts" ]
 
 

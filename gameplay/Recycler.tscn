@@ -14,7 +14,7 @@ radius = 26.3705
 custom_solver_bias = 0.0
 radius = 300.0
 
-[node name="Recycler" type="KinematicBody2D"]
+[node name="Recycler" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 8
@@ -32,21 +32,14 @@ texture = ExtResource( 2 )
 visible = false
 shape = SubResource( 1 )
 
-[node name="RecycleTimer" type="Timer" parent="." index="2"]
-
-process_mode = 1
-wait_time = 5.0
-one_shot = false
-autostart = false
-
-[node name="ProgressBarTimer" type="Timer" parent="." index="3"]
+[node name="ProgressBarTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="RecycleArea" type="Area2D" parent="." index="4"]
+[node name="RecycleArea" type="Area2D" parent="." index="3"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -63,7 +56,7 @@ _sections_unfolded = [ "Collision" ]
 
 shape = SubResource( 2 )
 
-[node name="ProgressBar" parent="." index="5" instance=ExtResource( 3 )]
+[node name="ProgressBar" parent="." index="4" instance=ExtResource( 3 )]
 
 margin_left = 48.0
 margin_top = 37.0
@@ -72,8 +65,6 @@ margin_bottom = 37.0
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Transform", "Z Index" ]
 capacity = 5
 current = 0
-
-[connection signal="timeout" from="RecycleTimer" to="." method="_on_RecycleTimer_timeout"]
 
 [connection signal="timeout" from="ProgressBarTimer" to="." method="_on_ProgressBarTimer_timeout"]
 

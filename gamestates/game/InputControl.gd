@@ -5,7 +5,7 @@ export (float) var max_zoom_out = 5
 export (float) var zoom_speed = 0.1
 
 var bullet_resource = load('res://gameplay/Bullet.tscn')
-var bullet_cost = 2
+var bullet_cost = 5
 
 var is_left_down = false
 var is_right_down = false
