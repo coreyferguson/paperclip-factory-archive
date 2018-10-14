@@ -1,7 +1,7 @@
 extends Node2D
 
 var mine_resource = load('res://gameplay/Mine.tscn')
-var spread_radius = 200
+var spread_radius = 150
 
 onready var game = $'/root/Game'
 onready var tween = $Tween

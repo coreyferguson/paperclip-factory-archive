@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (int) var speed = 50
+export (int) var speed = 150
 export (bool) var should_fire_missiles = true
 export (int) var missile_timer_wait_time = 20
 export (int) var missile_count = 2

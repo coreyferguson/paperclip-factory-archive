@@ -3,7 +3,7 @@ extends KinematicBody2D
 var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
 
 export (int) var speed = 500
-export (int) var default_detection_radius = 500
+export (int) var default_detection_radius = 250
 
 var target
 
