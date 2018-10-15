@@ -17,7 +17,7 @@ config/icon="res://assets/player/paperclipfactory_icon.png"
 [autoload]
 
 Inventory="*res://gamestates/game/Inventory.gd"
-score="*res://gamestates/game/Score.gd"
+Score="*res://gamestates/game/Score.gd"
 Enemies="*res://gamestates/game/Enemies.gd"
 world="*res://gamestates/game/World.gd"
 GlobalShortcuts="*res://gamestates/game/GlobalShortcuts.gd"

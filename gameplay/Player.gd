@@ -51,10 +51,11 @@ func move_to(position):
 func kill():
 	queue_free()
 	emit_signal('kill')
+	Globals.game_over('Neural network destroyed.')
 
 func _on_EnergyTimer_timeout():
 	if !Inventory.remove('energy', 1):
-		kill()
+		Globals.game_over('Insufficient energy to sustain neural network.')
 
 func _on_Science_discover(discovery):
 	recalculate_speed()

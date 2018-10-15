@@ -3,6 +3,8 @@ extends Node
 signal game_rate_change
 signal elapsed_time_change
 
+var game_over_reason
+
 # Controls the pace of the game. Speed of ships. Harvest rates. Etc.
 # Lower number is slower paced game.
 # Higher number is faster paced game.
@@ -22,6 +24,10 @@ func set_game_rate(value):
 func increment_elapsed_time():
 	elapsed_time += 1
 	emit_signal('elapsed_time_change')
+
+func game_over(reason):
+	game_over_reason = reason
+	get_tree().change_scene('res://gamestates/gameover/GameOver.tscn')
 
 func reset():
 	game_rate = 1

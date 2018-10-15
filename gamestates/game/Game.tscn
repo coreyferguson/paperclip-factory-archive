@@ -155,6 +155,4 @@ position = Vector2( 322.007, 207.269 )
 
 [connection signal="notify_encounter" from="WaveController" to="HUD" method="_on_WaveController_notify_encounter"]
 
-[connection signal="kill" from="Player" to="." method="_on_Player_kill"]
-
 

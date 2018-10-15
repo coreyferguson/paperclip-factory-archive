@@ -1,19 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gamestates/gameover/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Title.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/fonts/RobotoMono-Medium.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/fonts/RobotoMono-Regular.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/fonts/RobotoMono-Medium.tres" type="DynamicFont" id=4]
 
-[node name="GameOver" type="VBoxContainer" index="0"]
+[node name="GameOver" type="VBoxContainer"]
 
-anchor_left = 0.5
+anchor_left = 0.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -108.0
-margin_top = -35.5
-margin_right = 108.0
-margin_bottom = 35.5
+margin_top = -68.5
+margin_bottom = 68.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -22,7 +21,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Mouse" ]
+_sections_unfolded = [ "Grow Direction", "Mouse" ]
 
 [node name="Label" type="Label" parent="." index="0"]
 
@@ -30,7 +29,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 216.0
+margin_right = 900.0
 margin_bottom = 53.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -46,15 +45,40 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Mouse", "custom_fonts", "custom_styles" ]
 
-[node name="Score" type="Label" parent="." index="1"]
+[node name="Timer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="ReasonContainer" type="MarginContainer" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 57.0
-margin_right = 216.0
-margin_bottom = 76.0
+margin_right = 900.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/margin_bottom = 15
+_sections_unfolded = [ "custom_constants" ]
+
+[node name="ReasonValue" type="Label" parent="ReasonContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_right = 900.0
+margin_bottom = 19.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -62,19 +86,138 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 3 )
-text = "Score:"
+text = "rm -fr *"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Mouse", "custom_fonts" ]
 
-[node name="Timer" type="Timer" parent="." index="2"]
+[node name="ScoreContainer2" type="HBoxContainer" parent="." index="3"]
 
-process_mode = 1
-wait_time = 2.0
-one_shot = true
-autostart = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 95.0
+margin_right = 900.0
+margin_bottom = 114.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="ScoreContainer2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 356.0
+margin_right = 524.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+text = "Paperclips Produced: "
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Mouse", "custom_fonts" ]
+
+[node name="ScoreValue" type="Label" parent="ScoreContainer2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 528.0
+margin_right = 544.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "xx"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Mouse", "custom_fonts" ]
+
+[node name="WaveContainer" type="HBoxContainer" parent="." index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 118.0
+margin_right = 900.0
+margin_bottom = 137.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+
+[node name="WaveLabel" type="Label" parent="WaveContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 384.0
+margin_right = 496.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 4 )
+text = "Distractions: "
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Mouse", "custom_fonts" ]
+
+[node name="WaveValue" type="Label" parent="WaveContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 500.0
+margin_right = 516.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 3 )
+text = "xx"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Mouse", "custom_fonts" ]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
