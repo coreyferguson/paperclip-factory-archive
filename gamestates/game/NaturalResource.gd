@@ -19,7 +19,7 @@ var types = {
 		'type': 'organic',
 		'icon': load('res://assets/resources/earth_icon.png'),
 		'world_texture': load('res://assets/resources/earth.png'),
-		'initial_capacity': 200,
+		'initial_capacity': 100,
 		'harvest_rate': 2
 	}
 }

@@ -42,6 +42,7 @@ window/size/width=900
 2d_physics/layer_8="Enemy"
 2d_physics/layer_9="Enemy Anti-Ship"
 2d_physics/layer_10="Enemy Anti-Missile"
+2d_physics/layer_11="Enemy Boss"
 2d_physics/layer_12="Build"
 
 [rendering]

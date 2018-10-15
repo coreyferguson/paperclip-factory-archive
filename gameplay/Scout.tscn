@@ -9,7 +9,7 @@ custom_solver_bias = 0.0
 radius = 32.4415
 height = 29.2391
 
-[node name="Scout" type="KinematicBody2D" index="0" groups=[
+[node name="Scout" type="KinematicBody2D" groups=[
 "enemy",
 ]]
 

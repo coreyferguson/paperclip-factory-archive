@@ -21,6 +21,12 @@ var types = {
 		'resources': [
 			load('res://gameplay/Boomerang.tscn')
 		]
+	},
+	'carrier': {
+		'level': 0,
+		'resources': [
+			load('res://gameplay/Carrier.tscn')
+		]
 	}
 }
 
@@ -65,6 +71,16 @@ var waves = [
 		'distractions': [
 			{ 'type': 'scout', 'quantity': 6 },
 			{ 'type': 'fly', 'quantity': 6 }
+		]
+	},
+	{
+		'distractions': [
+			{ 'type': 'carrier', 'quantity': 1 }
+		]
+	},
+	{
+		'distractions': [
+			{ 'type': 'fly', 'quantity': 16 }
 		]
 	}
 ]

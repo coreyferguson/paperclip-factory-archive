@@ -3,7 +3,7 @@ extends KinematicBody2D
 var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
 
 export (int) var speed = 500
-export (int) var default_detection_radius = 250
+export (int) var default_detection_radius = 150
 
 var target
 
@@ -45,3 +45,6 @@ func get_required_resources():
 	var required_resources = Build.Items['AntiShipMine'].required_resources
 	if typeof(required_resources) == TYPE_OBJECT: required_resources = required_resources.call_func(Science)
 	return required_resources
+
+func kill():
+	queue_free()

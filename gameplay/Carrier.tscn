@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gameplay/Carrier.gd" type="Script" id=1]
+[ext_resource path="res://assets/distractions/carrier.png" type="Texture" id=2]
+[ext_resource path="res://assets/distractions/carrier_shield.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 89.3147
+height = 30.6585
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 150.0
+
+[node name="Carrier" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1024
+collision_mask = 15
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material" ]
+shield_capacity = 50
+speed = 75
+fly_capacity = 60
+launch_distance = 5000
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="Shield" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+visible = false
+position = Vector2( -3.24304, 0.463287 )
+rotation = 1.5708
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="MineDetector" type="Area2D" parent="." index="3"]
+
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 6
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MineDetector" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="." index="4"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="RetargetTimer" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="LaunchBays" type="Node2D" parent="." index="6"]
+
+[node name="Position2D" type="Position2D" parent="LaunchBays" index="0"]
+
+position = Vector2( -60.3463, -102.607 )
+
+[node name="Position2D2" type="Position2D" parent="LaunchBays" index="1"]
+
+position = Vector2( -40.0968, -102.607 )
+
+[node name="Position2D3" type="Position2D" parent="LaunchBays" index="2"]
+
+position = Vector2( -20.9568, -102.607 )
+
+[node name="Position2D4" type="Position2D" parent="LaunchBays" index="3"]
+
+position = Vector2( -59.8421, 100.096 )
+
+[node name="Position2D5" type="Position2D" parent="LaunchBays" index="4"]
+
+position = Vector2( -39.8638, 100.096 )
+
+[node name="Position2D6" type="Position2D" parent="LaunchBays" index="5"]
+
+position = Vector2( -19.8855, 100.096 )
+
+[node name="LaunchBayTimer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = false
+autostart = true
+
+[connection signal="body_entered" from="MineDetector" to="." method="_on_Area2D_body_entered"]
+
+[connection signal="timeout" from="RetargetTimer" to="." method="_on_RetargetTimer_timeout"]
+
+[connection signal="timeout" from="LaunchBayTimer" to="." method="_on_LaunchBayTimer_timeout"]
+
+

@@ -31,7 +31,7 @@ var discoveries = {
 		'type': 'mine_cost',
 		'description': 'Anti-Ship Mine Cost -1',
 		'icon': load('res://assets/player/mine_icon.png'),
-		'cost': 15,
+		'cost': 25,
 		'max_level': 3,
 		'current_level': 0
 	},
@@ -47,7 +47,7 @@ var discoveries = {
 		'type': 'iron_factory_conversion_rate',
 		'description': 'Iron Factories conversion rate +50%',
 		'icon': load('res://assets/player/ironfactory_icon.png'),
-		'cost': 30,
+		'cost': 50,
 		'max_level': 1,
 		'current_level': 0
 	},

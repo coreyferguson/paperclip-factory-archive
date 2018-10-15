@@ -26,3 +26,6 @@ func _physics_process(delta):
 
 func _on_Detector_detection(node):
 	target = weakref(node)
+
+func kill():
+	Player.remove_bullet(self)

@@ -12,8 +12,8 @@ extents = Vector2( 13.927, 14.3135 )
 [node name="Mine" type="KinematicBody2D"]
 
 input_pickable = false
-collision_layer = 2
-collision_mask = 384
+collision_layer = 6
+collision_mask = 1920
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Pickable", "Transform" ]
