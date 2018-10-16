@@ -4,14 +4,18 @@ export (int) var speed = 150
 export (bool) var should_fire_missiles = true
 export (int) var missile_timer_wait_time = 20
 export (int) var missile_count = 2
+export (int) var shield_capacity = 0
 
 var missile_resource = load('res://gameplay/Missile.tscn')
 
 var target = null
 
+onready var shield_current = shield_capacity
 onready var game = $'/root/Game'
 onready var missile_launchers = $MissileLaunchers
 onready var missile_timer = $MissileTimer
+onready var shield = $Shield
+onready var tween = $Tween
 
 func _ready():
 	Enemies.add_enemy(self)
@@ -19,7 +23,8 @@ func _ready():
 	if should_fire_missiles: missile_timer.start()
 	Globals.connect('game_rate_change', self, 'reset_timer_wait_time')
 	retarget()
-	
+	shield.modulate = Color(1, 1, 1, 0)
+
 func _physics_process(delta):
 	if target && target.get_ref():
 		var velocity = target.get_ref().position - position
@@ -66,7 +71,14 @@ func _on_MissileTimer_timeout():
 				missile_count -= 1
 
 func kill():
-	Enemies.remove_enemy(self)
+	if shield_current <= 0: Enemies.remove_enemy(self)
+	else:
+		shield_current -= 1
+		var before = Color(1, 1, 1, 1.0)
+		var after = Color(1, 1, 1, 0.0)
+		tween.interpolate_property(shield, 'modulate', before, after, 0.25, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+		tween.start()
+
 
 func reset_timer_wait_time():
 	missile_timer.wait_time = missile_timer_wait_time / Globals.game_rate

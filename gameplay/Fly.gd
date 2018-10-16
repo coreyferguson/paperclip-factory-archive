@@ -17,7 +17,6 @@ onready var shield = $Shield
 onready var tween = $Tween
 
 func _ready():
-	print('shield_current: ', shield_current)
 	Enemies.add_enemy(self)
 	reset_timer_wait_time()
 	retarget()

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/boomerang.png-181618d0b52deab2b93e3225e24be74e.stex"
+path="res://.import/boomerang_shield.png-69b240707330735afff3066d74c4b376.stex"
 
 [deps]
 
-source_file="res://assets/distractions/boomerang.png"
-dest_files=[ "res://.import/boomerang.png-181618d0b52deab2b93e3225e24be74e.stex" ]
+source_file="res://assets/distractions/boomerang_shield.png"
+dest_files=[ "res://.import/boomerang_shield.png-69b240707330735afff3066d74c4b376.stex" ]
 
 [params]
 

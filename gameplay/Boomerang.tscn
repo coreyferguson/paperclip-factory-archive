@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gameplay/Boomerang.gd" type="Script" id=1]
-[ext_resource path="res://assets/distractions/boomerang.png" type="Texture" id=2]
+[ext_resource path="res://assets/distractions/boomerang_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/distractions/boomerang_shield.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -9,7 +10,7 @@ custom_solver_bias = 0.0
 radius = 11.1516
 height = 7.4856
 
-[node name="Boomerang" type="KinematicBody2D" groups=[
+[node name="Boomerang" type="KinematicBody2D" index="0" groups=[
 "enemy",
 ]]
 
@@ -22,21 +23,36 @@ _sections_unfolded = [ "Collision" ]
 speed = 250
 angle_of_approach = 45
 rotation_speed = 10
+shield_capacity = 0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="Shield" type="Sprite" parent="." index="1"]
 
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+visible = false
 shape = SubResource( 1 )
 
-[node name="RetargetTimer" type="Timer" parent="." index="2"]
+[node name="RetargetTimer" type="Timer" parent="." index="3"]
 
 process_mode = 1
 wait_time = 0.25
 one_shot = false
 autostart = true
+
+[node name="Tween" type="Tween" parent="." index="4"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
 
 [connection signal="timeout" from="RetargetTimer" to="." method="_on_RetargetTimer_timeout"]
 
