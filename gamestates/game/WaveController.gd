@@ -37,6 +37,8 @@ func spawnWave():
 				spawn_location += Vector2(rand_range(-100, 100), rand_range(-100, 100))
 				instance.position = spawn_location
 				game.add_child(instance)
+	else:
+		Globals.game_over('Humans have gone extinct. You continue producing paperclips for eternity.')
 
 func random_spawn_location():
 	randomize()

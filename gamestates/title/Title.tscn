@@ -14,7 +14,7 @@ use_filter = false
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Title" type="Control"]
+[node name="Title" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -86,7 +86,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 50.0
 margin_right = 850.0
-margin_bottom = 272.0
+margin_bottom = 316.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -184,7 +184,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Mouse" ]
 
-[node name="FullScreen" type="Label" parent="Text/VBoxContainer" index="4"]
+[node name="Shortcuts" type="Label" parent="Text/VBoxContainer" index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -192,7 +192,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 182.0
 margin_right = 800.0
-margin_bottom = 201.0
+margin_bottom = 267.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -200,7 +200,10 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 4 )
-text = "F11 to full-screen."
+text = "F11 to full-screen.
++/- on Num Pad to Frame Jack.
+Mouse wheel to zoom in/out.
+Right click to shoot energy bursts at a cost."
 align = 1
 autowrap = true
 percent_visible = 1.0
@@ -214,9 +217,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 205.0
+margin_top = 271.0
 margin_right = 800.0
-margin_bottom = 219.0
+margin_bottom = 285.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -234,9 +237,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 223.0
+margin_top = 289.0
 margin_right = 800.0
-margin_bottom = 250.0
+margin_bottom = 316.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1

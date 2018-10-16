@@ -13,7 +13,8 @@ var types = {
 	'fly': {
 		'level': 0,
 		'resources': [
-			load('res://gameplay/Fly.tscn')
+			load('res://gameplay/Fly_0.tscn'),
+			load('res://gameplay/Fly_1.tscn')
 		]
 	},
 	'boomerang': {
@@ -80,7 +81,13 @@ var waves = [
 	},
 	{
 		'distractions': [
-			{ 'type': 'fly', 'quantity': 16 }
+			{ 'type': 'scout', 'quantity': 14 }
+		]
+	},
+	{
+		'upgrades': [ 'fly' ],
+		'distractions': [
+			{ 'type': 'fly', 'quantity': 10 }
 		]
 	}
 ]

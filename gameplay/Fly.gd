@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (int) var speed = 200
 export (int) var fire_wait_time = 0.5
 export (int) var mode_switch_time = 1
+export (int) var shield_capacity = 0
 
 enum Mode { ATTACK, DODGE }
 var mode = Mode.ATTACK
@@ -10,14 +11,19 @@ var distance_to_start_dodge_mode = 2000
 
 var target = null
 
+onready var shield_current = shield_capacity
 onready var timer = $Timer
+onready var shield = $Shield
+onready var tween = $Tween
 
 func _ready():
+	print('shield_current: ', shield_current)
 	Enemies.add_enemy(self)
 	reset_timer_wait_time()
 	retarget()
 	Globals.connect('game_rate_change', self, 'reset_timer_wait_time')
-	
+	shield.modulate = Color(1, 1, 1, 0)
+
 func _physics_process(delta):
 	var velocity
 	if mode == Mode.DODGE: velocity = target
@@ -63,7 +69,13 @@ func get_closest_player_node():
 	else: return weakref(closestNode)
 
 func kill():
-	Enemies.remove_enemy(self)
+	if shield_current <= 0: Enemies.remove_enemy(self)
+	else:
+		shield_current -= 1
+		var before = Color(1, 1, 1, 1.0)
+		var after = Color(1, 1, 1, 0.0)
+		tween.interpolate_property(shield, 'modulate', before, after, 0.25, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+		tween.start()
 
 func reset_timer_wait_time():
 	timer.wait_time = 1.0 * mode_switch_time / Globals.game_rate
