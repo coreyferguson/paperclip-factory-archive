@@ -160,5 +160,6 @@ func increment_wave_trigger():
 
 func reset():
 	current_wave = -1
+	wave_trigger = 10
 	for i in types:
 		types[i].level = 0

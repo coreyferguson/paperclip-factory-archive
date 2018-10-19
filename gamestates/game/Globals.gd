@@ -31,3 +31,4 @@ func game_over(reason):
 
 func reset():
 	game_rate = 1
+	elapsed_time = 0

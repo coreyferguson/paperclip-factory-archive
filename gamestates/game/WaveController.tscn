@@ -2,7 +2,7 @@
 
 [ext_resource path="res://gamestates/game/WaveController.gd" type="Script" id=1]
 
-[node name="WaveController" type="Node"]
+[node name="WaveController" type="Node" index="0"]
 
 script = ExtResource( 1 )
 enabled = true
