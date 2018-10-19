@@ -2,13 +2,18 @@ extends Node2D
 
 export (int) var speed = 150
 
+var explosion_resource = load('res://gameplay/Explosion.tscn')
+var explosion_texture = load('res://assets/distractions/bulldozer_explosion.png')
+
 var target
+
+onready var game = $'/root/Game'
 
 func _ready():
 	Enemies.add_enemy(self)
 
 func kill():
-	Enemies.remove_enemy(self)
+	explode()
 
 func _physics_process(delta):
 	if target and target.get_ref():
@@ -42,3 +47,11 @@ func retarget():
 
 func _on_RetargetTimer_timeout():
 	retarget()
+
+func explode():
+	var explosion = explosion_resource.instance()
+	explosion.texture = explosion_texture
+	explosion.hframes = 3
+	explosion.global_position = global_position
+	game.add_child(explosion)
+	Enemies.remove_enemy(self)
