@@ -14,7 +14,7 @@ radius = 26.3705
 custom_solver_bias = 0.0
 radius = 300.0
 
-[node name="Recycler" type="KinematicBody2D"]
+[node name="Recycler" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 8
@@ -58,11 +58,9 @@ shape = SubResource( 2 )
 
 [node name="ProgressBar" parent="." index="4" instance=ExtResource( 3 )]
 
-margin_left = 48.0
 margin_top = 37.0
-margin_right = 48.0
-margin_bottom = 37.0
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Transform", "Z Index" ]
+margin_bottom = 47.0
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Mouse", "Rect", "Transform", "Z Index" ]
 capacity = 5
 current = 0
 
