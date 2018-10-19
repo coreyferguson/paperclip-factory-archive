@@ -2,7 +2,12 @@ extends KinematicBody2D
 
 export (int) var speed = 250
 
+var explosion_resource = load('res://gameplay/Explosion.tscn')
+var explosion_texture = load('res://assets/distractions/missile_explosion.png')
+
 var target
+
+onready var game = $'/root/Game'
 
 func _ready():
 	retarget()
@@ -16,7 +21,7 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.has_method('kill'):
 			collision.collider.kill()
-			Enemies.remove_missile(self)
+			explode()
 
 func get_closest_player_node():
 	var playerNodes = get_tree().get_nodes_in_group('player')
@@ -36,10 +41,18 @@ func get_closest_player_node():
 	else: return weakref(closestNode)
 
 func kill():
-	Enemies.remove_missile(self)
+	explode()
 
 func retarget():
 	target = get_closest_player_node()
 
 func _on_Timer_timeout():
 	retarget()
+
+func explode():
+	var explosion = explosion_resource.instance()
+	explosion.texture = explosion_texture
+	explosion.hframes = 3
+	explosion.global_position = global_position
+	game.add_child(explosion)
+	Enemies.remove_enemy(self)

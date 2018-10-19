@@ -43,8 +43,6 @@ position = Vector2( 546.952, 370.699 )
 
 [node name="System1" type="Node" parent="." index="7"]
 
-editor/display_folded = true
-
 [node name="Moon1" parent="System1" index="0" instance=ExtResource( 9 )]
 
 position = Vector2( 442.538, 322.395 )
@@ -64,7 +62,7 @@ resource_type = "organic"
 
 [node name="Sun" parent="System1" index="4" instance=ExtResource( 9 )]
 
-position = Vector2( 1155.39, 144.486 )
+position = Vector2( 1155.39, 143.194 )
 resource_type = "energy"
 
 [node name="System2" type="Node" parent="." index="8"]

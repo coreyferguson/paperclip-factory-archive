@@ -1,24 +1,32 @@
 extends KinematicBody2D
 
 export (int) var speed = 150
+export (bool) var should_move = true
 export (bool) var should_fire_missiles = true
 export (int) var missile_timer_wait_time = 20
 export (int) var missile_count = 2
 export (int) var shield_capacity = 0
 
 var missile_resource = load('res://gameplay/Missile.tscn')
-
-var target = null
-var follow_target = null
-var follow_relative_position = null
-
+var explosion_resource = load('res://gameplay/Explosion.tscn')
+var explosion_texture = load('res://assets/distractions/scout_explosion.png')
 
 onready var shield_current = shield_capacity
 onready var game = $'/root/Game'
 onready var missile_launchers = $MissileLaunchers
 onready var missile_timer = $MissileTimer
 onready var shield = $Shield
+onready var explosion = $Explosion
+
+# Fade
 onready var tween = $Tween
+var modulate_off = Color(1, 1, 1, 0.0)
+var modulate_on = Color(1, 1, 1, 1.0)
+
+# Target
+var target = null
+var follow_target = null
+var follow_relative_position = null
 
 func _ready():
 	Enemies.add_enemy(self)
@@ -29,6 +37,7 @@ func _ready():
 	shield.modulate = Color(1, 1, 1, 0)
 
 func _physics_process(delta):
+	if !should_move: return
 	var velocity
 	if follow_target and follow_target.get_ref():
 		var target_global_pos = follow_target.get_ref().global_position
@@ -44,7 +53,7 @@ func _physics_process(delta):
 		if collision:
 			if collision.collider.is_in_group('player'):
 				collision.collider.kill()
-				Enemies.remove_enemy(self)
+				explode()
 			else:
 				global_position += collision.remainder
 
@@ -84,13 +93,19 @@ func _on_MissileTimer_timeout():
 				missile_count -= 1
 
 func kill():
-	if shield_current <= 0: Enemies.remove_enemy(self)
+	if shield_current <= 0: explode()
 	else:
 		shield_current -= 1
-		var before = Color(1, 1, 1, 1.0)
-		var after = Color(1, 1, 1, 0.0)
-		tween.interpolate_property(shield, 'modulate', before, after, 0.25, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+		tween.interpolate_property(shield, 'modulate', modulate_on, modulate_off, 0.25, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		tween.start()
+
+func explode():
+	var explosion = explosion_resource.instance()
+	explosion.texture = explosion_texture
+	explosion.hframes = 3
+	explosion.global_position = global_position
+	game.add_child(explosion)
+	Enemies.remove_enemy(self)
 
 func reset_timer_wait_time():
 	missile_timer.wait_time = missile_timer_wait_time / Globals.game_rate
@@ -98,3 +113,4 @@ func reset_timer_wait_time():
 func follow(node):
 	follow_target = weakref(node)
 	follow_relative_position = global_position - node.global_position
+

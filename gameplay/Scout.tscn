@@ -22,6 +22,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 speed = 200
+should_move = true
 should_fire_missiles = true
 missile_timer_wait_time = 20
 missile_count = 2
