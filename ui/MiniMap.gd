@@ -129,8 +129,8 @@ func remove_bullet(bullet):
 
 func relative_position_of(node):
 	# node position relative to world map limits
-	var pos_x = node.position.x - camera.limit_left
-	var pos_y = node.position.y + camera.limit_bottom
+	var pos_x = node.global_position.x - camera.limit_left
+	var pos_y = node.global_position.y + camera.limit_bottom
 	# node position relative to minimap size
 	pos_x = pos_x * rect.rect_size.x / Globals.world_size
 	pos_y = pos_y * rect.rect_size.y / Globals.world_size
