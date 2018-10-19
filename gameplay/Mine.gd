@@ -15,7 +15,7 @@ func _physics_process(delta):
 	if target:
 		if !target.get_ref(): target = null
 		else:
-			var velocity = target.get_ref().position - position
+			var velocity = target.get_ref().global_position - position
 			velocity = velocity.normalized() * speed * delta * Globals.game_rate
 			var collision = move_and_collide(velocity)
 			if collision and collision.collider.has_method('kill'):

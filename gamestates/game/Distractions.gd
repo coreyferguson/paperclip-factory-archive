@@ -30,6 +30,12 @@ var types = {
 		'resources': [
 			load('res://gameplay/Carrier.tscn')
 		]
+	},
+	'bulldozer': {
+		'level': 0,
+		'resources': [
+			load('res://gameplay/Bulldozer.tscn')
+		]
 	}
 }
 
@@ -83,7 +89,13 @@ var waves = [
 			{ 'type': 'fly', 'quantity': 6 }
 		]
 	},
+	
+	###############
+	# BOSS FIGHT! #
+	###############
+	
 	# Wave 8
+	
 	{
 		'distractions': [
 			{ 'type': 'carrier', 'quantity': 1 } # BOSS FIGHT!
@@ -123,7 +135,8 @@ var waves = [
 		'distractions': [
 			{ 'type': 'scout', 'quantity': 5 },
 			{ 'type': 'fly', 'quantity': 5 },
-			{ 'type': 'boomerang', 'quantity': 5 }
+			{ 'type': 'boomerang', 'quantity': 4 },
+			{ 'type': 'bulldozer', 'quantity': 1 }
 		]
 	}
 ]

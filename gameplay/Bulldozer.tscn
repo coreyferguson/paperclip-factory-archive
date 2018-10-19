@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://gameplay/Bulldozer.gd" type="Script" id=1]
+[ext_resource path="res://assets/distractions/bulldozer_0.png" type="Texture" id=2]
+[ext_resource path="res://gameplay/BulldozerShield.gd" type="Script" id=3]
+[ext_resource path="res://assets/distractions/bulldozer_shield.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 27.0312
+height = 53.9034
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 24.9778
+height = 446.594
+
+[node name="Bulldozer" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 128
+collision_mask = 15
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Transform" ]
+speed = 150
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+visible = false
+shape = SubResource( 1 )
+
+[node name="RetargetTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.25
+one_shot = false
+autostart = true
+
+[node name="Shield" type="KinematicBody2D" parent="." index="3"]
+
+input_pickable = false
+collision_layer = 512
+collision_mask = 15
+collision/safe_margin = 0.08
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision" ]
+capacity = 50
+
+[node name="Sprite" type="Sprite" parent="Shield" index="0"]
+
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shield" index="1"]
+
+visible = false
+position = Vector2( 44.6609, -4.62009 )
+shape = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="Shield" index="2"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="WaitTimer" type="Timer" parent="Shield" index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="RetargetTimer" to="." method="_on_RetargetTimer_timeout"]
+
+[connection signal="timeout" from="Shield/WaitTimer" to="Shield" method="_on_WaitTimer_timeout"]
+
+
