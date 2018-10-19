@@ -28,9 +28,9 @@ func get_closest_player_node():
 		if !node.is_queued_for_deletion():
 			if leastDistance == null:
 				closestNode = node
-				leastDistance = node.position.distance_to(position)
+				leastDistance = node.global_position.distance_to(global_position)
 			else:
-				var distance = node.position.distance_to(position)
+				var distance = node.global_position.distance_to(global_position)
 				if distance < leastDistance:
 					closestNode = node
 					leastDistance = distance

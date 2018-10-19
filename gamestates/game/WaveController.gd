@@ -35,7 +35,7 @@ func spawnWave():
 				var resource = distraction.resources[distraction.level]
 				var instance = resource.instance()
 				spawn_location += Vector2(rand_range(-100, 100), rand_range(-100, 100))
-				instance.position = spawn_location
+				instance.global_position = spawn_location
 				game.add_child(instance)
 	else:
 		Globals.game_over('Humans have gone extinct. You continue producing paperclips for eternity.')

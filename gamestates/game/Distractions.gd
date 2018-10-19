@@ -36,6 +36,12 @@ var types = {
 		'resources': [
 			load('res://gameplay/Bulldozer.tscn')
 		]
+	},
+	'squad001': {
+		'level': 0,
+		'resources': [
+			load('res://gameplay/squads/Squad001.tscn')
+		]
 	}
 }
 
@@ -135,8 +141,14 @@ var waves = [
 		'distractions': [
 			{ 'type': 'scout', 'quantity': 5 },
 			{ 'type': 'fly', 'quantity': 5 },
-			{ 'type': 'boomerang', 'quantity': 4 },
-			{ 'type': 'bulldozer', 'quantity': 1 }
+			{ 'type': 'boomerang', 'quantity': 5 }
+		]
+	},
+	# Wave 14
+	{
+		'distractions': [
+			{ 'type': 'squad001', 'quantity': 1 },
+			{ 'type': 'fly', 'quantity': 5 }
 		]
 	}
 ]
