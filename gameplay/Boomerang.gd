@@ -8,11 +8,15 @@ export (int) var shield_capacity = 0
 var target = null
 var distance_to_start_dodge_mode = 2000
 
+var explosion_resource = load('res://gameplay/Explosion.tscn')
+var explosion_texture = load('res://assets/distractions/boomerang_explosion.png')
+
 onready var radians_of_approach = deg2rad(angle_of_approach)
 onready var shield_current = shield_capacity
 onready var sprite = $Sprite
 onready var shield = $Shield
 onready var tween = $Tween
+onready var game = $'/root/Game'
 
 func _ready():
 	Enemies.add_enemy(self)
@@ -27,7 +31,7 @@ func _physics_process(delta):
 		var collision = move_and_collide(velocity)
 		if collision and collision.collider.is_in_group('player'):
 			collision.collider.kill()
-			Enemies.remove_enemy(self)
+			explode()
 	rotation -= rotation_speed * delta
 
 func _on_RetargetTimer_timeout():
@@ -51,10 +55,18 @@ func get_closest_player_node():
 	else: return weakref(closestNode)
 
 func kill():
-	if shield_current <= 0: Enemies.remove_enemy(self)
+	if shield_current <= 0: explode()
 	else:
 		shield_current -= 1
 		var before = Color(1, 1, 1, 1.0)
 		var after = Color(1, 1, 1, 0.0)
 		tween.interpolate_property(shield, 'modulate', before, after, 0.25, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 		tween.start()
+
+func explode():
+	var explosion = explosion_resource.instance()
+	explosion.texture = explosion_texture
+	explosion.hframes = 3
+	explosion.global_position = global_position
+	game.add_child(explosion)
+	Enemies.remove_enemy(self)
