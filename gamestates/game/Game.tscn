@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://gamestates/game/Game.gd" type="Script" id=1]
 [ext_resource path="res://gamestates/GlobalShortcuts.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=10]
+[ext_resource path="res://gameplay/Carrier.tscn" type="PackedScene" id=11]
 
 [node name="Game" type="Node" index="0"]
 
@@ -153,6 +154,13 @@ resource_type = "energy"
 [node name="PaperClipFactory" parent="." index="12" instance=ExtResource( 10 )]
 
 position = Vector2( 322.007, 207.269 )
+
+[node name="Carrier" parent="." index="13" instance=ExtResource( 11 )]
+
+position = Vector2( 214.531, 471.71 )
+shield_capacity = 1
+speed = 1
+fly_capacity = 0
 
 [connection signal="notify_encounter" from="WaveController" to="HUD" method="_on_WaveController_notify_encounter"]
 

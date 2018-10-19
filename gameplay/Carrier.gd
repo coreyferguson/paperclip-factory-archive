@@ -8,6 +8,8 @@ export (int) var launch_distance = 5000
 var carrier_texture = load('res://assets/distractions/carrier.png')
 var shield_texture = load('res://assets/distractions/carrier_shield.png')
 var fly = load('res://gameplay/Fly.tscn')
+var explosion_resource = load('res://gameplay/Explosion.tscn')
+var explosion_texture = load('res://assets/distractions/carrier_explosion.png')
 
 var target
 
@@ -34,8 +36,7 @@ func _on_Area2D_body_entered(body):
 		body.kill()
 
 func kill():
-	if shield_current <= 0:
-		Enemies.remove_enemy(self)
+	if shield_current <= 0: explode()
 
 func _physics_process(delta):
 	if target and target.get_ref():
@@ -74,8 +75,16 @@ func _on_LaunchBayTimer_timeout():
 		if target.get_ref().position.distance_to(position) <= launch_distance:
 			shield_current = 0
 			for bay in launch_bays.get_children():
-				if fly_current >= 0:
+				if fly_current > 0:
 					fly_current -= 1
 					var instance = fly.instance()
 					instance.position = position + bay.position.rotated(position.angle())
 					game.add_child(instance)
+
+func explode():
+	var explosion = explosion_resource.instance()
+	explosion.texture = explosion_texture
+	explosion.hframes = 6
+	explosion.global_position = global_position
+	game.add_child(explosion)
+	Enemies.remove_enemy(self)
