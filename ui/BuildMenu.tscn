@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ui/BuildMenu.gd" type="Script" id=1]
 
-[node name="BuildMenu" type="ScrollContainer" index="0"]
+[node name="BuildMenu" type="ScrollContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.5
@@ -32,7 +32,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 52.0
-margin_bottom = 482.0
+margin_bottom = 428.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -89,11 +89,5 @@ _sections_unfolded = [ "Mouse" ]
 [connection signal="mouse_exited" from="VBoxContainer/BuildItem8" to="VBoxContainer/BuildItem8" method="_on_BuildItem_mouse_exited"]
 
 [connection signal="pressed" from="VBoxContainer/BuildItem8" to="VBoxContainer/BuildItem8" method="_on_BuildItem_pressed"]
-
-[connection signal="mouse_entered" from="VBoxContainer/BuildItem9" to="VBoxContainer/BuildItem9" method="_on_BuildItem_mouse_entered"]
-
-[connection signal="mouse_exited" from="VBoxContainer/BuildItem9" to="VBoxContainer/BuildItem9" method="_on_BuildItem_mouse_exited"]
-
-[connection signal="pressed" from="VBoxContainer/BuildItem9" to="VBoxContainer/BuildItem9" method="_on_BuildItem_pressed"]
 
 

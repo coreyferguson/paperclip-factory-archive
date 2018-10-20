@@ -59,8 +59,11 @@ func _unhandled_key_input(event):
 		if build_item.skip_choose_location: build()
 		else: choose_location()
 
+func can_build():
+	return has_required_items and discovered
+
 func can_choose_location():
-	return has_required_items and !is_disabled_externally and discovered
+	return can_build() and !is_disabled_externally
 
 func _on_Timer_timeout():
 	if has_required_items(): has_required_items = true
@@ -110,7 +113,7 @@ func checkValidPosition():
 	position_valid_instance.set_valid(nodes.size() == 0 && to_be_built_valid)
 
 func build():
-	if has_required_items:
+	if can_build():
 		var build_delivery_instance = build_delivery_resource.instance()
 		build_delivery_instance.position = player.position
 		build_delivery_instance.build_resource = build_item.build_resource
