@@ -11,7 +11,7 @@
 [ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=10]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -42,6 +42,8 @@ zoom_speed = 0.1
 position = Vector2( 546.952, 370.699 )
 
 [node name="System1" type="Node" parent="." index="7"]
+
+editor/display_folded = true
 
 [node name="Moon1" parent="System1" index="0" instance=ExtResource( 9 )]
 
