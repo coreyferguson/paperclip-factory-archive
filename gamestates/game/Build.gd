@@ -12,7 +12,6 @@ var Items = {
 		'hotkey': KEY_M,
 		'hotkey_text': 'M',
 		'description': 'Anti Ship Mine: Protect yourself from Kamakaze pilots.',
-		'has_position_indicator': false,
 		'enabled': true,
 		'skip_choose_location': true
 	},
@@ -25,7 +24,6 @@ var Items = {
 		'hotkey': KEY_3,
 		'hotkey_text': '3',
 		'description': 'Builds a pack of 3 mines at once.\nRequires science unlock.',
-		'has_position_indicator': false,
 		'enabled': funcref(self, 'Mine3PackEnabled'),
 		'skip_choose_location': true
 	},
@@ -40,7 +38,6 @@ var Items = {
 		'hotkey': KEY_P,
 		'hotkey_text': 'P',
 		'description': 'Paperclip Factory: Get points, but nothing else.',
-		'has_position_indicator': true,
 		'enabled': true,
 		'skip_choose_location': false
 	},
@@ -56,7 +53,6 @@ var Items = {
 		'hotkey': KEY_S,
 		'hotkey_text': 'S',
 		'description': 'Solar Panel: Harvest and store energy while not present at a sun.',
-		'has_position_indicator': true,
 		'enabled': true,
 		'skip_choose_location': false
 	},
@@ -72,7 +68,6 @@ var Items = {
 		'hotkey': KEY_I,
 		'hotkey_text': 'I',
 		'description': 'Iron Factory: Harvest and store iron while not present at a moon.',
-		'has_position_indicator': true,
 		'enabled': true,
 		'skip_choose_location': false
 	},
@@ -85,7 +80,6 @@ var Items = {
 		'hotkey': KEY_D,
 		'hotkey_text': 'D',
 		'description': 'Defense Grid will automatically place mines in a limited range.',
-		'has_position_indicator': false,
 		'enabled': true,
 		'skip_choose_location': true
 	},
@@ -102,7 +96,6 @@ var Items = {
 		'hotkey': KEY_O,
 		'hotkey_text': 'O',
 		'description': 'Organic Farms produce organic material to invest in Science. FOR SCIENCE!\nRequires science unlock.',
-		'has_position_indicator': true,
 		'enabled': funcref(self, 'OrganicFarmEnabled'),
 		'skip_choose_location': false
 	},
@@ -118,9 +111,23 @@ var Items = {
 		'hotkey': KEY_R,
 		'hotkey_text': 'R',
 		'description': 'Recycle structures within a given area.',
-		'has_position_indicator': false,
 		'enabled': true,
 		'skip_choose_location': false
+	},
+	'Freighter': {
+		'type': 'Freighter',
+		'icon': load('res://assets/player/freighter_icon.png'),
+		'required_resources': [
+			NaturalResourceStack.new('iron', 5),
+			NaturalResourceStack.new('energy', 5)
+		],
+		'placement_resource': load('res://ui/BuildFreighter.tscn'),
+		'build_resource': load('res://gameplay/player/Freighter.tscn'),
+		'hotkey': KEY_F,
+		'hotkey_text': 'F',
+		'description': 'Freighter will collect and transport resources back to you.',
+		'enabled': true,
+		'skip_choose_location': true
 	}
 }
 

@@ -47,7 +47,7 @@ type = "energy"
 [node name="ProgressBar" parent="." index="4" instance=ExtResource( 5 )]
 
 margin_top = 40.0
-margin_bottom = 40.0
+margin_bottom = 50.0
 capacity = 50
 current = 0
 

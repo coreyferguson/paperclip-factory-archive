@@ -150,6 +150,13 @@ var waves = [
 			{ 'type': 'squad001', 'quantity': 1 },
 			{ 'type': 'fly', 'quantity': 5 }
 		]
+	},
+	# Wave 15
+	{
+		'distractions': [
+			{ 'type': 'squad001', 'quantity': 2 },
+			{ 'type': 'fly', 'quantity': 5 }
+		]
 	}
 ]
 

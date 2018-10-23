@@ -11,7 +11,7 @@
 [ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=10]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -154,7 +154,7 @@ resource_type = "energy"
 
 [node name="PaperClipFactory" parent="." index="12" instance=ExtResource( 10 )]
 
-position = Vector2( 322.007, 207.269 )
+position = Vector2( 271.322, 358.589 )
 
 [connection signal="notify_encounter" from="WaveController" to="HUD" method="_on_WaveController_notify_encounter"]
 

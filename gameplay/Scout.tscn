@@ -10,7 +10,7 @@ custom_solver_bias = 0.0
 radius = 29.308
 height = 41.7716
 
-[node name="Scout" type="KinematicBody2D" groups=[
+[node name="Scout" type="KinematicBody2D" index="0" groups=[
 "enemy",
 ]]
 
@@ -35,6 +35,7 @@ _sections_unfolded = [ "Offset" ]
 
 [node name="Shield" type="Sprite" parent="." index="1"]
 
+visible = false
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2" groups=[

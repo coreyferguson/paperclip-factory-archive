@@ -15,7 +15,7 @@ height = 10.9867
 custom_solver_bias = 0.0
 radius = 151.016
 
-[node name="Player" type="KinematicBody2D" index="0" groups=[
+[node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
 

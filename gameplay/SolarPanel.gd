@@ -56,3 +56,17 @@ func recycle():
 	})
 	kill()
 	return recycled_materials
+
+func can_harvest():
+	return quantity >= harvest_rate
+
+func harvest(max_quantity=harvest_rate):
+	if !can_harvest(): return null
+	var q = min(max_quantity, harvest_rate)
+	quantity -= q
+	update_progress_bar()
+	return {
+		'type': 'energy',
+		'texture': NaturalResource.types[harvestable_resource_type].world_texture,
+		'quantity': q
+	}

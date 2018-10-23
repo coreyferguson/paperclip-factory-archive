@@ -44,3 +44,17 @@ func recycle():
 	recycled_materials.push_back(NaturalResourceStack.new('organic', floor(quantity)))
 	kill()
 	return recycled_materials
+
+func can_harvest():
+	return quantity >= harvest_rate
+
+func harvest(max_quantity=harvest_rate):
+	if !can_harvest(): return null
+	var q = min(max_quantity, harvest_rate)
+	quantity -= q
+	update_progress_bar()
+	return {
+		'type': 'organic',
+		'texture': NaturalResource.types['organic'].world_texture,
+		'quantity': q
+	}

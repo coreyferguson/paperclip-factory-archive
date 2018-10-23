@@ -5,10 +5,10 @@ signal kill
 var NaturalResourceStack = load('res://gamestates/game/NaturalResourceStack.gd')
 
 export (int) var capacity = 100
+export (int) var quantity = 0
 export (int) var harvest_rate = 10
 export (int) var conversion_rate = 0.25
 
-var quantity = 0
 var conversion_rate_bonus = 1
 
 var harvestable_resource_type = 'iron'
@@ -16,6 +16,7 @@ var harvestable_resource_type = 'iron'
 func _ready():
 	Player.add_building(self)
 	Science.connect('discover', self, '_on_Science_discover')
+	update_progress_bar()
 
 func kill():
 	emit_signal('kill')
@@ -58,3 +59,17 @@ func recycle():
 
 func _on_Science_discover(discovery_type):
 	conversion_rate_bonus = 1 + 0.5 * Science.discoveries[discovery_type].current_level
+
+func can_harvest():
+	return quantity >= harvest_rate
+
+func harvest(max_quantity=harvest_rate):
+	if !can_harvest(): return null
+	var q = min(max_quantity, harvest_rate)
+	quantity -= q
+	update_progress_bar()
+	return {
+		'type': 'iron',
+		'texture': NaturalResource.types[harvestable_resource_type].world_texture,
+		'quantity': q
+	}
