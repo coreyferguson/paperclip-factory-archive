@@ -137,13 +137,11 @@ func AntiShipMineCost(Science):
 
 func DefenseGridCost(Science):
 	var bonus = Science.discoveries['mine_cost'].current_level
-	var non_negotiable_cost = 5
-	var cost_per_antimissile_mine = 1
-	var antimissile_mines = 10
-	return [
-		NaturalResourceStack.new('iron', non_negotiable_cost + antimissile_mines*cost_per_antimissile_mine),
-		NaturalResourceStack.new('energy', antimissile_mines*cost_per_antimissile_mine)
-	]
+	var required_resources = AntiShipMineCost(Science)
+	var antiship_mines = 10
+	for resource in required_resources:
+		resource.quantity *= 10
+	return required_resources
 
 func AntiShip3PackMineCost(Science):
 	var bonus = Science.discoveries['mine_cost'].current_level
