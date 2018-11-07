@@ -58,7 +58,15 @@ var discoveries = {
 		'cost': 20,
 		'max_level': 1,
 		'current_level': 0
-	}
+	},
+	'defense_grid': {
+		'type': 'defense_grid',
+		'description': 'Defense Grid will automatically place mines in a limited range.',
+		'icon': load('res://assets/player/defense-grid_icon.png'),
+		'cost': 20,
+		'max_level': 1,
+		'current_level': 0
+	},
 }
 
 func discover(discovery_type):

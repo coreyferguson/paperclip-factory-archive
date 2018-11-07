@@ -79,8 +79,8 @@ var Items = {
 		'build_resource': load('res://gameplay/DefenseGrid.tscn'),
 		'hotkey': KEY_D,
 		'hotkey_text': 'D',
-		'description': 'Defense Grid will automatically place mines in a limited range.',
-		'enabled': true,
+		'description': 'Defense Grid will automatically place mines in a limited range.\nRequires science unlock.',
+		'enabled': funcref(self, 'DefenseGridEnabled'),
 		'skip_choose_location': true
 	},
 	'OrganicFarm': {
@@ -152,3 +152,6 @@ func OrganicFarmEnabled(Science):
 
 func Mine3PackEnabled(Science):
 	return Science.discoveries['antiship_mine_3_pack'].current_level == 1
+
+func DefenseGridEnabled(Science):
+	return Science.discoveries['defense_grid'].current_level == 1
