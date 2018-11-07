@@ -3,14 +3,6 @@ extends Node
 signal discover(discovery_type)
 
 var discoveries = {
-	'mine_detection_radius': {
-		'type': 'mine_detection_radius',
-		'description': 'Mine Detection Radius: +10%',
-		'icon': load('res://assets/player/mine_icon.png'),
-		'cost': 10,
-		'max_level': 10,
-		'current_level': 0
-	},
 	'paperclip_production_rate': {
 		'type': 'paperclip_production_rate',
 		'description': '2x Paperclip Production Rate',
@@ -51,17 +43,9 @@ var discoveries = {
 		'max_level': 1,
 		'current_level': 0
 	},
-	'antiship_mine_3_pack': {
-		'type': 'antiship_mine_3_pack',
-		'description': 'Place a 3-pack of mines in a single click.',
-		'icon': load('res://assets/player/mine-3pack_icon.png'),
-		'cost': 20,
-		'max_level': 1,
-		'current_level': 0
-	},
 	'defense_grid': {
 		'type': 'defense_grid',
-		'description': 'Defense Grid will automatically place mines in a limited range.',
+		'description': 'Defense Grid will automatically place mines in a limited range and also acts as a beacon to attract human distractions.',
 		'icon': load('res://assets/player/defense-grid_icon.png'),
 		'cost': 20,
 		'max_level': 1,

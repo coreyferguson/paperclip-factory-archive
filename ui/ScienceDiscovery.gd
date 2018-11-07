@@ -18,7 +18,7 @@ func _ready():
 	Inventory = tool_safe_load('/root/Inventory', 'res://gamestates/game/Inventory.gd')
 	Science.connect('discover', self, '_on_Science_discover')
 	Inventory.connect('change', self, '_on_Inventory_change')
-	if !discovery_type: discovery_type = 'mine_detection_radius'
+	if !discovery_type: discovery_type = 'defense_grid'
 	discovery = Science.discoveries[discovery_type]
 	button.icon = discovery.icon
 	check_inventory_requirements()

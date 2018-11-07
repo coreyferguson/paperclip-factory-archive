@@ -15,18 +15,6 @@ var Items = {
 		'enabled': true,
 		'skip_choose_location': true
 	},
-	'AntiShipMine3Pack': {
-		'type': 'AntiShipMine3Pack',
-		'icon': load('res://assets/player/mine-3pack_icon.png'),
-		'required_resources': funcref(self, 'AntiShip3PackMineCost'),
-		'placement_resource': load('res://ui/BuildAntishipMine3Pack.tscn'),
-		'build_resource': load('res://gameplay/Mine3Pack.tscn'),
-		'hotkey': KEY_3,
-		'hotkey_text': '3',
-		'description': 'Builds a pack of 3 mines at once.\nRequires science unlock.',
-		'enabled': funcref(self, 'Mine3PackEnabled'),
-		'skip_choose_location': true
-	},
 	'PaperclipFactory': {
 		'type': 'PaperclipFactory',
 		'icon': load('res://assets/player/paperclipfactory_icon.png'),

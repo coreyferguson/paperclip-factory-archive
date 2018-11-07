@@ -29,8 +29,7 @@ func _on_Science_discover(discovery_type):
 	recalculate_detection_radius()
 
 func recalculate_detection_radius():
-	var bonus = 1 + (0.1 * Science.discoveries['mine_detection_radius'].current_level)
-	$Detector.set_radius(default_detection_radius * bonus)
+	$Detector.set_radius(default_detection_radius)
 
 func recycle():
 	var recycled_resources = []
