@@ -34,9 +34,9 @@ func _on_DetectorTimer_timeout():
 func deploy_antiship_mine(missile):
 	if antiship_mine_current == 0: return
 	antiship_mine_current -= 1
-	var distance = position.distance_to(missile.position) - 200
+	var distance = position.distance_to(missile.global_position) - 200
 	distance = clamp(distance, mine_placement_min_distance, mine_placement_max_distance)
-	var build_position = missile.position - position
+	var build_position = missile.global_position - position
 	build_position = build_position.normalized() * distance
 	var build_delivery_instance = build_delivery_resource.instance()
 	build_delivery_instance.position = position
