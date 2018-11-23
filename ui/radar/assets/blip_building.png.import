@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/minimap_enemy_blip.png-29c654661c5b7471e62b2609ac772be9.stex"
+path="res://.import/blip_building.png-2eaf8481bb012c98e62ed1a4c2a56815.stex"
 
 [deps]
 
-source_file="res://assets/ui/minimap_enemy_blip.png"
-dest_files=[ "res://.import/minimap_enemy_blip.png-29c654661c5b7471e62b2609ac772be9.stex" ]
+source_file="res://ui/radar/assets/blip_building.png"
+dest_files=[ "res://.import/blip_building.png-2eaf8481bb012c98e62ed1a4c2a56815.stex" ]
 
 [params]
 

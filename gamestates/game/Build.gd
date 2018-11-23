@@ -33,8 +33,9 @@ var Items = {
 		'type': 'SolarPanel',
 		'icon': load('res://assets/player/solar-panel_icon.png'),
 		'required_resources': [
-			NaturalResourceStack.new('iron', 10),
-			NaturalResourceStack.new('energy', 10)
+			NaturalResourceStack.new('energy', 1)
+#			NaturalResourceStack.new('iron', 10),
+#			NaturalResourceStack.new('energy', 10)
 		],
 		'placement_resource': load('res://ui/BuildSolarPanel.tscn'),
 		'build_resource': load('res://gameplay/SolarPanel.tscn'),
@@ -62,13 +63,17 @@ var Items = {
 	'DefenseGrid': {
 		'type': 'DefenseGrid',
 		'icon': load('res://assets/player/defense-grid_icon.png'),
-		'required_resources': funcref(self, 'DefenseGridCost'),
+#		'required_resources': funcref(self, 'DefenseGridCost'),
+		'required_resources': [
+			NaturalResourceStack.new('energy', 1)
+		],
 		'placement_resource': load('res://ui/BuildDefenseGrid.tscn'),
 		'build_resource': load('res://gameplay/DefenseGrid.tscn'),
 		'hotkey': KEY_D,
 		'hotkey_text': 'D',
 		'description': 'Defense Grid will automatically place mines in a limited range.\nRequires science unlock.',
-		'enabled': funcref(self, 'DefenseGridEnabled'),
+#		'enabled': funcref(self, 'DefenseGridEnabled'),
+		'enabled': true,
 		'skip_choose_location': true
 	},
 	'OrganicFarm': {

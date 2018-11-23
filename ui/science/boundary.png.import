@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/minimap_player_bullet_blip.png-b29cd40409baf7ba9387e58abe6bb3c6.stex"
+path="res://.import/boundary.png-8d2eead6a07532f4a560f85773f746cc.stex"
 
 [deps]
 
-source_file="res://assets/ui/minimap_player_bullet_blip.png"
-dest_files=[ "res://.import/minimap_player_bullet_blip.png-b29cd40409baf7ba9387e58abe6bb3c6.stex" ]
+source_file="res://ui/science/boundary.png"
+dest_files=[ "res://.import/boundary.png-8d2eead6a07532f4a560f85773f746cc.stex" ]
 
 [params]
 

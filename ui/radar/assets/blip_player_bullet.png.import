@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/radar-pointer.png-acad1a45a620b6d4277421bccf586a5c.stex"
+path="res://.import/blip_player_bullet.png-cdd29414cb40e03666b4696c20ddb9a9.stex"
 
 [deps]
 
-source_file="res://assets/ui/radar-pointer.png"
-dest_files=[ "res://.import/radar-pointer.png-acad1a45a620b6d4277421bccf586a5c.stex" ]
+source_file="res://ui/radar/assets/blip_player_bullet.png"
+dest_files=[ "res://.import/blip_player_bullet.png-cdd29414cb40e03666b4696c20ddb9a9.stex" ]
 
 [params]
 

@@ -3,7 +3,7 @@
 [ext_resource path="res://gameplay/Background.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
 
-[node name="ParallaxBackground" type="ParallaxBackground"]
+[node name="ParallaxBackground" type="ParallaxBackground" index="0"]
 
 layer = -1
 offset = Vector2( 0, 0 )
@@ -35,9 +35,9 @@ z_index = -1
 z_as_relative = false
 texture = ExtResource( 2 )
 centered = false
-offset = Vector2( -25000, -25000 )
+offset = Vector2( -10000, -10000 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 50000, 50000 )
+region_rect = Rect2( 0, 0, 20000, 20000 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true

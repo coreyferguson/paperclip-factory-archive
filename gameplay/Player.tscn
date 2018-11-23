@@ -35,6 +35,7 @@ energy_consumption_rate = 1
 
 position = Vector2( -0.88031, 1.52588e-05 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 

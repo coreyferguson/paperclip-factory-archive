@@ -17,6 +17,8 @@ var elapsed_time = 0
 var world_size = 20000
 var world_size_vector = Vector2(world_size, world_size)
 
+var radar_radius = 10000
+
 func set_game_rate(value):
 	game_rate = value
 	emit_signal('game_rate_change')

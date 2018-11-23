@@ -2,17 +2,17 @@
 
 [ext_resource path="res://gameplay/Camera.gd" type="Script" id=1]
 
-[node name="Camera" type="Camera2D"]
+[node name="Camera" type="Camera2D" index="0"]
 
 position = Vector2( 0, 1.22775 )
 anchor_mode = 0
 rotating = false
 current = true
 zoom = Vector2( 1, 1 )
-limit_left = -10000
-limit_top = -10000
-limit_right = 10000
-limit_bottom = 10000
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
 limit_smoothed = false
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
