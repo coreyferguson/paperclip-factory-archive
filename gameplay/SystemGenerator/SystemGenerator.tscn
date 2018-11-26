@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gameplay/SystemGenerator/SystemGenerator.gd" type="Script" id=1]
+
+[node name="SystemGenerator" type="Node" index="0"]
+
+script = ExtResource( 1 )
+block_size = 4000
+offset = 1000
+
+

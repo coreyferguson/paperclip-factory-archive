@@ -26,6 +26,7 @@ NaturalResource="*res://gamestates/game/NaturalResource.gd"
 Globals="*res://gamestates/game/Globals.gd"
 Player="*res://gamestates/game/Player.gd"
 Distractions="*res://gamestates/game/Distractions.gd"
+Cosmos="*res://gamestates/game/Cosmos.gd"
 
 [display]
 
