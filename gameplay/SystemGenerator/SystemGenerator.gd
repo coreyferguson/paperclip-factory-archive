@@ -1,6 +1,6 @@
 extends Node
 
-export (int) var block_size = 4000
+export (int) var block_size = 5000
 export (int) var offset = 1000
 
 onready var game = $'/root/Game'
@@ -18,7 +18,7 @@ func _process(delta):
 			var block_offset = Vector2(x, y)
 			var id = block_id + block_offset
 			if !systems_cache.has(id):
-				var system_resource = Cosmos.systems[0]
+				var system_resource = Cosmos.get_random_system().resource
 				var system_instance = system_resource.instance()
 				system_instance.global_position = to_global_position(id)
 				game.add_child(system_instance)

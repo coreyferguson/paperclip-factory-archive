@@ -10,9 +10,9 @@
 [ext_resource path="res://gameplay/Camera.tscn" type="PackedScene" id=8]
 [ext_resource path="res://gameplay/Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=10]
-[ext_resource path="res://gameplay/SystemGenerator/Systems/System1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://gameplay/SystemGenerator/Systems/1earth2iron.tscn" type="PackedScene" id=11]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -36,8 +36,6 @@ zoom_speed = 0.1
 
 [node name="SystemGenerator" parent="." index="4" instance=ExtResource( 6 )]
 
-block_size = 4000
-
 [node name="HUD" parent="." index="5" instance=ExtResource( 7 )]
 
 [node name="Camera" parent="." index="6" instance=ExtResource( 8 )]
@@ -46,17 +44,15 @@ position = Vector2( 0, 0 )
 
 [node name="Player" parent="." index="7" instance=ExtResource( 9 )]
 
-position = Vector2( 419.749, 333.993 )
+position = Vector2( 393.249, 87.5395 )
 default_speed = 1000
 
 [node name="PaperClipFactory" parent="." index="8" instance=ExtResource( 10 )]
 
-position = Vector2( 309.962, 403.865 )
+position = Vector2( 553.766, 46.1097 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="System1" parent="." index="9" instance=ExtResource( 11 )]
-
-_sections_unfolded = [ "Transform" ]
+[node name="System" parent="." index="9" instance=ExtResource( 11 )]
 
 [connection signal="notify_encounter" from="WaveController" to="HUD" method="_on_WaveController_notify_encounter"]
 
