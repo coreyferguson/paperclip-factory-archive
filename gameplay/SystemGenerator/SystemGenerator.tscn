@@ -5,7 +5,7 @@
 [node name="SystemGenerator" type="Node"]
 
 script = ExtResource( 1 )
-block_size = 5000
+block_size = 6000
 offset = 1000
 
 

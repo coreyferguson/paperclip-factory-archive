@@ -1,6 +1,6 @@
 extends Node
 
-export (int) var block_size = 5000
+export (int) var block_size = 6000
 export (int) var offset = 1000
 
 onready var game = $'/root/Game'

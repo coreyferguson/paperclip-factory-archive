@@ -2,19 +2,19 @@
 
 [ext_resource path="res://gameplay/ResourceProvider.tscn" type="PackedScene" id=1]
 
-[node name="System" type="Node2D" index="0"]
+[node name="System" type="Node2D"]
 
 [node name="Moon1" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( -451.14, 288.822 )
+position = Vector2( -859.912, 516.57 )
 
 [node name="Moon2" parent="." index="1" instance=ExtResource( 1 )]
 
-position = Vector2( 472.926, 197.122 )
+position = Vector2( 677.899, 489.941 )
 
 [node name="Earth" parent="." index="2" instance=ExtResource( 1 )]
 
-position = Vector2( -447.535, -636.918 )
+position = Vector2( -545.141, -835.384 )
 resource_type = "organic"
 
 [node name="Sun" parent="." index="3" instance=ExtResource( 1 )]

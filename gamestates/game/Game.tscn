@@ -12,7 +12,7 @@
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gameplay/SystemGenerator/Systems/1earth2iron.tscn" type="PackedScene" id=11]
 
-[node name="Game" type="Node" index="0"]
+[node name="Game" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -44,12 +44,11 @@ position = Vector2( 0, 0 )
 
 [node name="Player" parent="." index="7" instance=ExtResource( 9 )]
 
-position = Vector2( 393.249, 87.5395 )
-default_speed = 1000
+position = Vector2( 559.85, 435.022 )
 
 [node name="PaperClipFactory" parent="." index="8" instance=ExtResource( 10 )]
 
-position = Vector2( 553.766, 46.1097 )
+position = Vector2( 669.593, 307.911 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="System" parent="." index="9" instance=ExtResource( 11 )]

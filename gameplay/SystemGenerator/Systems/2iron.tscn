@@ -6,36 +6,15 @@
 
 [node name="Moon2" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 145.422, 405.379 )
+position = Vector2( 386.2, 740.12 )
 
 [node name="Moon3" parent="." index="1" instance=ExtResource( 1 )]
 
-position = Vector2( -583.11, -307.943 )
+position = Vector2( -988.323, -440.078 )
 
 [node name="Sun" parent="." index="2" instance=ExtResource( 1 )]
 
 position = Vector2( -3.29932, -5.74045 )
 resource_type = "energy"
-
-[node name="Label" type="Label" parent="." index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -28.0
-margin_top = -113.0
-margin_right = 27.0
-margin_bottom = -99.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-text = "System2"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
 
 
