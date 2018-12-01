@@ -10,7 +10,7 @@ func _physics_process(delta):
 		for node in overlapping:
 			if node.has_method('can_harvest_type') and node.can_harvest_type('energy'):
 				can_harvest_energy = true
-				var v = node.position - position
+				var v = node.global_position - global_position
 				rotation = v.angle()
 			if node.collision_layer && (node.collision_layer & 8) > 0:
 				is_overlapping_building = true
