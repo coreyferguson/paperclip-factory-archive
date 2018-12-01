@@ -12,9 +12,12 @@
 [ext_resource path="res://gameplay/PaperClipFactory.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gameplay/SystemGenerator/Systems/1earth2iron.tscn" type="PackedScene" id=11]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" index="0"]
 
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 
 [node name="GlobalShortcuts" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -44,7 +47,7 @@ position = Vector2( 0, 0 )
 
 [node name="Player" parent="." index="7" instance=ExtResource( 9 )]
 
-position = Vector2( 559.85, 435.022 )
+position = Vector2( 567.991, 412.497 )
 
 [node name="PaperClipFactory" parent="." index="8" instance=ExtResource( 10 )]
 

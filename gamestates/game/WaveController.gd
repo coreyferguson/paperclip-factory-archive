@@ -5,6 +5,7 @@ signal notify_encounter(seconds)
 export (bool) var enabled = true
 
 onready var game = $'/root/Game'
+onready var player = $'/root/Game/Player'
 onready var timer = $Timer
 
 func _ready():
@@ -42,29 +43,9 @@ func spawnWave():
 
 func random_spawn_location():
 	randomize()
-	var randomSide = randi() % 4
-	var world_width = Globals.world_size
-	var world_width_half = world_width / 2
-	var offset = 200
-	var x
-	var y
-	# top
-	if randomSide == 0:
-		x = randi() % world_width - world_width_half
-		y = -world_width_half + offset*-1
-	# right
-	elif randomSide == 1:
-		x = world_width_half + offset
-		y = randi() % world_width - world_width_half
-	# bottom
-	elif randomSide == 2:
-		x = randi() % world_width - world_width_half
-		y = world_width_half + offset
-	# left
-	elif randomSide == 3:
-		x = -world_width_half + offset*-1
-		y = randi() % world_width - world_width/2
-	return Vector2(x, y)
+	var position = Vector2(randf()*2-1, randf()*2-1)
+	position = position.normalized() * Globals.radar_radius
+	return player.global_position + position
 
 func reset_timer_wait_time():
 	timer.wait_time = 1.0 / Globals.game_rate
