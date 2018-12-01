@@ -4,7 +4,7 @@ extends ScrollContainer
 signal hover_in(build_item)
 signal hover_out(build_item)
 
-var build_item_resource = load('res://ui/BuildItem.tscn')
+var build_item_resource = load('res://ui/BuildItem/BuildItem.tscn')
 
 var Build
 

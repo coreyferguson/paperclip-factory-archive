@@ -1,15 +1,15 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/player/paperclipfactory.png" type="Texture" id=1]
-[ext_resource path="res://ui/BuildPaperClipFactory.gd" type="Script" id=2]
+[ext_resource path="res://assets/player/ironfactory.png" type="Texture" id=1]
+[ext_resource path="res://ui/BuildItem/Items/BuildIronFactory.gd" type="Script" id=2]
 [ext_resource path="res://ui/ValidPositionIndicator.tscn" type="PackedScene" id=3]
 
-[node name="BuildPaperClipFactory" type="Sprite"]
 
-z_index = 1
+[node name="BuildIronFactory" type="Sprite"]
+
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+_sections_unfolded = [ "Collision" ]
 
 [node name="ValidPositionIndicator" parent="." index="0" instance=ExtResource( 3 )]
 
