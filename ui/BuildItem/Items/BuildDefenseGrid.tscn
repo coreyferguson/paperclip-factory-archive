@@ -4,6 +4,8 @@
 
 [node name="BuildDefenseGrid" type="Sprite"]
 
+modulate = Color( 1, 1, 1, 0.392157 )
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
 
 

@@ -1,6 +1,6 @@
 extends MarginContainer
 
-var build_item_hover_requirement_resource = load('res://ui/BuildItemHoverRequirement.tscn')
+var build_item_hover_requirement_resource = load('res://ui/BuildItem/BuildItemHoverRequirement.tscn')
 
 onready var container = $'MarginContainer/VBoxContainer/RequirementsContainer'
 onready var shortcut = $'MarginContainer/VBoxContainer/spacer/HBoxContainer/Shortcut'

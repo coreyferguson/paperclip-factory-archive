@@ -6,7 +6,8 @@ var Items = {
 	'AntiShipMine': {
 		'type': 'AntiShipMine',
 		'icon': load('res://assets/player/mine_icon.png'),
-		'required_resources': funcref(self, 'AntiShipMineCost'),
+#		'required_resources': funcref(self, 'AntiShipMineCost'),
+		'required_resources': [ NaturalResourceStack.new('energy', 1) ],
 		'placement_resource': load('res://ui/BuildItem/Items/BuildAntishipMine.tscn'),
 		'build_resource': load('res://gameplay/Mine.tscn'),
 		'hotkey': KEY_M,
@@ -18,9 +19,10 @@ var Items = {
 	'PaperclipFactory': {
 		'type': 'PaperclipFactory',
 		'icon': load('res://assets/player/paperclipfactory_icon.png'),
-		'required_resources': [
-			NaturalResourceStack.new('iron', 15)
-		],
+#		'required_resources': [
+#			NaturalResourceStack.new('iron', 15)
+#		],
+		'required_resources': [ NaturalResourceStack.new('energy', 1) ],
 		'placement_resource': load('res://ui/BuildItem/Items/BuildPaperClipFactory.tscn'),
 		'build_resource': load('res://gameplay/PaperClipFactory.tscn'),
 		'hotkey': KEY_P,
@@ -32,10 +34,11 @@ var Items = {
 	'SolarPanel': {
 		'type': 'SolarPanel',
 		'icon': load('res://assets/player/solar-panel_icon.png'),
-		'required_resources': [
-			NaturalResourceStack.new('iron', 10),
-			NaturalResourceStack.new('energy', 10)
-		],
+#		'required_resources': [
+#			NaturalResourceStack.new('iron', 10),
+#			NaturalResourceStack.new('energy', 10)
+#		],
+		'required_resources': [ NaturalResourceStack.new('energy', 1) ],
 		'placement_resource': load('res://ui/BuildItem/Items/BuildSolarPanel.tscn'),
 		'build_resource': load('res://gameplay/SolarPanel.tscn'),
 		'hotkey': KEY_S,
@@ -47,10 +50,11 @@ var Items = {
 	'IronFactory': {
 		'type': 'IronFactory',
 		'icon': load('res://assets/player/ironfactory_icon.png'),
-		'required_resources': [
-			NaturalResourceStack.new('iron', 10),
-			NaturalResourceStack.new('energy', 10)
-		],
+#		'required_resources': [
+#			NaturalResourceStack.new('iron', 10),
+#			NaturalResourceStack.new('energy', 10)
+#		],
+		'required_resources': [ NaturalResourceStack.new('energy', 1) ],
 		'placement_resource': load('res://ui/BuildItem/Items/BuildIronFactory.tscn'),
 		'build_resource': load('res://gameplay/IronFactory.tscn'),
 		'hotkey': KEY_I,
@@ -62,7 +66,8 @@ var Items = {
 	'DefenseGrid': {
 		'type': 'DefenseGrid',
 		'icon': load('res://assets/player/defense-grid_icon.png'),
-		'required_resources': funcref(self, 'DefenseGridCost'),
+#		'required_resources': funcref(self, 'DefenseGridCost'),
+		'required_resources': [ NaturalResourceStack.new('energy', 1) ],
 		'placement_resource': load('res://ui/BuildItem/Items/BuildDefenseGrid.tscn'),
 		'build_resource': load('res://gameplay/DefenseGrid.tscn'),
 		'hotkey': KEY_D,
@@ -74,11 +79,12 @@ var Items = {
 	'OrganicFarm': {
 		'type': 'OrganicFarm',
 		'icon': load('res://assets/player/organic-farm_icon.png'),
-		'required_resources': [
-			NaturalResourceStack.new('iron', 20),
-			NaturalResourceStack.new('energy', 20),
-			NaturalResourceStack.new('organic', 25)
-		],
+#		'required_resources': [
+#			NaturalResourceStack.new('iron', 20),
+#			NaturalResourceStack.new('energy', 20),
+#			NaturalResourceStack.new('organic', 25)
+#		],
+		'required_resources': [ NaturalResourceStack.new('energy', 1) ],
 		'placement_resource': load('res://ui/BuildItem/Items/BuildOrganicFarm.tscn'),
 		'build_resource': load('res://gameplay/OrganicFarm.tscn'),
 		'hotkey': KEY_O,
@@ -90,10 +96,11 @@ var Items = {
 	'Recycler': {
 		'type': 'Recycler',
 		'icon': load('res://assets/player/recycler_icon.png'),
-		'required_resources': [
-			NaturalResourceStack.new('iron', 5),
-			NaturalResourceStack.new('energy', 5)
-		],
+#		'required_resources': [
+#			NaturalResourceStack.new('iron', 5),
+#			NaturalResourceStack.new('energy', 5)
+#		],
+		'required_resources': [ NaturalResourceStack.new('energy', 1) ],
 		'placement_resource': load('res://ui/BuildItem/Items/BuildRecycler.tscn'),
 		'build_resource': load('res://gameplay/Recycler.tscn'),
 		'hotkey': KEY_R,
@@ -105,10 +112,11 @@ var Items = {
 	'Freighter': {
 		'type': 'Freighter',
 		'icon': load('res://assets/player/freighter_icon.png'),
-		'required_resources': [
-			NaturalResourceStack.new('iron', 5),
-			NaturalResourceStack.new('energy', 5)
-		],
+#		'required_resources': [
+#			NaturalResourceStack.new('iron', 5),
+#			NaturalResourceStack.new('energy', 5)
+#		],
+		'required_resources': [ NaturalResourceStack.new('energy', 1) ],
 		'placement_resource': load('res://ui/BuildItem/Items/BuildFreighter.tscn'),
 		'build_resource': load('res://gameplay/player/Freighter.tscn'),
 		'hotkey': KEY_F,

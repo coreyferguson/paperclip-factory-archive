@@ -1,18 +1,22 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/player/solar-panel.png" type="Texture" id=1]
-[ext_resource path="res://ui/BuildItem/Items/BuildSolarPanel.gd" type="Script" id=2]
-[ext_resource path="res://ui/ValidPositionIndicator.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/BuildItem/Items/BuildSolarPanel.gd" type="Script" id=1]
+[ext_resource path="res://ui/ValidPositionIndicator.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/player/solar-panel.png" type="Texture" id=3]
 
+[node name="BuildSolarPanel" type="Node2D"]
 
-[node name="BuildSolarPanel" type="Sprite"]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Visibility" ]
 
-texture = ExtResource( 1 )
-script = ExtResource( 2 )
-_sections_unfolded = [ "Collision" ]
-
-[node name="ValidPositionIndicator" parent="." index="0" instance=ExtResource( 3 )]
+[node name="ValidPositionIndicator" parent="." index="0" instance=ExtResource( 2 )]
 
 collision_mask = 24
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+modulate = Color( 1, 1, 1, 0.392157 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
 
 

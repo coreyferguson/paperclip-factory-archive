@@ -7,7 +7,9 @@
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+modulate = Color( 1, 1, 1, 0.392157 )
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." index="1"]
 

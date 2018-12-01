@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 onready var position_indicator = $ValidPositionIndicator
 

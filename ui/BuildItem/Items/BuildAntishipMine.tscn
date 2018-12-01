@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 26.9227, 26.7881 )
 
-[node name="BuildMine" type="Area2D"]
+[node name="BuildMine" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -21,10 +21,13 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+modulate = Color( 1, 1, 1, 0.392157 )
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+visible = false
 shape = SubResource( 1 )
 
 
