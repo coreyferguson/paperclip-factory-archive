@@ -13,7 +13,7 @@ func _ready():
 
 func is_valid_position():
 	params.transform = Transform2D(0, global_position)
-	var intersections = space.intersect_shape(params)
+	var intersections = space.intersect_shape(params, 500)
 	for intersection in intersections:
 		var collider = intersection.collider
 		if collider.has_method('can_harvest') and collider.can_harvest():
