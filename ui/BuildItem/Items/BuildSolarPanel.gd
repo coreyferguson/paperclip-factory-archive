@@ -1,21 +1,16 @@
 extends Node2D
 
+var collision_layer_mask = 8 | 2048
+
 onready var position_indicator = $ValidPositionIndicator
 
 func _physics_process(delta):
+	position_indicator.set_valid(is_valid_position())
 	var overlapping = position_indicator.get_overlapping_bodies()
-	var can_harvest_energy = false
-	var is_overlapping_building = false
-	if overlapping.size() > 0:
-		for node in overlapping:
-			if node.has_method('can_harvest_type') and node.can_harvest_type('energy'):
-				can_harvest_energy = true
-				var v = node.global_position - global_position
-				rotation = v.angle()
-			if node.collision_layer && (node.collision_layer & 8) > 0:
-				is_overlapping_building = true
-				break
-	position_indicator.set_valid(can_harvest_energy && !is_overlapping_building)
+	for node in overlapping:
+		if node.has_method('can_harvest_type') and node.can_harvest_type('energy'):
+			var v = node.global_position - global_position
+			rotation = v.angle()
 
 func is_valid_position():
 	var can_harvest_energy = false
@@ -24,6 +19,13 @@ func is_valid_position():
 		for node in overlapping:
 			if node.has_method('can_harvest_type') and node.can_harvest_type('energy'):
 				can_harvest_energy = true
-			if node.collision_layer && (node.collision_layer & 8) > 0:
+			if node.collision_layer && (node.collision_layer & collision_layer_mask) > 0:
+				return false
+	var overlapping_areas = position_indicator.get_overlapping_areas()
+	if overlapping_areas.size() > 0:
+		for node in overlapping_areas:
+			if node.has_method('can_harvest_type') and node.can_harvest_type('energy'):
+				can_harvest_energy = true
+			if node.collision_layer && (node.collision_layer & collision_layer_mask) > 0:
 				return false
 	return can_harvest_energy

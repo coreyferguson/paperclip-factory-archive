@@ -6,6 +6,7 @@
 [node name="BuildDelivery" type="Node2D"]
 
 script = ExtResource( 1 )
+build_item = null
 build_resource = null
 build_position = null
 build_rotation = null

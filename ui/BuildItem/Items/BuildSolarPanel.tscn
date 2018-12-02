@@ -4,14 +4,14 @@
 [ext_resource path="res://ui/ValidPositionIndicator.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/player/solar-panel.png" type="Texture" id=3]
 
-[node name="BuildSolarPanel" type="Node2D"]
+[node name="BuildSolarPanel" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Visibility" ]
 
 [node name="ValidPositionIndicator" parent="." index="0" instance=ExtResource( 2 )]
 
-collision_mask = 24
+collision_mask = 2072
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 

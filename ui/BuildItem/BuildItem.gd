@@ -106,6 +106,9 @@ func build():
 	if can_build():
 		var build_delivery_instance = build_delivery_resource.instance()
 		build_delivery_instance.position = player.position
+		build_delivery_instance.build_item = build_item
+		if !build_item:
+			print('build item null')
 		build_delivery_instance.build_resource = build_item.build_resource
 		build_delivery_instance.build_position = get_global_mouse_position()*camera.zoom + camera.position
 		if to_be_built: build_delivery_instance.build_rotation = to_be_built.rotation

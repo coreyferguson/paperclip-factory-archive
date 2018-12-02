@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/player/defense-grid.png" type="Texture" id=1]
+[ext_resource path="res://assets/player/freighter.png" type="Texture" id=1]
 
-[node name="BuildDefenseGrid" type="Sprite" index="0"]
+[node name="BuildFreighterGhost" type="Sprite"]
 
 modulate = Color( 1, 1, 1, 0.392157 )
 texture = ExtResource( 1 )

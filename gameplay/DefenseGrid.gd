@@ -40,6 +40,7 @@ func deploy_antiship_mine(missile):
 	build_position = build_position.normalized() * distance
 	var build_delivery_instance = build_delivery_resource.instance()
 	build_delivery_instance.position = position
+	build_delivery_instance.build_item = Build.Items['AntiShipMine']
 	build_delivery_instance.build_resource = antiship_mine_resource
 	build_delivery_instance.build_position = to_global(build_position)
 	game.add_child(build_delivery_instance)
